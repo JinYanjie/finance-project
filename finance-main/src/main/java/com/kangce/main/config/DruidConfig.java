@@ -1,4 +1,4 @@
-package com.kangce.financematch.config;
+package com.kangce.main.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.support.http.StatViewServlet;
@@ -32,7 +32,7 @@ public class DruidConfig {
         initParames.put("loginUsername","admin");
         initParames.put("loginPassword","123456");
         initParames.put("allow","");
-        initParames.put("deny","123456");
+        initParames.put("deny","");
         bean.setInitParameters(initParames);
         return bean;
     }
