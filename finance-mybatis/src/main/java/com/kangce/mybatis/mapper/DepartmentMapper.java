@@ -5,6 +5,7 @@ import com.kangce.mybatis.model.DepartmentExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+
 public interface DepartmentMapper {
     int countByExample(DepartmentExample example);
 
