@@ -1,10 +1,12 @@
 spring:
   datasource:
+#   数据源基本配置
     username: root
     password: 123456
-    url: jdbc:mysql://120.79.130.181:3306/jp_finance?useUnicode=true&characterEncoding=utf-8
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ssm_crud
     type: com.alibaba.druid.pool.DruidDataSource
-    #   数据源其他配置
+#   数据源其他配置
     initialSize: 5
     minIdle: 5
     maxActive: 20
@@ -16,8 +18,9 @@ spring:
     testOnBorrow: false
     testOnReturn: false
     poolPreparedStatements: true
-#    #   配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
-#    filters: stat,wall,log4j
+#   配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙  
+    filters: stat,wall,log4j
     maxPoolPreparedStatementPerConnectionSize: 20
-    useGlobalDataSourceStat: true
+    useGlobalDataSourceStat: true  
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+    
