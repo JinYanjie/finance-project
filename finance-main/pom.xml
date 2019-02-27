@@ -11,7 +11,7 @@
     <groupId>com.kangce.main</groupId>
     <artifactId>demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>demo</name>
+    <name>main</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -70,7 +70,7 @@
         </dependency>
         <dependency>
             <groupId>com.kangce.mybatis</groupId>
-            <artifactId>demo</artifactId>
+            <artifactId>mybatis</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
