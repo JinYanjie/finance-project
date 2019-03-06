@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kangce.mybatis.mapper.UtusestatusMapper">
+  <resultMap id="BaseResultMap" type="com.kangce.mybatis.model.Utusestatus">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="sNum" jdbcType="VARCHAR" property="snum" />
+    <result column="sName" jdbcType="VARCHAR" property="sname" />
+    <result column="isDepr" jdbcType="BIT" property="isdepr" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, sNum, sName, isDepr, status
+  </sql>
+  <select id="selectByExample" parameterType="com.kangce.mybatis.model.UtusestatusExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from utUseStatus
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from utUseStatus
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from utUseStatus
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.kangce.mybatis.model.UtusestatusExample">
+    delete from utUseStatus
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.kangce.mybatis.model.Utusestatus">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into utUseStatus (sNum, sName, isDepr, 
+      status)
+    values (#{snum,jdbcType=VARCHAR}, #{sname,jdbcType=VARCHAR}, #{isdepr,jdbcType=BIT}, 
+      #{status,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kangce.mybatis.model.Utusestatus">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into utUseStatus
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="snum != null">
+        sNum,
+      </if>
+      <if test="sname != null">
+        sName,
+      </if>
+      <if test="isdepr != null">
+        isDepr,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="snum != null">
+        #{snum,jdbcType=VARCHAR},
+      </if>
+      <if test="sname != null">
+        #{sname,jdbcType=VARCHAR},
+      </if>
+      <if test="isdepr != null">
+        #{isdepr,jdbcType=BIT},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.kangce.mybatis.model.UtusestatusExample" resultType="java.lang.Integer">
+    select count(*) from utUseStatus
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update utUseStatus
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.snum != null">
+        sNum = #{record.snum,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sname != null">
+        sName = #{record.sname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isdepr != null">
+        isDepr = #{record.isdepr,jdbcType=BIT},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update utUseStatus
+    set ID = #{record.id,jdbcType=INTEGER},
+      sNum = #{record.snum,jdbcType=VARCHAR},
+      sName = #{record.sname,jdbcType=VARCHAR},
+      isDepr = #{record.isdepr,jdbcType=BIT},
+      status = #{record.status,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kangce.mybatis.model.Utusestatus">
+    update utUseStatus
+    <set>
+      <if test="snum != null">
+        sNum = #{snum,jdbcType=VARCHAR},
+      </if>
+      <if test="sname != null">
+        sName = #{sname,jdbcType=VARCHAR},
+      </if>
+      <if test="isdepr != null">
+        isDepr = #{isdepr,jdbcType=BIT},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kangce.mybatis.model.Utusestatus">
+    update utUseStatus
+    set sNum = #{snum,jdbcType=VARCHAR},
+      sName = #{sname,jdbcType=VARCHAR},
+      isDepr = #{isdepr,jdbcType=BIT},
+      status = #{status,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

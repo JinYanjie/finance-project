@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kangce.mybatis.mapper.UtdictionaryMapper">
+  <resultMap id="BaseResultMap" type="com.kangce.mybatis.model.Utdictionary">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="fID" jdbcType="INTEGER" property="fid" />
+    <result column="dMemo" jdbcType="VARCHAR" property="dmemo" />
+    <result column="dType" jdbcType="INTEGER" property="dtype" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, fID, dMemo, dType
+  </sql>
+  <select id="selectByExample" parameterType="com.kangce.mybatis.model.UtdictionaryExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from utDictionary
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from utDictionary
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from utDictionary
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.kangce.mybatis.model.UtdictionaryExample">
+    delete from utDictionary
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.kangce.mybatis.model.Utdictionary">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into utDictionary (fID, dMemo, dType
+      )
+    values (#{fid,jdbcType=INTEGER}, #{dmemo,jdbcType=VARCHAR}, #{dtype,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.kangce.mybatis.model.Utdictionary">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into utDictionary
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="fid != null">
+        fID,
+      </if>
+      <if test="dmemo != null">
+        dMemo,
+      </if>
+      <if test="dtype != null">
+        dType,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="fid != null">
+        #{fid,jdbcType=INTEGER},
+      </if>
+      <if test="dmemo != null">
+        #{dmemo,jdbcType=VARCHAR},
+      </if>
+      <if test="dtype != null">
+        #{dtype,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.kangce.mybatis.model.UtdictionaryExample" resultType="java.lang.Integer">
+    select count(*) from utDictionary
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update utDictionary
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.fid != null">
+        fID = #{record.fid,jdbcType=INTEGER},
+      </if>
+      <if test="record.dmemo != null">
+        dMemo = #{record.dmemo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dtype != null">
+        dType = #{record.dtype,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update utDictionary
+    set ID = #{record.id,jdbcType=INTEGER},
+      fID = #{record.fid,jdbcType=INTEGER},
+      dMemo = #{record.dmemo,jdbcType=VARCHAR},
+      dType = #{record.dtype,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kangce.mybatis.model.Utdictionary">
+    update utDictionary
+    <set>
+      <if test="fid != null">
+        fID = #{fid,jdbcType=INTEGER},
+      </if>
+      <if test="dmemo != null">
+        dMemo = #{dmemo,jdbcType=VARCHAR},
+      </if>
+      <if test="dtype != null">
+        dType = #{dtype,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kangce.mybatis.model.Utdictionary">
+    update utDictionary
+    set fID = #{fid,jdbcType=INTEGER},
+      dMemo = #{dmemo,jdbcType=VARCHAR},
+      dType = #{dtype,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

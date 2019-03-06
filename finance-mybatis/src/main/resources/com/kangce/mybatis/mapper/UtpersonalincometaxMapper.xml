@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kangce.mybatis.mapper.UtpersonalincometaxMapper">
+  <resultMap id="BaseResultMap" type="com.kangce.mybatis.model.Utpersonalincometax">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="levelMoneyLower" jdbcType="REAL" property="levelmoneylower" />
+    <result column="levelMoneyUpper" jdbcType="REAL" property="levelmoneyupper" />
+    <result column="taxRate" jdbcType="REAL" property="taxrate" />
+    <result column="quickCalNum" jdbcType="REAL" property="quickcalnum" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, levelMoneyLower, levelMoneyUpper, taxRate, quickCalNum
+  </sql>
+  <select id="selectByExample" parameterType="com.kangce.mybatis.model.UtpersonalincometaxExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from utPersonalIncomeTax
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from utPersonalIncomeTax
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from utPersonalIncomeTax
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.kangce.mybatis.model.UtpersonalincometaxExample">
+    delete from utPersonalIncomeTax
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.kangce.mybatis.model.Utpersonalincometax">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into utPersonalIncomeTax (levelMoneyLower, levelMoneyUpper, taxRate, 
+      quickCalNum)
+    values (#{levelmoneylower,jdbcType=REAL}, #{levelmoneyupper,jdbcType=REAL}, #{taxrate,jdbcType=REAL}, 
+      #{quickcalnum,jdbcType=REAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kangce.mybatis.model.Utpersonalincometax">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into utPersonalIncomeTax
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="levelmoneylower != null">
+        levelMoneyLower,
+      </if>
+      <if test="levelmoneyupper != null">
+        levelMoneyUpper,
+      </if>
+      <if test="taxrate != null">
+        taxRate,
+      </if>
+      <if test="quickcalnum != null">
+        quickCalNum,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="levelmoneylower != null">
+        #{levelmoneylower,jdbcType=REAL},
+      </if>
+      <if test="levelmoneyupper != null">
+        #{levelmoneyupper,jdbcType=REAL},
+      </if>
+      <if test="taxrate != null">
+        #{taxrate,jdbcType=REAL},
+      </if>
+      <if test="quickcalnum != null">
+        #{quickcalnum,jdbcType=REAL},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.kangce.mybatis.model.UtpersonalincometaxExample" resultType="java.lang.Integer">
+    select count(*) from utPersonalIncomeTax
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update utPersonalIncomeTax
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.levelmoneylower != null">
+        levelMoneyLower = #{record.levelmoneylower,jdbcType=REAL},
+      </if>
+      <if test="record.levelmoneyupper != null">
+        levelMoneyUpper = #{record.levelmoneyupper,jdbcType=REAL},
+      </if>
+      <if test="record.taxrate != null">
+        taxRate = #{record.taxrate,jdbcType=REAL},
+      </if>
+      <if test="record.quickcalnum != null">
+        quickCalNum = #{record.quickcalnum,jdbcType=REAL},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update utPersonalIncomeTax
+    set ID = #{record.id,jdbcType=INTEGER},
+      levelMoneyLower = #{record.levelmoneylower,jdbcType=REAL},
+      levelMoneyUpper = #{record.levelmoneyupper,jdbcType=REAL},
+      taxRate = #{record.taxrate,jdbcType=REAL},
+      quickCalNum = #{record.quickcalnum,jdbcType=REAL}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kangce.mybatis.model.Utpersonalincometax">
+    update utPersonalIncomeTax
+    <set>
+      <if test="levelmoneylower != null">
+        levelMoneyLower = #{levelmoneylower,jdbcType=REAL},
+      </if>
+      <if test="levelmoneyupper != null">
+        levelMoneyUpper = #{levelmoneyupper,jdbcType=REAL},
+      </if>
+      <if test="taxrate != null">
+        taxRate = #{taxrate,jdbcType=REAL},
+      </if>
+      <if test="quickcalnum != null">
+        quickCalNum = #{quickcalnum,jdbcType=REAL},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kangce.mybatis.model.Utpersonalincometax">
+    update utPersonalIncomeTax
+    set levelMoneyLower = #{levelmoneylower,jdbcType=REAL},
+      levelMoneyUpper = #{levelmoneyupper,jdbcType=REAL},
+      taxRate = #{taxrate,jdbcType=REAL},
+      quickCalNum = #{quickcalnum,jdbcType=REAL}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

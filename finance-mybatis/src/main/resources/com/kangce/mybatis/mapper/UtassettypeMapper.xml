@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kangce.mybatis.mapper.UtassettypeMapper">
+  <resultMap id="BaseResultMap" type="com.kangce.mybatis.model.Utassettype">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="aNum" jdbcType="VARCHAR" property="anum" />
+    <result column="aName" jdbcType="VARCHAR" property="aname" />
+    <result column="useYear" jdbcType="INTEGER" property="useyear" />
+    <result column="netSalvage" jdbcType="INTEGER" property="netsalvage" />
+    <result column="depreciation" jdbcType="INTEGER" property="depreciation" />
+    <result column="encodingType" jdbcType="VARCHAR" property="encodingtype" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, aNum, aName, useYear, netSalvage, depreciation, encodingType, status
+  </sql>
+  <select id="selectByExample" parameterType="com.kangce.mybatis.model.UtassettypeExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from utAssetType
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from utAssetType
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from utAssetType
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.kangce.mybatis.model.UtassettypeExample">
+    delete from utAssetType
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.kangce.mybatis.model.Utassettype">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into utAssetType (aNum, aName, useYear, 
+      netSalvage, depreciation, encodingType, 
+      status)
+    values (#{anum,jdbcType=VARCHAR}, #{aname,jdbcType=VARCHAR}, #{useyear,jdbcType=INTEGER}, 
+      #{netsalvage,jdbcType=INTEGER}, #{depreciation,jdbcType=INTEGER}, #{encodingtype,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kangce.mybatis.model.Utassettype">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into utAssetType
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="anum != null">
+        aNum,
+      </if>
+      <if test="aname != null">
+        aName,
+      </if>
+      <if test="useyear != null">
+        useYear,
+      </if>
+      <if test="netsalvage != null">
+        netSalvage,
+      </if>
+      <if test="depreciation != null">
+        depreciation,
+      </if>
+      <if test="encodingtype != null">
+        encodingType,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="anum != null">
+        #{anum,jdbcType=VARCHAR},
+      </if>
+      <if test="aname != null">
+        #{aname,jdbcType=VARCHAR},
+      </if>
+      <if test="useyear != null">
+        #{useyear,jdbcType=INTEGER},
+      </if>
+      <if test="netsalvage != null">
+        #{netsalvage,jdbcType=INTEGER},
+      </if>
+      <if test="depreciation != null">
+        #{depreciation,jdbcType=INTEGER},
+      </if>
+      <if test="encodingtype != null">
+        #{encodingtype,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.kangce.mybatis.model.UtassettypeExample" resultType="java.lang.Integer">
+    select count(*) from utAssetType
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update utAssetType
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.anum != null">
+        aNum = #{record.anum,jdbcType=VARCHAR},
+      </if>
+      <if test="record.aname != null">
+        aName = #{record.aname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.useyear != null">
+        useYear = #{record.useyear,jdbcType=INTEGER},
+      </if>
+      <if test="record.netsalvage != null">
+        netSalvage = #{record.netsalvage,jdbcType=INTEGER},
+      </if>
+      <if test="record.depreciation != null">
+        depreciation = #{record.depreciation,jdbcType=INTEGER},
+      </if>
+      <if test="record.encodingtype != null">
+        encodingType = #{record.encodingtype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update utAssetType
+    set ID = #{record.id,jdbcType=INTEGER},
+      aNum = #{record.anum,jdbcType=VARCHAR},
+      aName = #{record.aname,jdbcType=VARCHAR},
+      useYear = #{record.useyear,jdbcType=INTEGER},
+      netSalvage = #{record.netsalvage,jdbcType=INTEGER},
+      depreciation = #{record.depreciation,jdbcType=INTEGER},
+      encodingType = #{record.encodingtype,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kangce.mybatis.model.Utassettype">
+    update utAssetType
+    <set>
+      <if test="anum != null">
+        aNum = #{anum,jdbcType=VARCHAR},
+      </if>
+      <if test="aname != null">
+        aName = #{aname,jdbcType=VARCHAR},
+      </if>
+      <if test="useyear != null">
+        useYear = #{useyear,jdbcType=INTEGER},
+      </if>
+      <if test="netsalvage != null">
+        netSalvage = #{netsalvage,jdbcType=INTEGER},
+      </if>
+      <if test="depreciation != null">
+        depreciation = #{depreciation,jdbcType=INTEGER},
+      </if>
+      <if test="encodingtype != null">
+        encodingType = #{encodingtype,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kangce.mybatis.model.Utassettype">
+    update utAssetType
+    set aNum = #{anum,jdbcType=VARCHAR},
+      aName = #{aname,jdbcType=VARCHAR},
+      useYear = #{useyear,jdbcType=INTEGER},
+      netSalvage = #{netsalvage,jdbcType=INTEGER},
+      depreciation = #{depreciation,jdbcType=INTEGER},
+      encodingType = #{encodingtype,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

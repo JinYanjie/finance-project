@@ -23,4 +23,6 @@ spring:
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
 
 #    mybatis:
+server:
+  port: 8081
 #      mapper-locations: classpath:dao/*.xml;classpath*:com/**/mapper/*.xml
