@@ -1,5 +1,6 @@
 package com.kangce.main.dto;
 
+import com.alibaba.druid.util.StringUtils;
 import com.github.pagehelper.PageInfo;
 import com.kangce.main.util.JsonUtil;
 import org.springframework.validation.BindingResult;
@@ -23,31 +24,44 @@ public class CommonResult {
     //未认证
     public static final int UNAUTHORIZED = 401;
     //未授权
-    public static final int  FORBIDDEN = 403;
+    public static final int FORBIDDEN = 403;
     private int code;
     private String msg;
     private Object data;
     private String time;
 
 
-    public String  getTime(){
+    public String getTime() {
         Date d = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss ");
         sdf.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
-        return  sdf.format(d);
+        return sdf.format(d);
     }
 
     /**
      * 普通成功返回
-     *
      */
     public CommonResult success(Object data) {
         this.code = SUCCESS;
         this.msg = "操作成功";
         this.data = data;
-        this.time=getTime();
+        this.time = getTime();
         return this;
     }
+
+    /**
+     * 普通失败提示信息
+     */
+    public CommonResult failed(String msg) {
+        if (StringUtils.isEmpty(msg)) {
+            msg = "操作失败";
+        }
+        this.code = FAILED;
+        this.msg = msg;
+        this.time = getTime();
+        return this;
+    }
+
 
     /**
      * 返回分页成功数据
@@ -66,14 +80,6 @@ public class CommonResult {
         return this;
     }
 
-    /**
-     * 普通失败提示信息
-     */
-    public CommonResult failed() {
-        this.code = FAILED;
-        this.msg = "操作失败";
-        return this;
-    }
 
     /**
      * 参数验证失败使用
@@ -112,6 +118,7 @@ public class CommonResult {
 
     /**
      * 参数验证失败使用
+     *
      * @param result 错误信息
      */
     public CommonResult validateFailed(BindingResult result) {
@@ -132,13 +139,12 @@ public class CommonResult {
         this.code = code;
     }
 
-    public String getMessage() {
+    public String getMsg() {
         return msg;
     }
 
-    public CommonResult setMessage(String message) {
-        this.msg = message;
-        return this;
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 
     public Object getData() {
