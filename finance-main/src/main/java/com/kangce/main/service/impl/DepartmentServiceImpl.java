@@ -1,5 +1,7 @@
 package com.kangce.main.service.impl;
 
+
+
 import com.kangce.main.service.DepartmentService;
 import com.kangce.mybatis.mapper.DepartmentMapper;
 import com.kangce.mybatis.model.Department;
@@ -11,6 +13,7 @@ import java.util.List;
 
 @Service
 public class DepartmentServiceImpl implements DepartmentService {
+
     @Autowired
     DepartmentMapper departmentMapper;
 

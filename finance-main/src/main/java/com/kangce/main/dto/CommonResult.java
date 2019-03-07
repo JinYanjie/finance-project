@@ -136,8 +136,9 @@ public class CommonResult {
         return msg;
     }
 
-    public void setMessage(String message) {
+    public CommonResult setMessage(String message) {
         this.msg = message;
+        return this;
     }
 
     public Object getData() {
