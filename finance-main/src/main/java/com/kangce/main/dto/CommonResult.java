@@ -3,6 +3,7 @@ package com.kangce.main.dto;
 import com.alibaba.druid.util.StringUtils;
 import com.github.pagehelper.PageInfo;
 import com.kangce.main.util.JsonUtil;
+import com.kangce.main.util.TextUtils;
 import org.springframework.validation.BindingResult;
 
 import javax.xml.crypto.Data;
@@ -53,7 +54,7 @@ public class CommonResult {
      * 普通失败提示信息
      */
     public CommonResult failed(String msg) {
-        if (StringUtils.isEmpty(msg)) {
+        if (TextUtils.isEmpty(msg)) {
             msg = "操作失败";
         }
         this.code = FAILED;
