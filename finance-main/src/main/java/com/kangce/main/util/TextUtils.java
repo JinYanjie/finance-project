@@ -8,4 +8,8 @@ public class TextUtils {
         return str == null || str.length() == 0;
     }
 
+
+    public static boolean isNotEmpty(@Nullable CharSequence str) {
+        return str != null && str.length() != 0;
+    }
 }

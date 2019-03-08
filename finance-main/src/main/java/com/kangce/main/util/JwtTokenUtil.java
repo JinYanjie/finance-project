@@ -1,15 +1,19 @@
 package com.kangce.main.util;
 
 
+import com.kangce.main.service.RedisService;
 import com.kangce.mybatis.model.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -34,6 +38,13 @@ public class JwtTokenUtil {
     private String secret;
     @Value("${jwt.expiration}")
     private Long expiration;
+
+
+    @Autowired
+    private RedisService redisService;
+
+    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
 
     /**
      * 根据负责生成JWT的token
@@ -87,19 +98,34 @@ public class JwtTokenUtil {
      * 验证token是否还有效
      *
      * @param token       客户端传入的token
-     * @param userDetails 从数据库中查询出来的用户信息
+     * @param user 从数据库中查询出来的用户信息
      */
-    public boolean validateToken(String token, User userDetails) {
+    public boolean validateToken(String token, User user) {
         String phone = getUserPhoneFromToken(token);
-        return phone.equals(userDetails.getPhone()) && !isTokenExpired(token);
+        return phone.equals(user.getPhone()) && !isTokenExpired(token);
     }
 
     /**
      * 判断token是否已经失效
      */
     private boolean isTokenExpired(String token) {
-        Date expiredDate = getExpiredDateFromToken(token);
-        return expiredDate.before(new Date());
+        String phone = getUserPhoneFromToken(token);
+        String timeStr = redisService.get(token + phone);
+        long lastTime = 0;
+        try {
+            lastTime = simpleDateFormat.parse(timeStr).getTime();
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return false;
+        }
+
+        return (new Date().getTime()-lastTime)/1000 > expiration;
+
+
+
+        //这里使用redis中的记录时间 不关注token中的时间
+//        Date expiredDate = getExpiredDateFromToken(token);
+//        return expiredDate.before(new Date());
     }
 
     /**
@@ -130,9 +156,16 @@ public class JwtTokenUtil {
     /**
      * 刷新token
      */
-    public String refreshToken(String token) {
-        Claims claims = getClaimsFromToken(token);
-        claims.put(CLAIM_KEY_CREATED, new Date());
-        return generateToken(claims);
+//    public String refreshToken(String token) {
+//        Claims claims = getClaimsFromToken(token);
+//        claims.put(CLAIM_KEY_CREATED, new Date());
+//        return generateToken(claims);
+//    }
+
+    /**
+     * 刷新token
+     */
+    public void refreshToken(String token,User user) {
+        redisService.set(token+user.getPhone(),simpleDateFormat.format(new Date()));
     }
 }

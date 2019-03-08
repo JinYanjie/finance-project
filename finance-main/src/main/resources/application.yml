@@ -56,10 +56,11 @@ server:
 
 jwt:
   secret: mySecret
-  expiration: 604800
-  tokenHead: Bearer
+  expiration: 86400
+  tokenHead: "Bearer "
+  header: Authorization
 
 token:
   # token 过期时间
-  expiration: 604800
+  expiration: 86400 //一天
 

@@ -4,6 +4,7 @@ import com.kangce.main.dto.CommonResult;
 import com.kangce.main.service.DepartmentService;
 import com.kangce.mybatis.model.Department;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,6 +15,7 @@ import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 
 @Controller
+@PreAuthorize("hasAnyAuthority('primary_administrator')")
 @RequestMapping("/department")
 public class DepartmentController {
 
@@ -79,8 +81,6 @@ public class DepartmentController {
     @ResponseBody
     public Object getDepartment(@RequestParam("id") byte id) {
         List<Department> departments = departmentService.listDepartment(id);
-
-
         return new CommonResult().success(departments);
     }
 
