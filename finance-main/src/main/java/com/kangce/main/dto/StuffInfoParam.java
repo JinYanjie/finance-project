@@ -1,4 +1,6 @@
 package com.kangce.main.dto;
+import io.swagger.annotations.ApiModelProperty;
+import org.hibernate.validator.constraints.NotEmpty;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,6 +14,7 @@ public class StuffInfoParam {
      *
      * @mbggenerated
      */
+
     private String id;
 
     /**
@@ -19,6 +22,7 @@ public class StuffInfoParam {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "用户名",required = true)
     private String name;
 
     /**

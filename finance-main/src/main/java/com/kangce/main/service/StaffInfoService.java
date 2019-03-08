@@ -1,10 +1,12 @@
 package com.kangce.main.service;
 
-public interface StuffInfoService {
+import com.kangce.main.dto.StuffInfoParam;
+
+public interface StaffInfoService {
     /**
      * 添加员工
      */
-
+    int addStaff(StuffInfoParam param);
     /**
      * 修改员工
      */
