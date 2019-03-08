@@ -6,7 +6,7 @@ import com.kangce.main.dto.CommonResult;
 import com.kangce.main.service.RedisService;
 import com.kangce.main.service.UserService;
 import com.kangce.main.util.JwtTokenUtil;
-import com.kangce.mybatis.model.LoginSuccess;
+//import com.kangce.mybatis.model.LoginSuccess;
 import com.kangce.mybatis.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -50,14 +50,14 @@ public class UserController {
             if (!targetUser.getPassword().equals(user.getPassword())) {
                 commonResult.validateFailed("登录失败,密码错误");
             } else {
-                String token = jwtTokenUtil.generateToken(targetUser);
-                LoginSuccess loginSuccess = new LoginSuccess();
-                loginSuccess.setToken(token);
-                loginSuccess.setUser(targetUser);
-                commonResult.setData(loginSuccess);
-
-                //存入redis
-                redisService.set(token+user.getPhone(),simpleDateFormat.format(new Date()));
+//                String token = jwtTokenUtil.generateToken(targetUser);
+//                LoginSuccess loginSuccess = new LoginSuccess();
+//                loginSuccess.setToken(token);
+//                loginSuccess.setUser(targetUser);
+//                commonResult.setData(loginSuccess);
+//
+//                存入redis
+//                redisService.set(token+user.getPhone(),simpleDateFormat.format(new Date()));
             }
         }
 

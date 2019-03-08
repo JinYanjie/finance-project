@@ -4,11 +4,11 @@
   <resultMap id="BaseResultMap" type="com.kangce.mybatis.model.User">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="username" jdbcType="VARCHAR" property="username" />
-    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
     <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="level" jdbcType="INTEGER" property="level" />
-    <result column="phone" jdbcType="VARCHAR" property="phone" />
     <result column="company" jdbcType="VARCHAR" property="company" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -70,7 +70,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, username, email, password, create_time, level, phone, company
+    id, username, phone, password, email, create_time, level, company
   </sql>
   <select id="selectByExample" parameterType="com.kangce.mybatis.model.UserExample" resultMap="BaseResultMap">
     select
@@ -106,11 +106,11 @@
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into user (username, email, password, 
-      create_time, level, phone, 
+    insert into user (username, phone, password, 
+      email, create_time, level, 
       company)
-    values (#{username,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{level,jdbcType=INTEGER}, #{phone,jdbcType=VARCHAR}, 
+    values (#{username,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{level,jdbcType=INTEGER}, 
       #{company,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.kangce.mybatis.model.User">
@@ -122,20 +122,20 @@
       <if test="username != null">
         username,
       </if>
-      <if test="email != null">
-        email,
+      <if test="phone != null">
+        phone,
       </if>
       <if test="password != null">
         password,
+      </if>
+      <if test="email != null">
+        email,
       </if>
       <if test="createTime != null">
         create_time,
       </if>
       <if test="level != null">
         level,
-      </if>
-      <if test="phone != null">
-        phone,
       </if>
       <if test="company != null">
         company,
@@ -145,20 +145,20 @@
       <if test="username != null">
         #{username,jdbcType=VARCHAR},
       </if>
-      <if test="email != null">
-        #{email,jdbcType=VARCHAR},
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
       </if>
       <if test="password != null">
         #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="level != null">
         #{level,jdbcType=INTEGER},
-      </if>
-      <if test="phone != null">
-        #{phone,jdbcType=VARCHAR},
       </if>
       <if test="company != null">
         #{company,jdbcType=VARCHAR},
@@ -180,20 +180,20 @@
       <if test="record.username != null">
         username = #{record.username,jdbcType=VARCHAR},
       </if>
-      <if test="record.email != null">
-        email = #{record.email,jdbcType=VARCHAR},
+      <if test="record.phone != null">
+        phone = #{record.phone,jdbcType=VARCHAR},
       </if>
       <if test="record.password != null">
         password = #{record.password,jdbcType=VARCHAR},
+      </if>
+      <if test="record.email != null">
+        email = #{record.email,jdbcType=VARCHAR},
       </if>
       <if test="record.createTime != null">
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.level != null">
         level = #{record.level,jdbcType=INTEGER},
-      </if>
-      <if test="record.phone != null">
-        phone = #{record.phone,jdbcType=VARCHAR},
       </if>
       <if test="record.company != null">
         company = #{record.company,jdbcType=VARCHAR},
@@ -207,11 +207,11 @@
     update user
     set id = #{record.id,jdbcType=INTEGER},
       username = #{record.username,jdbcType=VARCHAR},
-      email = #{record.email,jdbcType=VARCHAR},
+      phone = #{record.phone,jdbcType=VARCHAR},
       password = #{record.password,jdbcType=VARCHAR},
+      email = #{record.email,jdbcType=VARCHAR},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       level = #{record.level,jdbcType=INTEGER},
-      phone = #{record.phone,jdbcType=VARCHAR},
       company = #{record.company,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -223,20 +223,20 @@
       <if test="username != null">
         username = #{username,jdbcType=VARCHAR},
       </if>
-      <if test="email != null">
-        email = #{email,jdbcType=VARCHAR},
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
       </if>
       <if test="password != null">
         password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null">
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="level != null">
         level = #{level,jdbcType=INTEGER},
-      </if>
-      <if test="phone != null">
-        phone = #{phone,jdbcType=VARCHAR},
       </if>
       <if test="company != null">
         company = #{company,jdbcType=VARCHAR},
@@ -247,11 +247,11 @@
   <update id="updateByPrimaryKey" parameterType="com.kangce.mybatis.model.User">
     update user
     set username = #{username,jdbcType=VARCHAR},
-      email = #{email,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       level = #{level,jdbcType=INTEGER},
-      phone = #{phone,jdbcType=VARCHAR},
       company = #{company,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
