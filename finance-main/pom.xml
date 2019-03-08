@@ -27,6 +27,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/com.alibaba/druid
          默认提供的是hikari ，性能挺好，但是阿里的druid有完整的数据安全、监控，故而使用druid-->
         <dependency>

@@ -66,7 +66,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
                 if (token == null) {
                     throw new RuntimeException("无token，请重新登录");
                 }
-                // 获取 token 中的 user id
+                // 获取 token 中的 user phone
                 String userphone = jwtTokenUtil.getUserPhoneFromToken(token);
                 if(TextUtils.isEmpty(userphone)){
                     throw new RuntimeException("用户不存在，请重新登录");

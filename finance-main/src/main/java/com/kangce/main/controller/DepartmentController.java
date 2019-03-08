@@ -5,7 +5,9 @@ import com.kangce.main.service.DepartmentService;
 import com.kangce.mybatis.model.Department;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,6 +15,7 @@ import java.util.List;
 
 @Controller
 @Api(tags = "DepartmentController", description = "部门管理")
+@PreAuthorize("hasAnyAuthority('primary_administrator')")
 @RequestMapping("/department")
 public class DepartmentController {
 
@@ -86,7 +89,6 @@ public class DepartmentController {
     @ResponseBody
     public Object getDepartment(@RequestParam("id") byte id) {
         List<Department> departments = departmentService.listDepartment(id);
-
         return new CommonResult().success(departments);
     }
 
