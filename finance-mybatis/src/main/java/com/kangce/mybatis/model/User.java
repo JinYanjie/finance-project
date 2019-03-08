@@ -4,6 +4,23 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class User implements Serializable {
+
+    public User() {
+    }
+
+    public User(Integer id, String username, String email, String password, Date createTime, Integer level, String phone, String company) {
+        this.id = id;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.createTime = createTime;
+        this.level = level;
+        this.phone = phone;
+        this.company = company;
+
+
+    }
+
     private Integer id;
 
     private String username;
