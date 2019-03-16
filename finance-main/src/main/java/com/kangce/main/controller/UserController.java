@@ -40,13 +40,13 @@ public class UserController {
 
 
     @PostMapping("/login")
-    public Object login(@RequestParam("phone") String phone,@RequestParam("passward") String passward) {
+    public Object login(@RequestParam("phone") String phone,@RequestParam("password") String password) {
 
         CommonResult commonResult = new CommonResult();
 
         User user = new User();
         user.setPhone(phone);
-        user.setPassword(passward);
+        user.setPassword(password);
 
         List<User> userList = userService.findUserByPhone(user.getPhone());
         if (userList == null || userList.size() == 0) {
