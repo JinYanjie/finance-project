@@ -118,9 +118,28 @@ public class UserController {
         return commonResult;
     }
 
+    @PreAuthorize("hasAnyAuthority('superior_administrator')")
+    @PostMapping("/userLevelChange")
+    public Object updataUserLevel(@RequestParam("userId") int userId,
+                                  @RequestParam("newLevel") int newLevel){
+
+        CommonResult commonResult = new CommonResult();
+        if(newLevel<0 || newLevel >3){
+            return commonResult.failed("权限值不存在");
+        }
 
 
-    @UserLoginToken
+        int result = userService.changeUserLevel(userId, newLevel);
+
+        if(result==1){
+            return commonResult.success(new Object());
+        }else{
+            return commonResult.failed("权限设置失败");
+        }
+
+    }
+
+
     @GetMapping("/getmessage")
     public Object getMessage() {
         return new CommonResult().success("你已通过验证");
