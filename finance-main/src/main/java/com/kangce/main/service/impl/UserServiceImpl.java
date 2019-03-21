@@ -48,5 +48,18 @@ public class UserServiceImpl implements UserService {
         return userMapper.selectByExample(userExample);
     }
 
+    @Override
+    public int changeUserLevel(int userId, int level) {
+        User user = userMapper.selectByPrimaryKey(userId);
+        user.setLevel(level);
+
+        return userMapper.updateByPrimaryKey(user);
+    }
+
+    @Override
+    public List<User> getAll() {
+        return userMapper.selectByExample(new UserExample());
+    }
+
 
 }

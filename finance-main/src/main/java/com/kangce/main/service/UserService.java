@@ -22,4 +22,8 @@ public interface UserService {
 
     List<User> findUserByPhone(String userPhone);
 
+
+    int changeUserLevel(int userId,int level);
+
+    List<User> getAll();
 }
