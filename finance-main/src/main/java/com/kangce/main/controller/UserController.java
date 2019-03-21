@@ -3,18 +3,15 @@ package com.kangce.main.controller;
 
 import com.kangce.main.annotation.UserLoginToken;
 import com.kangce.main.dto.CommonResult;
+import com.kangce.main.dto.LoginSuccess;
 import com.kangce.main.service.RedisService;
 import com.kangce.main.service.UserService;
 import com.kangce.main.util.JwtTokenUtil;
 import com.kangce.main.util.TextUtils;
-import com.kangce.mybatis.model.LoginSuccess;
 import com.kangce.mybatis.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 

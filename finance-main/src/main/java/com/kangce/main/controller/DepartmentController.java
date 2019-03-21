@@ -3,18 +3,18 @@ package com.kangce.main.controller;
 import com.kangce.main.dto.CommonResult;
 import com.kangce.main.service.DepartmentService;
 import com.kangce.mybatis.model.Department;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
-import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 
 @Controller
+@Api(tags = "department-controller", description = "部门管理")
 @PreAuthorize("hasAnyAuthority('primary_administrator')")
 @RequestMapping("/department")
 public class DepartmentController {
@@ -22,7 +22,8 @@ public class DepartmentController {
     @Autowired
     DepartmentService departmentService;
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @ApiOperation("添加部门")
+    @PostMapping(value = "/add")
     @ResponseBody
     public Object add(@RequestParam("name") String name) {
 
@@ -40,7 +41,9 @@ public class DepartmentController {
         return new CommonResult().failed("");
     }
 
-    @RequestMapping("/update")
+
+    @ApiOperation("更新部门")
+    @PostMapping("/update")
     @ResponseBody
     public Object updateDepartment(@RequestParam("id") byte id, @RequestParam("name") String name) {
         int count = departmentService.updateDepartment(id, name);
@@ -50,7 +53,9 @@ public class DepartmentController {
         return new CommonResult().failed("");
     }
 
-    @RequestMapping("/delete")
+
+    @ApiOperation("删除部门")
+    @PostMapping("/delete")
     @ResponseBody
     public Object deleteDepartment(@RequestParam("id") byte id) {
         int count = departmentService.deleteDepartment(id);
@@ -60,7 +65,8 @@ public class DepartmentController {
         return new CommonResult().failed("");
     }
 
-    @RequestMapping("/delete/batch")
+    @ApiOperation("批量删除部门")
+    @PostMapping("/delete/batch")
     @ResponseBody
     public Object deleteBatch(List<Byte> ids) {
         int count = departmentService.deletePartDepartment(ids);
@@ -70,14 +76,16 @@ public class DepartmentController {
         return new CommonResult().failed("");
     }
 
-    @RequestMapping("/all")
+    @ApiOperation("查询所有部门")
+    @PostMapping("/all")
     @ResponseBody
     public Object listAll() {
         List<Department> departments = departmentService.listAllDepartment();
         return new CommonResult().success(departments);
     }
 
-    @RequestMapping("/item")
+    @ApiOperation("查询指定部门")
+    @PostMapping("/item")
     @ResponseBody
     public Object getDepartment(@RequestParam("id") byte id) {
         List<Department> departments = departmentService.listDepartment(id);
