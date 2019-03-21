@@ -1,7 +1,7 @@
 package com.kangce.main.controller;
 
 
-import com.kangce.main.annotation.UserLoginToken;
+import com.kangce.main.dto.BaseEntity;
 import com.kangce.main.dto.CommonResult;
 import com.kangce.main.dto.LoginSuccess;
 import com.kangce.main.service.RedisService;
@@ -9,16 +9,21 @@ import com.kangce.main.service.UserService;
 import com.kangce.main.util.JwtTokenUtil;
 import com.kangce.main.util.TextUtils;
 import com.kangce.mybatis.model.User;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+@Api(tags = "user-controller", description = "用户管理")
 @RestController
 @RequestMapping("/auth")
 public class UserController {
@@ -36,6 +41,7 @@ public class UserController {
     private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
 
+    @ApiOperation("用户登录")
     @PostMapping("/login")
     public Object login(@RequestParam("phone") String phone,@RequestParam("password") String password) {
 
@@ -68,6 +74,7 @@ public class UserController {
         return commonResult;
     }
 
+    @ApiOperation("用户注册")
     @Transactional
     @PostMapping("/register")
     public Object register(@RequestParam(value = "userName",defaultValue = "") String userName,
@@ -115,6 +122,7 @@ public class UserController {
         return commonResult;
     }
 
+    @ApiOperation("修改用户权限")
     @PreAuthorize("hasAnyAuthority('superior_administrator')")
     @PostMapping("/userLevelChange")
     public Object updataUserLevel(@RequestParam("userId") int userId,
@@ -125,21 +133,26 @@ public class UserController {
             return commonResult.failed("权限值不存在");
         }
 
-
         int result = userService.changeUserLevel(userId, newLevel);
 
         if(result==1){
-            return commonResult.success(new Object());
+            return commonResult.success(new BaseEntity());
         }else{
             return commonResult.failed("权限设置失败");
         }
 
     }
 
+    @ApiOperation("获取所有用户")
+    @PreAuthorize("hasAnyAuthority('tourist')")
+    @PostMapping("/allUser")
+    public Object getAllUser(){
+        CommonResult commonResult = new CommonResult();
 
-    @GetMapping("/getmessage")
-    public Object getMessage() {
-        return new CommonResult().success("你已通过验证");
+        List<User> userList = userService.getAll();
+
+        return commonResult.success(userList);
     }
+
 
 }

@@ -24,4 +24,6 @@ public interface UserService {
 
 
     int changeUserLevel(int userId,int level);
+
+    List<User> getAll();
 }
