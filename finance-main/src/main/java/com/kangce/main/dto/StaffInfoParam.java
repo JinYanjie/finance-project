@@ -1,35 +1,47 @@
 package com.kangce.main.dto;
+
 import io.swagger.annotations.ApiModelProperty;
-import org.hibernate.validator.constraints.NotEmpty;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.validation.constraints.NotEmpty;
 import java.util.Date;
 
 @Getter
 @Setter
-public class StuffInfoParam {
+public class StaffInfoParam {
     /**
      * 职员编码
      *
      * @mbggenerated
      */
-
-    private String id;
+    @ApiModelProperty(value = "员工编号")
+    private int id;
 
     /**
      * 职员姓名
      *
      * @mbggenerated
      */
-    @ApiModelProperty(value = "用户名",required = true)
+    @ApiModelProperty(value = "员工姓名", required = true)
+    @NotEmpty(message = "员工姓名不能为空")
     private String name;
+
+    /**
+     * 职员手机号
+     *
+     * @mbggenerated
+     */
+    @ApiModelProperty(value = "手机号")
+    private String phone;
 
     /**
      * 性  别
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "性别", required = true)
+    @NotEmpty(message = "性别不能为空")
     private String gender;
 
     /**
@@ -37,6 +49,7 @@ public class StuffInfoParam {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "民族")
     private String nation;
 
     /**
@@ -44,6 +57,7 @@ public class StuffInfoParam {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "出生日期")
     private String birthday;
 
     /**
@@ -51,6 +65,7 @@ public class StuffInfoParam {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "职员类别")
     private Integer position;
 
     /**
@@ -58,6 +73,7 @@ public class StuffInfoParam {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "文化程度")
     private Integer education;
 
     /**
@@ -65,6 +81,8 @@ public class StuffInfoParam {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "入职日期", required = true)
+    @NotEmpty(message = "入职日期不能为空")
     private Date inDate;
 
     /**
@@ -72,6 +90,7 @@ public class StuffInfoParam {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "职员状态")
     private Integer state;
 
     /**
@@ -79,6 +98,7 @@ public class StuffInfoParam {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "职务")
     private String job;
 
     /**
@@ -86,6 +106,7 @@ public class StuffInfoParam {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "部门")
     private Integer department;
 
     /**
@@ -93,6 +114,7 @@ public class StuffInfoParam {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "离职日期")
     private Date outDate;
 
     /**
@@ -100,6 +122,7 @@ public class StuffInfoParam {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "籍贯")
     private String birthplace;
 
     /**
@@ -107,6 +130,8 @@ public class StuffInfoParam {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "身份证号码", required = true)
+    @NotEmpty(message = "身份证不能为空")
     private String idCard;
 
     /**
@@ -114,6 +139,7 @@ public class StuffInfoParam {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "银行名称")
     private String bankName;
 
     /**
@@ -121,5 +147,6 @@ public class StuffInfoParam {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "银行卡号")
     private String bankNum;
 }

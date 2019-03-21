@@ -18,6 +18,8 @@ public class StaffInfo implements Serializable {
      */
     private String name;
 
+    private String phoneNum;
+
     /**
      * 性  别
      *
@@ -132,6 +134,14 @@ public class StaffInfo implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPhoneNum() {
+        return phoneNum;
+    }
+
+    public void setPhoneNum(String phoneNum) {
+        this.phoneNum = phoneNum;
     }
 
     public String getGender() {
@@ -254,6 +264,7 @@ public class StaffInfo implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
         sb.append(", name=").append(name);
+        sb.append(", phoneNum=").append(phoneNum);
         sb.append(", gender=").append(gender);
         sb.append(", nation=").append(nation);
         sb.append(", birthday=").append(birthday);

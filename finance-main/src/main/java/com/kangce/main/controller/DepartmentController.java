@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@Api(tags = "DepartmentController", description = "部门管理")
+@Api(tags = "department-controller", description = "部门管理")
 @PreAuthorize("hasAnyAuthority('primary_administrator')")
 @RequestMapping("/department")
 public class DepartmentController {

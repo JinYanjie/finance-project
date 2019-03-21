@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kangce.mybatis.mapper.SalaryItemMapper">
+  <resultMap id="BaseResultMap" type="com.kangce.mybatis.model.SalaryItem">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="s_id" jdbcType="INTEGER" property="sId" />
+    <result column="s_name" jdbcType="VARCHAR" property="sName" />
+    <result column="s_base" jdbcType="REAL" property="sBase" />
+    <result column="s_job" jdbcType="REAL" property="sJob" />
+    <result column="s_award" jdbcType="REAL" property="sAward" />
+    <result column="s_exrea" jdbcType="REAL" property="sExrea" />
+    <result column="s_perform" jdbcType="REAL" property="sPerform" />
+    <result column="s_welfare" jdbcType="REAL" property="sWelfare" />
+    <result column="b_accumulation" jdbcType="REAL" property="bAccumulation" />
+    <result column="r_accumulation" jdbcType="REAL" property="rAccumulation" />
+    <result column="b_insure_medicine" jdbcType="REAL" property="bInsureMedicine" />
+    <result column="r_insure_medicine" jdbcType="REAL" property="rInsureMedicine" />
+    <result column="b_insure_pension" jdbcType="REAL" property="bInsurePension" />
+    <result column="r_insure_pension" jdbcType="REAL" property="rInsurePension" />
+    <result column="b_insure_job" jdbcType="REAL" property="bInsureJob" />
+    <result column="r_insure_job" jdbcType="REAL" property="rInsureJob" />
+    <result column="check_in_free" jdbcType="REAL" property="checkInFree" />
+    <result column="other_free" jdbcType="REAL" property="otherFree" />
+    <result column="date" jdbcType="DATE" property="date" />
+    <result column="p_tax" jdbcType="REAL" property="pTax" />
+    <result column="tax_rate" jdbcType="REAL" property="taxRate" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, s_id, s_name, s_base, s_job, s_award, s_exrea, s_perform, s_welfare, b_accumulation, 
+    r_accumulation, b_insure_medicine, r_insure_medicine, b_insure_pension, r_insure_pension, 
+    b_insure_job, r_insure_job, check_in_free, other_free, date, p_tax, tax_rate
+  </sql>
+  <select id="selectByExample" parameterType="com.kangce.mybatis.model.SalaryItemExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from salary_item
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from salary_item
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from salary_item
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.kangce.mybatis.model.SalaryItemExample">
+    delete from salary_item
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.kangce.mybatis.model.SalaryItem">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into salary_item (s_id, s_name, s_base, 
+      s_job, s_award, s_exrea, s_perform, 
+      s_welfare, b_accumulation, r_accumulation, 
+      b_insure_medicine, r_insure_medicine, b_insure_pension, 
+      r_insure_pension, b_insure_job, r_insure_job, 
+      check_in_free, other_free, date, 
+      p_tax, tax_rate)
+    values (#{sId,jdbcType=INTEGER}, #{sName,jdbcType=VARCHAR}, #{sBase,jdbcType=REAL}, 
+      #{sJob,jdbcType=REAL}, #{sAward,jdbcType=REAL}, #{sExrea,jdbcType=REAL}, #{sPerform,jdbcType=REAL}, 
+      #{sWelfare,jdbcType=REAL}, #{bAccumulation,jdbcType=REAL}, #{rAccumulation,jdbcType=REAL}, 
+      #{bInsureMedicine,jdbcType=REAL}, #{rInsureMedicine,jdbcType=REAL}, #{bInsurePension,jdbcType=REAL}, 
+      #{rInsurePension,jdbcType=REAL}, #{bInsureJob,jdbcType=REAL}, #{rInsureJob,jdbcType=REAL}, 
+      #{checkInFree,jdbcType=REAL}, #{otherFree,jdbcType=REAL}, #{date,jdbcType=DATE}, 
+      #{pTax,jdbcType=REAL}, #{taxRate,jdbcType=REAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kangce.mybatis.model.SalaryItem">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into salary_item
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sId != null">
+        s_id,
+      </if>
+      <if test="sName != null">
+        s_name,
+      </if>
+      <if test="sBase != null">
+        s_base,
+      </if>
+      <if test="sJob != null">
+        s_job,
+      </if>
+      <if test="sAward != null">
+        s_award,
+      </if>
+      <if test="sExrea != null">
+        s_exrea,
+      </if>
+      <if test="sPerform != null">
+        s_perform,
+      </if>
+      <if test="sWelfare != null">
+        s_welfare,
+      </if>
+      <if test="bAccumulation != null">
+        b_accumulation,
+      </if>
+      <if test="rAccumulation != null">
+        r_accumulation,
+      </if>
+      <if test="bInsureMedicine != null">
+        b_insure_medicine,
+      </if>
+      <if test="rInsureMedicine != null">
+        r_insure_medicine,
+      </if>
+      <if test="bInsurePension != null">
+        b_insure_pension,
+      </if>
+      <if test="rInsurePension != null">
+        r_insure_pension,
+      </if>
+      <if test="bInsureJob != null">
+        b_insure_job,
+      </if>
+      <if test="rInsureJob != null">
+        r_insure_job,
+      </if>
+      <if test="checkInFree != null">
+        check_in_free,
+      </if>
+      <if test="otherFree != null">
+        other_free,
+      </if>
+      <if test="date != null">
+        date,
+      </if>
+      <if test="pTax != null">
+        p_tax,
+      </if>
+      <if test="taxRate != null">
+        tax_rate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sId != null">
+        #{sId,jdbcType=INTEGER},
+      </if>
+      <if test="sName != null">
+        #{sName,jdbcType=VARCHAR},
+      </if>
+      <if test="sBase != null">
+        #{sBase,jdbcType=REAL},
+      </if>
+      <if test="sJob != null">
+        #{sJob,jdbcType=REAL},
+      </if>
+      <if test="sAward != null">
+        #{sAward,jdbcType=REAL},
+      </if>
+      <if test="sExrea != null">
+        #{sExrea,jdbcType=REAL},
+      </if>
+      <if test="sPerform != null">
+        #{sPerform,jdbcType=REAL},
+      </if>
+      <if test="sWelfare != null">
+        #{sWelfare,jdbcType=REAL},
+      </if>
+      <if test="bAccumulation != null">
+        #{bAccumulation,jdbcType=REAL},
+      </if>
+      <if test="rAccumulation != null">
+        #{rAccumulation,jdbcType=REAL},
+      </if>
+      <if test="bInsureMedicine != null">
+        #{bInsureMedicine,jdbcType=REAL},
+      </if>
+      <if test="rInsureMedicine != null">
+        #{rInsureMedicine,jdbcType=REAL},
+      </if>
+      <if test="bInsurePension != null">
+        #{bInsurePension,jdbcType=REAL},
+      </if>
+      <if test="rInsurePension != null">
+        #{rInsurePension,jdbcType=REAL},
+      </if>
+      <if test="bInsureJob != null">
+        #{bInsureJob,jdbcType=REAL},
+      </if>
+      <if test="rInsureJob != null">
+        #{rInsureJob,jdbcType=REAL},
+      </if>
+      <if test="checkInFree != null">
+        #{checkInFree,jdbcType=REAL},
+      </if>
+      <if test="otherFree != null">
+        #{otherFree,jdbcType=REAL},
+      </if>
+      <if test="date != null">
+        #{date,jdbcType=DATE},
+      </if>
+      <if test="pTax != null">
+        #{pTax,jdbcType=REAL},
+      </if>
+      <if test="taxRate != null">
+        #{taxRate,jdbcType=REAL},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.kangce.mybatis.model.SalaryItemExample" resultType="java.lang.Integer">
+    select count(*) from salary_item
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update salary_item
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.sId != null">
+        s_id = #{record.sId,jdbcType=INTEGER},
+      </if>
+      <if test="record.sName != null">
+        s_name = #{record.sName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sBase != null">
+        s_base = #{record.sBase,jdbcType=REAL},
+      </if>
+      <if test="record.sJob != null">
+        s_job = #{record.sJob,jdbcType=REAL},
+      </if>
+      <if test="record.sAward != null">
+        s_award = #{record.sAward,jdbcType=REAL},
+      </if>
+      <if test="record.sExrea != null">
+        s_exrea = #{record.sExrea,jdbcType=REAL},
+      </if>
+      <if test="record.sPerform != null">
+        s_perform = #{record.sPerform,jdbcType=REAL},
+      </if>
+      <if test="record.sWelfare != null">
+        s_welfare = #{record.sWelfare,jdbcType=REAL},
+      </if>
+      <if test="record.bAccumulation != null">
+        b_accumulation = #{record.bAccumulation,jdbcType=REAL},
+      </if>
+      <if test="record.rAccumulation != null">
+        r_accumulation = #{record.rAccumulation,jdbcType=REAL},
+      </if>
+      <if test="record.bInsureMedicine != null">
+        b_insure_medicine = #{record.bInsureMedicine,jdbcType=REAL},
+      </if>
+      <if test="record.rInsureMedicine != null">
+        r_insure_medicine = #{record.rInsureMedicine,jdbcType=REAL},
+      </if>
+      <if test="record.bInsurePension != null">
+        b_insure_pension = #{record.bInsurePension,jdbcType=REAL},
+      </if>
+      <if test="record.rInsurePension != null">
+        r_insure_pension = #{record.rInsurePension,jdbcType=REAL},
+      </if>
+      <if test="record.bInsureJob != null">
+        b_insure_job = #{record.bInsureJob,jdbcType=REAL},
+      </if>
+      <if test="record.rInsureJob != null">
+        r_insure_job = #{record.rInsureJob,jdbcType=REAL},
+      </if>
+      <if test="record.checkInFree != null">
+        check_in_free = #{record.checkInFree,jdbcType=REAL},
+      </if>
+      <if test="record.otherFree != null">
+        other_free = #{record.otherFree,jdbcType=REAL},
+      </if>
+      <if test="record.date != null">
+        date = #{record.date,jdbcType=DATE},
+      </if>
+      <if test="record.pTax != null">
+        p_tax = #{record.pTax,jdbcType=REAL},
+      </if>
+      <if test="record.taxRate != null">
+        tax_rate = #{record.taxRate,jdbcType=REAL},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update salary_item
+    set id = #{record.id,jdbcType=INTEGER},
+      s_id = #{record.sId,jdbcType=INTEGER},
+      s_name = #{record.sName,jdbcType=VARCHAR},
+      s_base = #{record.sBase,jdbcType=REAL},
+      s_job = #{record.sJob,jdbcType=REAL},
+      s_award = #{record.sAward,jdbcType=REAL},
+      s_exrea = #{record.sExrea,jdbcType=REAL},
+      s_perform = #{record.sPerform,jdbcType=REAL},
+      s_welfare = #{record.sWelfare,jdbcType=REAL},
+      b_accumulation = #{record.bAccumulation,jdbcType=REAL},
+      r_accumulation = #{record.rAccumulation,jdbcType=REAL},
+      b_insure_medicine = #{record.bInsureMedicine,jdbcType=REAL},
+      r_insure_medicine = #{record.rInsureMedicine,jdbcType=REAL},
+      b_insure_pension = #{record.bInsurePension,jdbcType=REAL},
+      r_insure_pension = #{record.rInsurePension,jdbcType=REAL},
+      b_insure_job = #{record.bInsureJob,jdbcType=REAL},
+      r_insure_job = #{record.rInsureJob,jdbcType=REAL},
+      check_in_free = #{record.checkInFree,jdbcType=REAL},
+      other_free = #{record.otherFree,jdbcType=REAL},
+      date = #{record.date,jdbcType=DATE},
+      p_tax = #{record.pTax,jdbcType=REAL},
+      tax_rate = #{record.taxRate,jdbcType=REAL}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kangce.mybatis.model.SalaryItem">
+    update salary_item
+    <set>
+      <if test="sId != null">
+        s_id = #{sId,jdbcType=INTEGER},
+      </if>
+      <if test="sName != null">
+        s_name = #{sName,jdbcType=VARCHAR},
+      </if>
+      <if test="sBase != null">
+        s_base = #{sBase,jdbcType=REAL},
+      </if>
+      <if test="sJob != null">
+        s_job = #{sJob,jdbcType=REAL},
+      </if>
+      <if test="sAward != null">
+        s_award = #{sAward,jdbcType=REAL},
+      </if>
+      <if test="sExrea != null">
+        s_exrea = #{sExrea,jdbcType=REAL},
+      </if>
+      <if test="sPerform != null">
+        s_perform = #{sPerform,jdbcType=REAL},
+      </if>
+      <if test="sWelfare != null">
+        s_welfare = #{sWelfare,jdbcType=REAL},
+      </if>
+      <if test="bAccumulation != null">
+        b_accumulation = #{bAccumulation,jdbcType=REAL},
+      </if>
+      <if test="rAccumulation != null">
+        r_accumulation = #{rAccumulation,jdbcType=REAL},
+      </if>
+      <if test="bInsureMedicine != null">
+        b_insure_medicine = #{bInsureMedicine,jdbcType=REAL},
+      </if>
+      <if test="rInsureMedicine != null">
+        r_insure_medicine = #{rInsureMedicine,jdbcType=REAL},
+      </if>
+      <if test="bInsurePension != null">
+        b_insure_pension = #{bInsurePension,jdbcType=REAL},
+      </if>
+      <if test="rInsurePension != null">
+        r_insure_pension = #{rInsurePension,jdbcType=REAL},
+      </if>
+      <if test="bInsureJob != null">
+        b_insure_job = #{bInsureJob,jdbcType=REAL},
+      </if>
+      <if test="rInsureJob != null">
+        r_insure_job = #{rInsureJob,jdbcType=REAL},
+      </if>
+      <if test="checkInFree != null">
+        check_in_free = #{checkInFree,jdbcType=REAL},
+      </if>
+      <if test="otherFree != null">
+        other_free = #{otherFree,jdbcType=REAL},
+      </if>
+      <if test="date != null">
+        date = #{date,jdbcType=DATE},
+      </if>
+      <if test="pTax != null">
+        p_tax = #{pTax,jdbcType=REAL},
+      </if>
+      <if test="taxRate != null">
+        tax_rate = #{taxRate,jdbcType=REAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kangce.mybatis.model.SalaryItem">
+    update salary_item
+    set s_id = #{sId,jdbcType=INTEGER},
+      s_name = #{sName,jdbcType=VARCHAR},
+      s_base = #{sBase,jdbcType=REAL},
+      s_job = #{sJob,jdbcType=REAL},
+      s_award = #{sAward,jdbcType=REAL},
+      s_exrea = #{sExrea,jdbcType=REAL},
+      s_perform = #{sPerform,jdbcType=REAL},
+      s_welfare = #{sWelfare,jdbcType=REAL},
+      b_accumulation = #{bAccumulation,jdbcType=REAL},
+      r_accumulation = #{rAccumulation,jdbcType=REAL},
+      b_insure_medicine = #{bInsureMedicine,jdbcType=REAL},
+      r_insure_medicine = #{rInsureMedicine,jdbcType=REAL},
+      b_insure_pension = #{bInsurePension,jdbcType=REAL},
+      r_insure_pension = #{rInsurePension,jdbcType=REAL},
+      b_insure_job = #{bInsureJob,jdbcType=REAL},
+      r_insure_job = #{rInsureJob,jdbcType=REAL},
+      check_in_free = #{checkInFree,jdbcType=REAL},
+      other_free = #{otherFree,jdbcType=REAL},
+      date = #{date,jdbcType=DATE},
+      p_tax = #{pTax,jdbcType=REAL},
+      tax_rate = #{taxRate,jdbcType=REAL}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
