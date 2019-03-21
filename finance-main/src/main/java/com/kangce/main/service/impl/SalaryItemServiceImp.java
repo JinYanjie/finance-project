@@ -46,6 +46,11 @@ public class SalaryItemServiceImp implements SalaryItemService {
 
     }
 
+
+    /**
+     * 录取工资的员工
+     * @return
+     */
     @Override
     public List<Map<String, Object>> getSalaryStaff() {
         List<SalaryItem> salaryItems = itemMapper.selectByExample(new SalaryItemExample());
@@ -60,6 +65,16 @@ public class SalaryItemServiceImp implements SalaryItemService {
         }
         return maps;
     }
+
+    /**
+     *
+     */
+    @Override
+    public List<Map<String, Object>> getUnSalary() {
+        return null;
+    }
+
+
 
 
 }

@@ -37,7 +37,7 @@ public class UserController {
 
 
     @PostMapping("/login")
-    public Object login(@RequestParam("phone") String phone,@RequestParam("password") String password) {
+    public Object login(@RequestParam("phone") String phone, @RequestParam("password") String password) {
 
         CommonResult commonResult = new CommonResult();
 
@@ -53,14 +53,7 @@ public class UserController {
             if (!targetUser.getPassword().equals(user.getPassword())) {
                 commonResult.validateFailed("登录失败,密码错误");
             } else {
-                String token = jwtTokenUtil.generateToken(targetUser);
-                LoginSuccess loginSuccess = new LoginSuccess();
-                loginSuccess.setToken(token);
-                loginSuccess.setUser(targetUser);
-                commonResult.success(loginSuccess);
-
-                //存入redis
-                redisService.set(token+user.getPhone(),simpleDateFormat.format(new Date()));
+                setSuccessToken(commonResult, user, targetUser);
             }
         }
 
@@ -68,22 +61,23 @@ public class UserController {
         return commonResult;
     }
 
+
     @Transactional
     @PostMapping("/register")
-    public Object register(@RequestParam(value = "userName",defaultValue = "") String userName,
+    public Object register(@RequestParam(value = "userName", defaultValue = "") String userName,
                            @RequestParam("phone") String phone,
                            @RequestParam("password") String password,
-                           @RequestParam(value = "level",defaultValue = "1") int level,
-                           @RequestParam(value = "email",defaultValue = "") String email,
-                           @RequestParam(value = "company",defaultValue = "") String company
-                           ){
+                           @RequestParam(value = "level", defaultValue = "1") int level,
+                           @RequestParam(value = "email", defaultValue = "") String email,
+                           @RequestParam(value = "company", defaultValue = "") String company
+    ) {
 
         CommonResult commonResult = new CommonResult();
 
         User user = new User();
-        if(TextUtils.isEmpty(userName)){
-            user.setUsername("用户_"+phone.substring(phone.length()-3,phone.length()));
-        }else{
+        if (TextUtils.isEmpty(userName)) {
+            user.setUsername("用户_" + phone.substring(phone.length() - 3, phone.length()));
+        } else {
             user.setUsername(userName);
         }
         user.setPhone(phone);
@@ -95,32 +89,35 @@ public class UserController {
         int num = 0;
         try {
             num = userService.addUser(user);
-        }catch (Exception exception){
-            LOGGER.warn("添加用户失败: "+exception.getMessage());
+        } catch (Exception exception) {
+            LOGGER.warn("添加用户失败: " + exception.getMessage());
             return commonResult.failed("注册失败,该手机号已存在");
         }
 
-        if (num==1){
+        if (num == 1) {
             User targetUser = userService.findUserByPhone(user.getPhone()).get(0);
-            String token = jwtTokenUtil.generateToken(targetUser);
-            LoginSuccess loginSuccess = new LoginSuccess();
-            loginSuccess.setToken(token);
-            loginSuccess.setUser(targetUser);
-            commonResult.success(loginSuccess);
-
-            //存入redis
-            redisService.set(token+user.getPhone(),simpleDateFormat.format(new Date()));
+            setSuccessToken(commonResult, user, targetUser);
         }
 
         return commonResult;
     }
 
 
-
     @UserLoginToken
     @GetMapping("/getmessage")
     public Object getMessage() {
         return new CommonResult().success("你已通过验证");
+    }
+
+    private void setSuccessToken(CommonResult commonResult, User user, User targetUser) {
+        String token = jwtTokenUtil.generateToken(targetUser);
+        LoginSuccess loginSuccess = new LoginSuccess();
+        loginSuccess.setToken(token);
+        loginSuccess.setUser(targetUser);
+        commonResult.success(loginSuccess);
+
+        //存入redis
+        redisService.set(token + user.getPhone(), simpleDateFormat.format(new Date()));
     }
 
 }

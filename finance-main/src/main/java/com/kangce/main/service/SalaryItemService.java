@@ -28,5 +28,11 @@ public interface SalaryItemService {
      * 查询 工资录入了 那些人？
      */
 
-    List<Map<String,Object>> getSalaryStaff();
+    List<Map<String, Object>> getSalaryStaff();
+
+    /**
+     * 查询  那些人 没有录入工资
+     */
+    List<Map<String, Object>> getUnSalary();
+
 }
