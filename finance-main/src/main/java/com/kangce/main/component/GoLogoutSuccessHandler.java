@@ -12,7 +12,7 @@ public class GoLogoutSuccessHandler implements LogoutSuccessHandler {
     @Override
     public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         response.setHeader("Content-Type", "application/json;charset=utf-8");
-        response.getWriter().print("{\"code\":200,\"message\":\"已注销\"}");
+        response.getWriter().print("{\"code\":200,\"msg\":\"已注销\"}");
         response.getWriter().flush();
     }
 }
