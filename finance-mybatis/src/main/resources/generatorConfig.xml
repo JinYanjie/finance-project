@@ -51,7 +51,7 @@
 
 
         <!--生成全部表tableName设为%-->
-        <table tableName="salary_item">
+        <table tableName="fixed_assets">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
     </context>

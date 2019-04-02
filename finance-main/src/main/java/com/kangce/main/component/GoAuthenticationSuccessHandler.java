@@ -12,7 +12,7 @@ public class GoAuthenticationSuccessHandler implements AuthenticationSuccessHand
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         response.setHeader("Content-Type", "application/json;charset=utf-8");
-        response.getWriter().print("{\"code\":200,\"message\":\"登录成功\"}");
+        response.getWriter().print("{\"code\":200,\"msg\":\"登录成功\"}");
         response.getWriter().flush();
     }
 }

@@ -14,7 +14,7 @@ public class GoAccessDeniedHandler implements AccessDeniedHandler {
     public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException, ServletException {
 
         response.setHeader("Content-Type", "application/json;charset=utf-8");
-        response.getWriter().print("{\"code\":403,\"message\":\""+"未授权："+accessDeniedException.getMessage()+"\"}");
+        response.getWriter().print("{\"code\":403,\"msg\":\""+"未授权："+accessDeniedException.getMessage()+"\"}");
         response.getWriter().flush();
     }
 

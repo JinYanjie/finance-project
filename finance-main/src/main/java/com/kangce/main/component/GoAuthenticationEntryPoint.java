@@ -14,7 +14,7 @@ public class GoAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
 
         response.setHeader("Content-Type", "application/json;charset=utf-8");
-        response.getWriter().print("{\"code\":401,\"message\":\""+"未认证："+authException.getMessage()+"\"}");
+        response.getWriter().print("{\"code\":401,\"msg\":\""+"未认证："+authException.getMessage()+"\"}");
         response.getWriter().flush();
     }
 }
