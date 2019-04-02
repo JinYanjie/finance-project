@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 @Api(tags = "user-controller", description = "用户管理")
@@ -136,7 +137,7 @@ public class UserController {
         int result = userService.changeUserLevel(userId, newLevel);
 
         if(result==1){
-            return commonResult.success(new BaseEntity());
+            return commonResult.success(new HashMap<>());
         }else{
             return commonResult.failed("权限设置失败");
         }
