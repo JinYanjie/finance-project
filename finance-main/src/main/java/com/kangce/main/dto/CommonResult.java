@@ -1,15 +1,12 @@
 package com.kangce.main.dto;
 
-import com.alibaba.druid.util.StringUtils;
 import com.github.pagehelper.PageInfo;
 import com.kangce.main.util.JsonUtil;
 import com.kangce.main.util.TextUtils;
 import org.springframework.validation.BindingResult;
 
-import javax.xml.crypto.Data;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.concurrent.TimeUnit;
 
 /**
  * 通用返回对象

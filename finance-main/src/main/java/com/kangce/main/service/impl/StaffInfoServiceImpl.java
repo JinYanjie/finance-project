@@ -75,6 +75,4 @@ public class StaffInfoServiceImpl implements StaffInfoService {
         PageHelper.startPage(pageNum, pageSize);
         return staffInfoMapper.selectByExample(new StaffInfoExample());
     }
-
-
 }

@@ -5,7 +5,6 @@ import com.kangce.main.dto.SalaryItemParam;
 import com.kangce.main.service.SalaryItemService;
 import com.kangce.mybatis.model.SalaryItem;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -49,12 +48,25 @@ public class SalaryItemController {
     @ApiOperation(value = "获取录入的员工信息")
     @PostMapping(value = "/get/staffSalary")
     @ResponseBody
-    public Object getSalaryStaff() {
-        List<Map<String, Object>> salaryStaff = salaryItemService.getSalaryStaff();
+    public Object getSalaryStaff(@RequestParam("pageNum") int pageNum,
+                                 @RequestParam("pageSize") int pageSize) {
+        List<Map<String, Object>> salaryStaff = salaryItemService.getSalaryStaff(pageNum, pageSize);
         if (salaryStaff == null) {
             return new CommonResult().failed("获取失败");
         }
         return new CommonResult().success(salaryStaff);
+    }
+
+    @ApiOperation(value = "获取未录入工资的员工")
+    @PostMapping(value = "/get/staffUnsalary")
+    @ResponseBody
+    public Object getUnsalaryStaff(@RequestParam("pageNum") int pageNum,
+                                   @RequestParam("pageSize") int pageSize) {
+        List<Map<String, Object>> unSalary = salaryItemService.getUnSalary(pageNum, pageSize);
+        if (unSalary == null) {
+            return new CommonResult().failed("获取失败");
+        }
+        return new CommonResult().success(unSalary);
     }
 
 }

@@ -1,7 +1,7 @@
 package com.kangce.main.service.impl;
 
+import com.github.pagehelper.PageHelper;
 import com.kangce.main.dto.SalaryItemParam;
-import com.kangce.main.dto.StaffInfoParam;
 import com.kangce.main.service.SalaryItemService;
 import com.kangce.mybatis.mapper.SalaryItemMapper;
 import com.kangce.mybatis.mapper.StaffInfoMapper;
@@ -61,7 +61,8 @@ public class SalaryItemServiceImp implements SalaryItemService {
      * @return
      */
     @Override
-    public List<Map<String, Object>> getSalaryStaff() {
+    public List<Map<String, Object>> getSalaryStaff(int pageNum,int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
         List<SalaryItem> salaryItems = itemMapper.selectByExample(new SalaryItemExample());
         List<Map<String, Object>> maps = new ArrayList<>();
         if (salaryItems == null) {
@@ -79,13 +80,17 @@ public class SalaryItemServiceImp implements SalaryItemService {
      * 未录入工资的员工
      */
     @Override
-    public List<Map<String, Object>> getUnSalary() {
+    public List<Map<String, Object>> getUnSalary(int pageNum,int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
         List<SalaryItem> salaryItems = itemMapper.selectByExample(new SalaryItemExample());
         List<Integer> collect = salaryItems.stream().map(SalaryItem::getsId).distinct().collect(Collectors.toList());
-
         //查出  录入 的 id
         StaffInfoExample staffInfoExample = new StaffInfoExample();
-        staffInfoExample.createCriteria().andIdNotIn(collect);
+        //如果 都没有录入工资,不设置查询标准
+        if (collect.size()>0){
+            staffInfoExample.createCriteria().andIdNotIn(collect);
+        }
+
         List<Map<String, Object>> unSalaryStaff = staffInfoMapper.selectByExample(staffInfoExample).stream().map(this::getUser).collect(Collectors.toList());
 
         // 查出  id  不在 用户表的id
@@ -97,6 +102,7 @@ public class SalaryItemServiceImp implements SalaryItemService {
         Map<String, Object> hashMap = new HashMap<>();
         hashMap.put("id", staffInfo.getId());
         hashMap.put("name", staffInfo.getName());
+        hashMap.put("state",staffInfo.getState());
         return hashMap;
     }
 
