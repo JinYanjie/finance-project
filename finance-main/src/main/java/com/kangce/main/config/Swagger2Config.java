@@ -19,6 +19,9 @@ import java.util.List;
 
 /**
  * Swagger2API文档的配置
+ *
+ * http://localhost:8081/swagger-ui.html
+ *
  */
 @Configuration
 @EnableSwagger2
