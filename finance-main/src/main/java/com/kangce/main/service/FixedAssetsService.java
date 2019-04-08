@@ -9,4 +9,8 @@ public interface FixedAssetsService {
     int addAssets(FixedAssets fixedAssets);
 
     List<FixedAssets> loadFixedAssetsList();
+
+    String getAssetsCode(int type);
+
+    FixedAssets loadFixedAssetsById(int assetsId);
 }

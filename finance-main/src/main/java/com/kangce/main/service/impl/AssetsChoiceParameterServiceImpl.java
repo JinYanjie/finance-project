@@ -1,5 +1,6 @@
 package com.kangce.main.service.impl;
 
+import com.kangce.main.service.AssetsChoiceParameterService;
 import com.kangce.mybatis.mapper.UtassettypeMapper;
 import com.kangce.mybatis.mapper.UtchangemodeMapper;
 import com.kangce.mybatis.model.Utassettype;
