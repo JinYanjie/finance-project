@@ -57,6 +57,26 @@ public class FixedAssetController {
         }
     }
 
+    @ApiOperation("更改资产变动类型")
+    @PostMapping("/editChangeWay")
+    public Object editChangeWay(@RequestParam("id") int id,
+                                @RequestParam("changWay") int changWay) {
+        CommonResult commonResult = new CommonResult();
+
+        FixedAssets fixedAssets = fixedAssetsService.loadFixedAssetsById(id);
+        if(fixedAssets==null){
+            return commonResult.failed("资产id不存在");
+        }else{
+            fixedAssets.setChangeWay(changWay);
+            int i = fixedAssetsService.updateAssets(id, changWay);
+            if(i==1){
+                return commonResult.success(new HashMap<>());
+            }else {
+                return commonResult.failed("编辑失败");
+            }
+        }
+    }
+
 
     @ApiOperation("查询所有固定资产记录")
     @PostMapping("/loadFixedAssetsList")
