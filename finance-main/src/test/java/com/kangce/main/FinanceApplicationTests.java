@@ -1,5 +1,6 @@
 package com.kangce.main;
 
+import com.kangce.main.service.FixedAssetsService;
 import com.kangce.mybatis.model.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,11 +21,9 @@ public class FinanceApplicationTests {
     private RedisTemplate redisTemplate;
 
 
+
     @Test
     public void contextLoads() {
-
-
-
 
     }
 

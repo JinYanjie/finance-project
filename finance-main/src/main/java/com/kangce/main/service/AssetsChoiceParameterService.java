@@ -1,4 +1,4 @@
-package com.kangce.main.service.impl;
+package com.kangce.main.service;
 
 import com.kangce.mybatis.model.Utassettype;
 import com.kangce.mybatis.model.Utchangemode;
