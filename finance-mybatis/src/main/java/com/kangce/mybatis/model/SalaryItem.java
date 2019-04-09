@@ -1,6 +1,7 @@
 package com.kangce.mybatis.model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class SalaryItem implements Serializable {
@@ -30,112 +31,112 @@ public class SalaryItem implements Serializable {
      *
      * @mbggenerated
      */
-    private Float sBase;
+    private BigDecimal baseSalary;
 
     /**
      * 职位工资
      *
      * @mbggenerated
      */
-    private Float sJob;
+    private BigDecimal jobSalary;
 
     /**
      * 奖金
      *
      * @mbggenerated
      */
-    private Float sAward;
+    private BigDecimal bonus;
 
     /**
      * 加班工资
      *
      * @mbggenerated
      */
-    private Float sExrea;
+    private BigDecimal addSalary;
 
     /**
      * 绩效工资
      *
      * @mbggenerated
      */
-    private Float sPerform;
+    private BigDecimal performSalary;
 
     /**
      * 福利
      *
      * @mbggenerated
      */
-    private Float sWelfare;
+    private BigDecimal welfare;
 
     /**
      * 公积金基数
      *
      * @mbggenerated
      */
-    private Float bAccumulation;
+    private BigDecimal reservedFundsBase;
 
     /**
      * 住房公积金
      *
      * @mbggenerated
      */
-    private Float rAccumulation;
+    private BigDecimal reservedFunds;
 
     /**
      * 医疗保险基数
      *
      * @mbggenerated
      */
-    private Float bInsureMedicine;
+    private BigDecimal insureMedicineBase;
 
     /**
      * 医疗保险
      *
      * @mbggenerated
      */
-    private Float rInsureMedicine;
+    private BigDecimal insureMedicine;
 
     /**
      * 养老保险基数
      *
      * @mbggenerated
      */
-    private Float bInsurePension;
+    private BigDecimal insurePensionBase;
 
     /**
      * 养老保险
      *
      * @mbggenerated
      */
-    private Float rInsurePension;
+    private BigDecimal insurePension;
 
     /**
      * 失业保险基数
      *
      * @mbggenerated
      */
-    private Float bInsureJob;
+    private BigDecimal insureJobBase;
 
     /**
      * 失业保险
      *
      * @mbggenerated
      */
-    private Float rInsureJob;
+    private BigDecimal insureJob;
 
     /**
      * 考勤扣除
      *
      * @mbggenerated
      */
-    private Float checkInFree;
+    private BigDecimal attandance;
 
     /**
      * 其他扣除
      *
      * @mbggenerated
      */
-    private Float otherFree;
+    private BigDecimal otherFee;
 
     /**
      * 日期
@@ -149,14 +150,63 @@ public class SalaryItem implements Serializable {
      *
      * @mbggenerated
      */
-    private Float pTax;
+    private BigDecimal pTax;
 
     /**
-     * 税率
+     * 子女教育
      *
      * @mbggenerated
      */
-    private Float taxRate;
+    private BigDecimal childEdu;
+
+    /**
+     * 继续教育
+     *
+     * @mbggenerated
+     */
+    private BigDecimal continueEdu;
+
+    /**
+     * 大病医疗
+     *
+     * @mbggenerated
+     */
+    private BigDecimal bigDisease;
+
+    /**
+     * 住房贷款利息
+     *
+     * @mbggenerated
+     */
+    private BigDecimal homeLoan;
+
+    /**
+     * 住房租金
+     *
+     * @mbggenerated
+     */
+    private BigDecimal homeRent;
+
+    /**
+     * 赡养老人
+     *
+     * @mbggenerated
+     */
+    private BigDecimal helpOld;
+
+    /**
+     * 实发工资
+     *
+     * @mbggenerated
+     */
+    private BigDecimal reallySalary;
+
+    /**
+     * 工作状态
+     *
+     * @mbggenerated
+     */
+    private Integer state;
 
     private static final long serialVersionUID = 1L;
 
@@ -184,132 +234,132 @@ public class SalaryItem implements Serializable {
         this.sName = sName;
     }
 
-    public Float getsBase() {
-        return sBase;
+    public BigDecimal getBaseSalary() {
+        return baseSalary;
     }
 
-    public void setsBase(Float sBase) {
-        this.sBase = sBase;
+    public void setBaseSalary(BigDecimal baseSalary) {
+        this.baseSalary = baseSalary;
     }
 
-    public Float getsJob() {
-        return sJob;
+    public BigDecimal getJobSalary() {
+        return jobSalary;
     }
 
-    public void setsJob(Float sJob) {
-        this.sJob = sJob;
+    public void setJobSalary(BigDecimal jobSalary) {
+        this.jobSalary = jobSalary;
     }
 
-    public Float getsAward() {
-        return sAward;
+    public BigDecimal getBonus() {
+        return bonus;
     }
 
-    public void setsAward(Float sAward) {
-        this.sAward = sAward;
+    public void setBonus(BigDecimal bonus) {
+        this.bonus = bonus;
     }
 
-    public Float getsExrea() {
-        return sExrea;
+    public BigDecimal getAddSalary() {
+        return addSalary;
     }
 
-    public void setsExrea(Float sExrea) {
-        this.sExrea = sExrea;
+    public void setAddSalary(BigDecimal addSalary) {
+        this.addSalary = addSalary;
     }
 
-    public Float getsPerform() {
-        return sPerform;
+    public BigDecimal getPerformSalary() {
+        return performSalary;
     }
 
-    public void setsPerform(Float sPerform) {
-        this.sPerform = sPerform;
+    public void setPerformSalary(BigDecimal performSalary) {
+        this.performSalary = performSalary;
     }
 
-    public Float getsWelfare() {
-        return sWelfare;
+    public BigDecimal getWelfare() {
+        return welfare;
     }
 
-    public void setsWelfare(Float sWelfare) {
-        this.sWelfare = sWelfare;
+    public void setWelfare(BigDecimal welfare) {
+        this.welfare = welfare;
     }
 
-    public Float getbAccumulation() {
-        return bAccumulation;
+    public BigDecimal getReservedFundsBase() {
+        return reservedFundsBase;
     }
 
-    public void setbAccumulation(Float bAccumulation) {
-        this.bAccumulation = bAccumulation;
+    public void setReservedFundsBase(BigDecimal reservedFundsBase) {
+        this.reservedFundsBase = reservedFundsBase;
     }
 
-    public Float getrAccumulation() {
-        return rAccumulation;
+    public BigDecimal getReservedFunds() {
+        return reservedFunds;
     }
 
-    public void setrAccumulation(Float rAccumulation) {
-        this.rAccumulation = rAccumulation;
+    public void setReservedFunds(BigDecimal reservedFunds) {
+        this.reservedFunds = reservedFunds;
     }
 
-    public Float getbInsureMedicine() {
-        return bInsureMedicine;
+    public BigDecimal getInsureMedicineBase() {
+        return insureMedicineBase;
     }
 
-    public void setbInsureMedicine(Float bInsureMedicine) {
-        this.bInsureMedicine = bInsureMedicine;
+    public void setInsureMedicineBase(BigDecimal insureMedicineBase) {
+        this.insureMedicineBase = insureMedicineBase;
     }
 
-    public Float getrInsureMedicine() {
-        return rInsureMedicine;
+    public BigDecimal getInsureMedicine() {
+        return insureMedicine;
     }
 
-    public void setrInsureMedicine(Float rInsureMedicine) {
-        this.rInsureMedicine = rInsureMedicine;
+    public void setInsureMedicine(BigDecimal insureMedicine) {
+        this.insureMedicine = insureMedicine;
     }
 
-    public Float getbInsurePension() {
-        return bInsurePension;
+    public BigDecimal getInsurePensionBase() {
+        return insurePensionBase;
     }
 
-    public void setbInsurePension(Float bInsurePension) {
-        this.bInsurePension = bInsurePension;
+    public void setInsurePensionBase(BigDecimal insurePensionBase) {
+        this.insurePensionBase = insurePensionBase;
     }
 
-    public Float getrInsurePension() {
-        return rInsurePension;
+    public BigDecimal getInsurePension() {
+        return insurePension;
     }
 
-    public void setrInsurePension(Float rInsurePension) {
-        this.rInsurePension = rInsurePension;
+    public void setInsurePension(BigDecimal insurePension) {
+        this.insurePension = insurePension;
     }
 
-    public Float getbInsureJob() {
-        return bInsureJob;
+    public BigDecimal getInsureJobBase() {
+        return insureJobBase;
     }
 
-    public void setbInsureJob(Float bInsureJob) {
-        this.bInsureJob = bInsureJob;
+    public void setInsureJobBase(BigDecimal insureJobBase) {
+        this.insureJobBase = insureJobBase;
     }
 
-    public Float getrInsureJob() {
-        return rInsureJob;
+    public BigDecimal getInsureJob() {
+        return insureJob;
     }
 
-    public void setrInsureJob(Float rInsureJob) {
-        this.rInsureJob = rInsureJob;
+    public void setInsureJob(BigDecimal insureJob) {
+        this.insureJob = insureJob;
     }
 
-    public Float getCheckInFree() {
-        return checkInFree;
+    public BigDecimal getAttandance() {
+        return attandance;
     }
 
-    public void setCheckInFree(Float checkInFree) {
-        this.checkInFree = checkInFree;
+    public void setAttandance(BigDecimal attandance) {
+        this.attandance = attandance;
     }
 
-    public Float getOtherFree() {
-        return otherFree;
+    public BigDecimal getOtherFee() {
+        return otherFee;
     }
 
-    public void setOtherFree(Float otherFree) {
-        this.otherFree = otherFree;
+    public void setOtherFee(BigDecimal otherFee) {
+        this.otherFee = otherFee;
     }
 
     public Date getDate() {
@@ -320,20 +370,76 @@ public class SalaryItem implements Serializable {
         this.date = date;
     }
 
-    public Float getpTax() {
+    public BigDecimal getpTax() {
         return pTax;
     }
 
-    public void setpTax(Float pTax) {
+    public void setpTax(BigDecimal pTax) {
         this.pTax = pTax;
     }
 
-    public Float getTaxRate() {
-        return taxRate;
+    public BigDecimal getChildEdu() {
+        return childEdu;
     }
 
-    public void setTaxRate(Float taxRate) {
-        this.taxRate = taxRate;
+    public void setChildEdu(BigDecimal childEdu) {
+        this.childEdu = childEdu;
+    }
+
+    public BigDecimal getContinueEdu() {
+        return continueEdu;
+    }
+
+    public void setContinueEdu(BigDecimal continueEdu) {
+        this.continueEdu = continueEdu;
+    }
+
+    public BigDecimal getBigDisease() {
+        return bigDisease;
+    }
+
+    public void setBigDisease(BigDecimal bigDisease) {
+        this.bigDisease = bigDisease;
+    }
+
+    public BigDecimal getHomeLoan() {
+        return homeLoan;
+    }
+
+    public void setHomeLoan(BigDecimal homeLoan) {
+        this.homeLoan = homeLoan;
+    }
+
+    public BigDecimal getHomeRent() {
+        return homeRent;
+    }
+
+    public void setHomeRent(BigDecimal homeRent) {
+        this.homeRent = homeRent;
+    }
+
+    public BigDecimal getHelpOld() {
+        return helpOld;
+    }
+
+    public void setHelpOld(BigDecimal helpOld) {
+        this.helpOld = helpOld;
+    }
+
+    public BigDecimal getReallySalary() {
+        return reallySalary;
+    }
+
+    public void setReallySalary(BigDecimal reallySalary) {
+        this.reallySalary = reallySalary;
+    }
+
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
     }
 
     @Override
@@ -345,25 +451,32 @@ public class SalaryItem implements Serializable {
         sb.append(", id=").append(id);
         sb.append(", sId=").append(sId);
         sb.append(", sName=").append(sName);
-        sb.append(", sBase=").append(sBase);
-        sb.append(", sJob=").append(sJob);
-        sb.append(", sAward=").append(sAward);
-        sb.append(", sExrea=").append(sExrea);
-        sb.append(", sPerform=").append(sPerform);
-        sb.append(", sWelfare=").append(sWelfare);
-        sb.append(", bAccumulation=").append(bAccumulation);
-        sb.append(", rAccumulation=").append(rAccumulation);
-        sb.append(", bInsureMedicine=").append(bInsureMedicine);
-        sb.append(", rInsureMedicine=").append(rInsureMedicine);
-        sb.append(", bInsurePension=").append(bInsurePension);
-        sb.append(", rInsurePension=").append(rInsurePension);
-        sb.append(", bInsureJob=").append(bInsureJob);
-        sb.append(", rInsureJob=").append(rInsureJob);
-        sb.append(", checkInFree=").append(checkInFree);
-        sb.append(", otherFree=").append(otherFree);
+        sb.append(", baseSalary=").append(baseSalary);
+        sb.append(", jobSalary=").append(jobSalary);
+        sb.append(", bonus=").append(bonus);
+        sb.append(", addSalary=").append(addSalary);
+        sb.append(", performSalary=").append(performSalary);
+        sb.append(", welfare=").append(welfare);
+        sb.append(", reservedFundsBase=").append(reservedFundsBase);
+        sb.append(", reservedFunds=").append(reservedFunds);
+        sb.append(", insureMedicineBase=").append(insureMedicineBase);
+        sb.append(", insureMedicine=").append(insureMedicine);
+        sb.append(", insurePensionBase=").append(insurePensionBase);
+        sb.append(", insurePension=").append(insurePension);
+        sb.append(", insureJobBase=").append(insureJobBase);
+        sb.append(", insureJob=").append(insureJob);
+        sb.append(", attandance=").append(attandance);
+        sb.append(", otherFee=").append(otherFee);
         sb.append(", date=").append(date);
         sb.append(", pTax=").append(pTax);
-        sb.append(", taxRate=").append(taxRate);
+        sb.append(", childEdu=").append(childEdu);
+        sb.append(", continueEdu=").append(continueEdu);
+        sb.append(", bigDisease=").append(bigDisease);
+        sb.append(", homeLoan=").append(homeLoan);
+        sb.append(", homeRent=").append(homeRent);
+        sb.append(", helpOld=").append(helpOld);
+        sb.append(", reallySalary=").append(reallySalary);
+        sb.append(", state=").append(state);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

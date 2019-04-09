@@ -5,25 +5,32 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="s_id" jdbcType="INTEGER" property="sId" />
     <result column="s_name" jdbcType="VARCHAR" property="sName" />
-    <result column="s_base" jdbcType="REAL" property="sBase" />
-    <result column="s_job" jdbcType="REAL" property="sJob" />
-    <result column="s_award" jdbcType="REAL" property="sAward" />
-    <result column="s_exrea" jdbcType="REAL" property="sExrea" />
-    <result column="s_perform" jdbcType="REAL" property="sPerform" />
-    <result column="s_welfare" jdbcType="REAL" property="sWelfare" />
-    <result column="b_accumulation" jdbcType="REAL" property="bAccumulation" />
-    <result column="r_accumulation" jdbcType="REAL" property="rAccumulation" />
-    <result column="b_insure_medicine" jdbcType="REAL" property="bInsureMedicine" />
-    <result column="r_insure_medicine" jdbcType="REAL" property="rInsureMedicine" />
-    <result column="b_insure_pension" jdbcType="REAL" property="bInsurePension" />
-    <result column="r_insure_pension" jdbcType="REAL" property="rInsurePension" />
-    <result column="b_insure_job" jdbcType="REAL" property="bInsureJob" />
-    <result column="r_insure_job" jdbcType="REAL" property="rInsureJob" />
-    <result column="check_in_free" jdbcType="REAL" property="checkInFree" />
-    <result column="other_free" jdbcType="REAL" property="otherFree" />
+    <result column="base_salary" jdbcType="DECIMAL" property="baseSalary" />
+    <result column="job_salary" jdbcType="DECIMAL" property="jobSalary" />
+    <result column="bonus" jdbcType="DECIMAL" property="bonus" />
+    <result column="add_salary" jdbcType="DECIMAL" property="addSalary" />
+    <result column="perform_salary" jdbcType="DECIMAL" property="performSalary" />
+    <result column="welfare" jdbcType="DECIMAL" property="welfare" />
+    <result column="reserved_funds_base" jdbcType="DECIMAL" property="reservedFundsBase" />
+    <result column="reserved_funds" jdbcType="DECIMAL" property="reservedFunds" />
+    <result column="insure_medicine_base" jdbcType="DECIMAL" property="insureMedicineBase" />
+    <result column="insure_medicine" jdbcType="DECIMAL" property="insureMedicine" />
+    <result column="insure_pension_base" jdbcType="DECIMAL" property="insurePensionBase" />
+    <result column="insure_pension" jdbcType="DECIMAL" property="insurePension" />
+    <result column="insure_job_base" jdbcType="DECIMAL" property="insureJobBase" />
+    <result column="insure_job" jdbcType="DECIMAL" property="insureJob" />
+    <result column="attandance" jdbcType="DECIMAL" property="attandance" />
+    <result column="other_fee" jdbcType="DECIMAL" property="otherFee" />
     <result column="date" jdbcType="DATE" property="date" />
-    <result column="p_tax" jdbcType="REAL" property="pTax" />
-    <result column="tax_rate" jdbcType="REAL" property="taxRate" />
+    <result column="p_tax" jdbcType="DECIMAL" property="pTax" />
+    <result column="child_edu" jdbcType="DECIMAL" property="childEdu" />
+    <result column="continue_edu" jdbcType="DECIMAL" property="continueEdu" />
+    <result column="big_disease" jdbcType="DECIMAL" property="bigDisease" />
+    <result column="home_loan" jdbcType="DECIMAL" property="homeLoan" />
+    <result column="home_rent" jdbcType="DECIMAL" property="homeRent" />
+    <result column="help_old" jdbcType="DECIMAL" property="helpOld" />
+    <result column="really_salary" jdbcType="DECIMAL" property="reallySalary" />
+    <result column="state" jdbcType="INTEGER" property="state" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -84,9 +91,11 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, s_id, s_name, s_base, s_job, s_award, s_exrea, s_perform, s_welfare, b_accumulation, 
-    r_accumulation, b_insure_medicine, r_insure_medicine, b_insure_pension, r_insure_pension, 
-    b_insure_job, r_insure_job, check_in_free, other_free, date, p_tax, tax_rate
+    id, s_id, s_name, base_salary, job_salary, bonus, add_salary, perform_salary, welfare, 
+    reserved_funds_base, reserved_funds, insure_medicine_base, insure_medicine, insure_pension_base, 
+    insure_pension, insure_job_base, insure_job, attandance, other_fee, date, p_tax, 
+    child_edu, continue_edu, big_disease, home_loan, home_rent, help_old, really_salary, 
+    state
   </sql>
   <select id="selectByExample" parameterType="com.kangce.mybatis.model.SalaryItemExample" resultMap="BaseResultMap">
     select
@@ -122,20 +131,26 @@
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into salary_item (s_id, s_name, s_base, 
-      s_job, s_award, s_exrea, s_perform, 
-      s_welfare, b_accumulation, r_accumulation, 
-      b_insure_medicine, r_insure_medicine, b_insure_pension, 
-      r_insure_pension, b_insure_job, r_insure_job, 
-      check_in_free, other_free, date, 
-      p_tax, tax_rate)
-    values (#{sId,jdbcType=INTEGER}, #{sName,jdbcType=VARCHAR}, #{sBase,jdbcType=REAL}, 
-      #{sJob,jdbcType=REAL}, #{sAward,jdbcType=REAL}, #{sExrea,jdbcType=REAL}, #{sPerform,jdbcType=REAL}, 
-      #{sWelfare,jdbcType=REAL}, #{bAccumulation,jdbcType=REAL}, #{rAccumulation,jdbcType=REAL}, 
-      #{bInsureMedicine,jdbcType=REAL}, #{rInsureMedicine,jdbcType=REAL}, #{bInsurePension,jdbcType=REAL}, 
-      #{rInsurePension,jdbcType=REAL}, #{bInsureJob,jdbcType=REAL}, #{rInsureJob,jdbcType=REAL}, 
-      #{checkInFree,jdbcType=REAL}, #{otherFree,jdbcType=REAL}, #{date,jdbcType=DATE}, 
-      #{pTax,jdbcType=REAL}, #{taxRate,jdbcType=REAL})
+    insert into salary_item (s_id, s_name, base_salary, 
+      job_salary, bonus, add_salary, 
+      perform_salary, welfare, reserved_funds_base, 
+      reserved_funds, insure_medicine_base, insure_medicine, 
+      insure_pension_base, insure_pension, insure_job_base, 
+      insure_job, attandance, other_fee, 
+      date, p_tax, child_edu, 
+      continue_edu, big_disease, home_loan, 
+      home_rent, help_old, really_salary, 
+      state)
+    values (#{sId,jdbcType=INTEGER}, #{sName,jdbcType=VARCHAR}, #{baseSalary,jdbcType=DECIMAL}, 
+      #{jobSalary,jdbcType=DECIMAL}, #{bonus,jdbcType=DECIMAL}, #{addSalary,jdbcType=DECIMAL}, 
+      #{performSalary,jdbcType=DECIMAL}, #{welfare,jdbcType=DECIMAL}, #{reservedFundsBase,jdbcType=DECIMAL}, 
+      #{reservedFunds,jdbcType=DECIMAL}, #{insureMedicineBase,jdbcType=DECIMAL}, #{insureMedicine,jdbcType=DECIMAL}, 
+      #{insurePensionBase,jdbcType=DECIMAL}, #{insurePension,jdbcType=DECIMAL}, #{insureJobBase,jdbcType=DECIMAL}, 
+      #{insureJob,jdbcType=DECIMAL}, #{attandance,jdbcType=DECIMAL}, #{otherFee,jdbcType=DECIMAL}, 
+      #{date,jdbcType=DATE}, #{pTax,jdbcType=DECIMAL}, #{childEdu,jdbcType=DECIMAL}, 
+      #{continueEdu,jdbcType=DECIMAL}, #{bigDisease,jdbcType=DECIMAL}, #{homeLoan,jdbcType=DECIMAL}, 
+      #{homeRent,jdbcType=DECIMAL}, #{helpOld,jdbcType=DECIMAL}, #{reallySalary,jdbcType=DECIMAL}, 
+      #{state,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.kangce.mybatis.model.SalaryItem">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
@@ -149,53 +164,53 @@
       <if test="sName != null">
         s_name,
       </if>
-      <if test="sBase != null">
-        s_base,
+      <if test="baseSalary != null">
+        base_salary,
       </if>
-      <if test="sJob != null">
-        s_job,
+      <if test="jobSalary != null">
+        job_salary,
       </if>
-      <if test="sAward != null">
-        s_award,
+      <if test="bonus != null">
+        bonus,
       </if>
-      <if test="sExrea != null">
-        s_exrea,
+      <if test="addSalary != null">
+        add_salary,
       </if>
-      <if test="sPerform != null">
-        s_perform,
+      <if test="performSalary != null">
+        perform_salary,
       </if>
-      <if test="sWelfare != null">
-        s_welfare,
+      <if test="welfare != null">
+        welfare,
       </if>
-      <if test="bAccumulation != null">
-        b_accumulation,
+      <if test="reservedFundsBase != null">
+        reserved_funds_base,
       </if>
-      <if test="rAccumulation != null">
-        r_accumulation,
+      <if test="reservedFunds != null">
+        reserved_funds,
       </if>
-      <if test="bInsureMedicine != null">
-        b_insure_medicine,
+      <if test="insureMedicineBase != null">
+        insure_medicine_base,
       </if>
-      <if test="rInsureMedicine != null">
-        r_insure_medicine,
+      <if test="insureMedicine != null">
+        insure_medicine,
       </if>
-      <if test="bInsurePension != null">
-        b_insure_pension,
+      <if test="insurePensionBase != null">
+        insure_pension_base,
       </if>
-      <if test="rInsurePension != null">
-        r_insure_pension,
+      <if test="insurePension != null">
+        insure_pension,
       </if>
-      <if test="bInsureJob != null">
-        b_insure_job,
+      <if test="insureJobBase != null">
+        insure_job_base,
       </if>
-      <if test="rInsureJob != null">
-        r_insure_job,
+      <if test="insureJob != null">
+        insure_job,
       </if>
-      <if test="checkInFree != null">
-        check_in_free,
+      <if test="attandance != null">
+        attandance,
       </if>
-      <if test="otherFree != null">
-        other_free,
+      <if test="otherFee != null">
+        other_fee,
       </if>
       <if test="date != null">
         date,
@@ -203,8 +218,29 @@
       <if test="pTax != null">
         p_tax,
       </if>
-      <if test="taxRate != null">
-        tax_rate,
+      <if test="childEdu != null">
+        child_edu,
+      </if>
+      <if test="continueEdu != null">
+        continue_edu,
+      </if>
+      <if test="bigDisease != null">
+        big_disease,
+      </if>
+      <if test="homeLoan != null">
+        home_loan,
+      </if>
+      <if test="homeRent != null">
+        home_rent,
+      </if>
+      <if test="helpOld != null">
+        help_old,
+      </if>
+      <if test="reallySalary != null">
+        really_salary,
+      </if>
+      <if test="state != null">
+        state,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -214,62 +250,83 @@
       <if test="sName != null">
         #{sName,jdbcType=VARCHAR},
       </if>
-      <if test="sBase != null">
-        #{sBase,jdbcType=REAL},
+      <if test="baseSalary != null">
+        #{baseSalary,jdbcType=DECIMAL},
       </if>
-      <if test="sJob != null">
-        #{sJob,jdbcType=REAL},
+      <if test="jobSalary != null">
+        #{jobSalary,jdbcType=DECIMAL},
       </if>
-      <if test="sAward != null">
-        #{sAward,jdbcType=REAL},
+      <if test="bonus != null">
+        #{bonus,jdbcType=DECIMAL},
       </if>
-      <if test="sExrea != null">
-        #{sExrea,jdbcType=REAL},
+      <if test="addSalary != null">
+        #{addSalary,jdbcType=DECIMAL},
       </if>
-      <if test="sPerform != null">
-        #{sPerform,jdbcType=REAL},
+      <if test="performSalary != null">
+        #{performSalary,jdbcType=DECIMAL},
       </if>
-      <if test="sWelfare != null">
-        #{sWelfare,jdbcType=REAL},
+      <if test="welfare != null">
+        #{welfare,jdbcType=DECIMAL},
       </if>
-      <if test="bAccumulation != null">
-        #{bAccumulation,jdbcType=REAL},
+      <if test="reservedFundsBase != null">
+        #{reservedFundsBase,jdbcType=DECIMAL},
       </if>
-      <if test="rAccumulation != null">
-        #{rAccumulation,jdbcType=REAL},
+      <if test="reservedFunds != null">
+        #{reservedFunds,jdbcType=DECIMAL},
       </if>
-      <if test="bInsureMedicine != null">
-        #{bInsureMedicine,jdbcType=REAL},
+      <if test="insureMedicineBase != null">
+        #{insureMedicineBase,jdbcType=DECIMAL},
       </if>
-      <if test="rInsureMedicine != null">
-        #{rInsureMedicine,jdbcType=REAL},
+      <if test="insureMedicine != null">
+        #{insureMedicine,jdbcType=DECIMAL},
       </if>
-      <if test="bInsurePension != null">
-        #{bInsurePension,jdbcType=REAL},
+      <if test="insurePensionBase != null">
+        #{insurePensionBase,jdbcType=DECIMAL},
       </if>
-      <if test="rInsurePension != null">
-        #{rInsurePension,jdbcType=REAL},
+      <if test="insurePension != null">
+        #{insurePension,jdbcType=DECIMAL},
       </if>
-      <if test="bInsureJob != null">
-        #{bInsureJob,jdbcType=REAL},
+      <if test="insureJobBase != null">
+        #{insureJobBase,jdbcType=DECIMAL},
       </if>
-      <if test="rInsureJob != null">
-        #{rInsureJob,jdbcType=REAL},
+      <if test="insureJob != null">
+        #{insureJob,jdbcType=DECIMAL},
       </if>
-      <if test="checkInFree != null">
-        #{checkInFree,jdbcType=REAL},
+      <if test="attandance != null">
+        #{attandance,jdbcType=DECIMAL},
       </if>
-      <if test="otherFree != null">
-        #{otherFree,jdbcType=REAL},
+      <if test="otherFee != null">
+        #{otherFee,jdbcType=DECIMAL},
       </if>
       <if test="date != null">
         #{date,jdbcType=DATE},
       </if>
       <if test="pTax != null">
-        #{pTax,jdbcType=REAL},
+        #{pTax,jdbcType=DECIMAL},
       </if>
-      <if test="taxRate != null">
-        #{taxRate,jdbcType=REAL},
+      <if test="childEdu != null">
+        #{childEdu,jdbcType=DECIMAL},
+      </if>
+      <if test="continueEdu != null">
+        #{continueEdu,jdbcType=DECIMAL},
+      </if>
+      <if test="bigDisease != null">
+        #{bigDisease,jdbcType=DECIMAL},
+      </if>
+      <if test="homeLoan != null">
+        #{homeLoan,jdbcType=DECIMAL},
+      </if>
+      <if test="homeRent != null">
+        #{homeRent,jdbcType=DECIMAL},
+      </if>
+      <if test="helpOld != null">
+        #{helpOld,jdbcType=DECIMAL},
+      </if>
+      <if test="reallySalary != null">
+        #{reallySalary,jdbcType=DECIMAL},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -291,62 +348,83 @@
       <if test="record.sName != null">
         s_name = #{record.sName,jdbcType=VARCHAR},
       </if>
-      <if test="record.sBase != null">
-        s_base = #{record.sBase,jdbcType=REAL},
+      <if test="record.baseSalary != null">
+        base_salary = #{record.baseSalary,jdbcType=DECIMAL},
       </if>
-      <if test="record.sJob != null">
-        s_job = #{record.sJob,jdbcType=REAL},
+      <if test="record.jobSalary != null">
+        job_salary = #{record.jobSalary,jdbcType=DECIMAL},
       </if>
-      <if test="record.sAward != null">
-        s_award = #{record.sAward,jdbcType=REAL},
+      <if test="record.bonus != null">
+        bonus = #{record.bonus,jdbcType=DECIMAL},
       </if>
-      <if test="record.sExrea != null">
-        s_exrea = #{record.sExrea,jdbcType=REAL},
+      <if test="record.addSalary != null">
+        add_salary = #{record.addSalary,jdbcType=DECIMAL},
       </if>
-      <if test="record.sPerform != null">
-        s_perform = #{record.sPerform,jdbcType=REAL},
+      <if test="record.performSalary != null">
+        perform_salary = #{record.performSalary,jdbcType=DECIMAL},
       </if>
-      <if test="record.sWelfare != null">
-        s_welfare = #{record.sWelfare,jdbcType=REAL},
+      <if test="record.welfare != null">
+        welfare = #{record.welfare,jdbcType=DECIMAL},
       </if>
-      <if test="record.bAccumulation != null">
-        b_accumulation = #{record.bAccumulation,jdbcType=REAL},
+      <if test="record.reservedFundsBase != null">
+        reserved_funds_base = #{record.reservedFundsBase,jdbcType=DECIMAL},
       </if>
-      <if test="record.rAccumulation != null">
-        r_accumulation = #{record.rAccumulation,jdbcType=REAL},
+      <if test="record.reservedFunds != null">
+        reserved_funds = #{record.reservedFunds,jdbcType=DECIMAL},
       </if>
-      <if test="record.bInsureMedicine != null">
-        b_insure_medicine = #{record.bInsureMedicine,jdbcType=REAL},
+      <if test="record.insureMedicineBase != null">
+        insure_medicine_base = #{record.insureMedicineBase,jdbcType=DECIMAL},
       </if>
-      <if test="record.rInsureMedicine != null">
-        r_insure_medicine = #{record.rInsureMedicine,jdbcType=REAL},
+      <if test="record.insureMedicine != null">
+        insure_medicine = #{record.insureMedicine,jdbcType=DECIMAL},
       </if>
-      <if test="record.bInsurePension != null">
-        b_insure_pension = #{record.bInsurePension,jdbcType=REAL},
+      <if test="record.insurePensionBase != null">
+        insure_pension_base = #{record.insurePensionBase,jdbcType=DECIMAL},
       </if>
-      <if test="record.rInsurePension != null">
-        r_insure_pension = #{record.rInsurePension,jdbcType=REAL},
+      <if test="record.insurePension != null">
+        insure_pension = #{record.insurePension,jdbcType=DECIMAL},
       </if>
-      <if test="record.bInsureJob != null">
-        b_insure_job = #{record.bInsureJob,jdbcType=REAL},
+      <if test="record.insureJobBase != null">
+        insure_job_base = #{record.insureJobBase,jdbcType=DECIMAL},
       </if>
-      <if test="record.rInsureJob != null">
-        r_insure_job = #{record.rInsureJob,jdbcType=REAL},
+      <if test="record.insureJob != null">
+        insure_job = #{record.insureJob,jdbcType=DECIMAL},
       </if>
-      <if test="record.checkInFree != null">
-        check_in_free = #{record.checkInFree,jdbcType=REAL},
+      <if test="record.attandance != null">
+        attandance = #{record.attandance,jdbcType=DECIMAL},
       </if>
-      <if test="record.otherFree != null">
-        other_free = #{record.otherFree,jdbcType=REAL},
+      <if test="record.otherFee != null">
+        other_fee = #{record.otherFee,jdbcType=DECIMAL},
       </if>
       <if test="record.date != null">
         date = #{record.date,jdbcType=DATE},
       </if>
       <if test="record.pTax != null">
-        p_tax = #{record.pTax,jdbcType=REAL},
+        p_tax = #{record.pTax,jdbcType=DECIMAL},
       </if>
-      <if test="record.taxRate != null">
-        tax_rate = #{record.taxRate,jdbcType=REAL},
+      <if test="record.childEdu != null">
+        child_edu = #{record.childEdu,jdbcType=DECIMAL},
+      </if>
+      <if test="record.continueEdu != null">
+        continue_edu = #{record.continueEdu,jdbcType=DECIMAL},
+      </if>
+      <if test="record.bigDisease != null">
+        big_disease = #{record.bigDisease,jdbcType=DECIMAL},
+      </if>
+      <if test="record.homeLoan != null">
+        home_loan = #{record.homeLoan,jdbcType=DECIMAL},
+      </if>
+      <if test="record.homeRent != null">
+        home_rent = #{record.homeRent,jdbcType=DECIMAL},
+      </if>
+      <if test="record.helpOld != null">
+        help_old = #{record.helpOld,jdbcType=DECIMAL},
+      </if>
+      <if test="record.reallySalary != null">
+        really_salary = #{record.reallySalary,jdbcType=DECIMAL},
+      </if>
+      <if test="record.state != null">
+        state = #{record.state,jdbcType=INTEGER},
       </if>
     </set>
     <if test="_parameter != null">
@@ -358,25 +436,32 @@
     set id = #{record.id,jdbcType=INTEGER},
       s_id = #{record.sId,jdbcType=INTEGER},
       s_name = #{record.sName,jdbcType=VARCHAR},
-      s_base = #{record.sBase,jdbcType=REAL},
-      s_job = #{record.sJob,jdbcType=REAL},
-      s_award = #{record.sAward,jdbcType=REAL},
-      s_exrea = #{record.sExrea,jdbcType=REAL},
-      s_perform = #{record.sPerform,jdbcType=REAL},
-      s_welfare = #{record.sWelfare,jdbcType=REAL},
-      b_accumulation = #{record.bAccumulation,jdbcType=REAL},
-      r_accumulation = #{record.rAccumulation,jdbcType=REAL},
-      b_insure_medicine = #{record.bInsureMedicine,jdbcType=REAL},
-      r_insure_medicine = #{record.rInsureMedicine,jdbcType=REAL},
-      b_insure_pension = #{record.bInsurePension,jdbcType=REAL},
-      r_insure_pension = #{record.rInsurePension,jdbcType=REAL},
-      b_insure_job = #{record.bInsureJob,jdbcType=REAL},
-      r_insure_job = #{record.rInsureJob,jdbcType=REAL},
-      check_in_free = #{record.checkInFree,jdbcType=REAL},
-      other_free = #{record.otherFree,jdbcType=REAL},
+      base_salary = #{record.baseSalary,jdbcType=DECIMAL},
+      job_salary = #{record.jobSalary,jdbcType=DECIMAL},
+      bonus = #{record.bonus,jdbcType=DECIMAL},
+      add_salary = #{record.addSalary,jdbcType=DECIMAL},
+      perform_salary = #{record.performSalary,jdbcType=DECIMAL},
+      welfare = #{record.welfare,jdbcType=DECIMAL},
+      reserved_funds_base = #{record.reservedFundsBase,jdbcType=DECIMAL},
+      reserved_funds = #{record.reservedFunds,jdbcType=DECIMAL},
+      insure_medicine_base = #{record.insureMedicineBase,jdbcType=DECIMAL},
+      insure_medicine = #{record.insureMedicine,jdbcType=DECIMAL},
+      insure_pension_base = #{record.insurePensionBase,jdbcType=DECIMAL},
+      insure_pension = #{record.insurePension,jdbcType=DECIMAL},
+      insure_job_base = #{record.insureJobBase,jdbcType=DECIMAL},
+      insure_job = #{record.insureJob,jdbcType=DECIMAL},
+      attandance = #{record.attandance,jdbcType=DECIMAL},
+      other_fee = #{record.otherFee,jdbcType=DECIMAL},
       date = #{record.date,jdbcType=DATE},
-      p_tax = #{record.pTax,jdbcType=REAL},
-      tax_rate = #{record.taxRate,jdbcType=REAL}
+      p_tax = #{record.pTax,jdbcType=DECIMAL},
+      child_edu = #{record.childEdu,jdbcType=DECIMAL},
+      continue_edu = #{record.continueEdu,jdbcType=DECIMAL},
+      big_disease = #{record.bigDisease,jdbcType=DECIMAL},
+      home_loan = #{record.homeLoan,jdbcType=DECIMAL},
+      home_rent = #{record.homeRent,jdbcType=DECIMAL},
+      help_old = #{record.helpOld,jdbcType=DECIMAL},
+      really_salary = #{record.reallySalary,jdbcType=DECIMAL},
+      state = #{record.state,jdbcType=INTEGER}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -390,62 +475,83 @@
       <if test="sName != null">
         s_name = #{sName,jdbcType=VARCHAR},
       </if>
-      <if test="sBase != null">
-        s_base = #{sBase,jdbcType=REAL},
+      <if test="baseSalary != null">
+        base_salary = #{baseSalary,jdbcType=DECIMAL},
       </if>
-      <if test="sJob != null">
-        s_job = #{sJob,jdbcType=REAL},
+      <if test="jobSalary != null">
+        job_salary = #{jobSalary,jdbcType=DECIMAL},
       </if>
-      <if test="sAward != null">
-        s_award = #{sAward,jdbcType=REAL},
+      <if test="bonus != null">
+        bonus = #{bonus,jdbcType=DECIMAL},
       </if>
-      <if test="sExrea != null">
-        s_exrea = #{sExrea,jdbcType=REAL},
+      <if test="addSalary != null">
+        add_salary = #{addSalary,jdbcType=DECIMAL},
       </if>
-      <if test="sPerform != null">
-        s_perform = #{sPerform,jdbcType=REAL},
+      <if test="performSalary != null">
+        perform_salary = #{performSalary,jdbcType=DECIMAL},
       </if>
-      <if test="sWelfare != null">
-        s_welfare = #{sWelfare,jdbcType=REAL},
+      <if test="welfare != null">
+        welfare = #{welfare,jdbcType=DECIMAL},
       </if>
-      <if test="bAccumulation != null">
-        b_accumulation = #{bAccumulation,jdbcType=REAL},
+      <if test="reservedFundsBase != null">
+        reserved_funds_base = #{reservedFundsBase,jdbcType=DECIMAL},
       </if>
-      <if test="rAccumulation != null">
-        r_accumulation = #{rAccumulation,jdbcType=REAL},
+      <if test="reservedFunds != null">
+        reserved_funds = #{reservedFunds,jdbcType=DECIMAL},
       </if>
-      <if test="bInsureMedicine != null">
-        b_insure_medicine = #{bInsureMedicine,jdbcType=REAL},
+      <if test="insureMedicineBase != null">
+        insure_medicine_base = #{insureMedicineBase,jdbcType=DECIMAL},
       </if>
-      <if test="rInsureMedicine != null">
-        r_insure_medicine = #{rInsureMedicine,jdbcType=REAL},
+      <if test="insureMedicine != null">
+        insure_medicine = #{insureMedicine,jdbcType=DECIMAL},
       </if>
-      <if test="bInsurePension != null">
-        b_insure_pension = #{bInsurePension,jdbcType=REAL},
+      <if test="insurePensionBase != null">
+        insure_pension_base = #{insurePensionBase,jdbcType=DECIMAL},
       </if>
-      <if test="rInsurePension != null">
-        r_insure_pension = #{rInsurePension,jdbcType=REAL},
+      <if test="insurePension != null">
+        insure_pension = #{insurePension,jdbcType=DECIMAL},
       </if>
-      <if test="bInsureJob != null">
-        b_insure_job = #{bInsureJob,jdbcType=REAL},
+      <if test="insureJobBase != null">
+        insure_job_base = #{insureJobBase,jdbcType=DECIMAL},
       </if>
-      <if test="rInsureJob != null">
-        r_insure_job = #{rInsureJob,jdbcType=REAL},
+      <if test="insureJob != null">
+        insure_job = #{insureJob,jdbcType=DECIMAL},
       </if>
-      <if test="checkInFree != null">
-        check_in_free = #{checkInFree,jdbcType=REAL},
+      <if test="attandance != null">
+        attandance = #{attandance,jdbcType=DECIMAL},
       </if>
-      <if test="otherFree != null">
-        other_free = #{otherFree,jdbcType=REAL},
+      <if test="otherFee != null">
+        other_fee = #{otherFee,jdbcType=DECIMAL},
       </if>
       <if test="date != null">
         date = #{date,jdbcType=DATE},
       </if>
       <if test="pTax != null">
-        p_tax = #{pTax,jdbcType=REAL},
+        p_tax = #{pTax,jdbcType=DECIMAL},
       </if>
-      <if test="taxRate != null">
-        tax_rate = #{taxRate,jdbcType=REAL},
+      <if test="childEdu != null">
+        child_edu = #{childEdu,jdbcType=DECIMAL},
+      </if>
+      <if test="continueEdu != null">
+        continue_edu = #{continueEdu,jdbcType=DECIMAL},
+      </if>
+      <if test="bigDisease != null">
+        big_disease = #{bigDisease,jdbcType=DECIMAL},
+      </if>
+      <if test="homeLoan != null">
+        home_loan = #{homeLoan,jdbcType=DECIMAL},
+      </if>
+      <if test="homeRent != null">
+        home_rent = #{homeRent,jdbcType=DECIMAL},
+      </if>
+      <if test="helpOld != null">
+        help_old = #{helpOld,jdbcType=DECIMAL},
+      </if>
+      <if test="reallySalary != null">
+        really_salary = #{reallySalary,jdbcType=DECIMAL},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=INTEGER},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -454,25 +560,32 @@
     update salary_item
     set s_id = #{sId,jdbcType=INTEGER},
       s_name = #{sName,jdbcType=VARCHAR},
-      s_base = #{sBase,jdbcType=REAL},
-      s_job = #{sJob,jdbcType=REAL},
-      s_award = #{sAward,jdbcType=REAL},
-      s_exrea = #{sExrea,jdbcType=REAL},
-      s_perform = #{sPerform,jdbcType=REAL},
-      s_welfare = #{sWelfare,jdbcType=REAL},
-      b_accumulation = #{bAccumulation,jdbcType=REAL},
-      r_accumulation = #{rAccumulation,jdbcType=REAL},
-      b_insure_medicine = #{bInsureMedicine,jdbcType=REAL},
-      r_insure_medicine = #{rInsureMedicine,jdbcType=REAL},
-      b_insure_pension = #{bInsurePension,jdbcType=REAL},
-      r_insure_pension = #{rInsurePension,jdbcType=REAL},
-      b_insure_job = #{bInsureJob,jdbcType=REAL},
-      r_insure_job = #{rInsureJob,jdbcType=REAL},
-      check_in_free = #{checkInFree,jdbcType=REAL},
-      other_free = #{otherFree,jdbcType=REAL},
+      base_salary = #{baseSalary,jdbcType=DECIMAL},
+      job_salary = #{jobSalary,jdbcType=DECIMAL},
+      bonus = #{bonus,jdbcType=DECIMAL},
+      add_salary = #{addSalary,jdbcType=DECIMAL},
+      perform_salary = #{performSalary,jdbcType=DECIMAL},
+      welfare = #{welfare,jdbcType=DECIMAL},
+      reserved_funds_base = #{reservedFundsBase,jdbcType=DECIMAL},
+      reserved_funds = #{reservedFunds,jdbcType=DECIMAL},
+      insure_medicine_base = #{insureMedicineBase,jdbcType=DECIMAL},
+      insure_medicine = #{insureMedicine,jdbcType=DECIMAL},
+      insure_pension_base = #{insurePensionBase,jdbcType=DECIMAL},
+      insure_pension = #{insurePension,jdbcType=DECIMAL},
+      insure_job_base = #{insureJobBase,jdbcType=DECIMAL},
+      insure_job = #{insureJob,jdbcType=DECIMAL},
+      attandance = #{attandance,jdbcType=DECIMAL},
+      other_fee = #{otherFee,jdbcType=DECIMAL},
       date = #{date,jdbcType=DATE},
-      p_tax = #{pTax,jdbcType=REAL},
-      tax_rate = #{taxRate,jdbcType=REAL}
+      p_tax = #{pTax,jdbcType=DECIMAL},
+      child_edu = #{childEdu,jdbcType=DECIMAL},
+      continue_edu = #{continueEdu,jdbcType=DECIMAL},
+      big_disease = #{bigDisease,jdbcType=DECIMAL},
+      home_loan = #{homeLoan,jdbcType=DECIMAL},
+      home_rent = #{homeRent,jdbcType=DECIMAL},
+      help_old = #{helpOld,jdbcType=DECIMAL},
+      really_salary = #{reallySalary,jdbcType=DECIMAL},
+      state = #{state,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>
