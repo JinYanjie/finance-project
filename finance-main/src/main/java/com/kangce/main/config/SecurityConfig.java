@@ -100,7 +100,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/auth/**",
                         "/v2/api-docs/**",
                         "/fixedAssets/**",//测试接口
-                        "/certificate/**"//凭证字接口 测试用
+                        "/certificate/**",//凭证字接口 测试用
+                        "/baseCourse/**",
+                        "/certificateManager/**",
+                        "/sheet/**"
                 )
                 .permitAll()
                 // 除上面外的所有请求全部需要鉴权认证
