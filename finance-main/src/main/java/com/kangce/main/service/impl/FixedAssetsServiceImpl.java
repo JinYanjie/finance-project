@@ -88,4 +88,22 @@ public class FixedAssetsServiceImpl implements FixedAssetsService {
         }
 
     }
+
+    @Override
+    public int updateAssets(int id, int changWay) {
+        FixedAssetsExample example = new FixedAssetsExample();
+        example.createCriteria().andIdEqualTo(id);
+        List<FixedAssets> fixedAssets = fixedAssetsMapper.selectByExample(example);
+        if(fixedAssets==null || fixedAssets.size()==0){
+            return -1;
+        }
+
+        FixedAssets assets = fixedAssets.get(0);
+        assets.setChangeWay(changWay);
+
+
+
+
+        return fixedAssetsMapper.updateByExample(assets,example);
+    }
 }
