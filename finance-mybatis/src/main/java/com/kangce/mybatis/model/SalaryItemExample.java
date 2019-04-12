@@ -1,5 +1,6 @@
 package com.kangce.mybatis.model;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -322,963 +323,963 @@ public class SalaryItemExample {
             return (Criteria) this;
         }
 
-        public Criteria andSBaseIsNull() {
-            addCriterion("s_base is null");
+        public Criteria andBaseSalaryIsNull() {
+            addCriterion("base_salary is null");
             return (Criteria) this;
         }
 
-        public Criteria andSBaseIsNotNull() {
-            addCriterion("s_base is not null");
+        public Criteria andBaseSalaryIsNotNull() {
+            addCriterion("base_salary is not null");
             return (Criteria) this;
         }
 
-        public Criteria andSBaseEqualTo(Float value) {
-            addCriterion("s_base =", value, "sBase");
+        public Criteria andBaseSalaryEqualTo(BigDecimal value) {
+            addCriterion("base_salary =", value, "baseSalary");
             return (Criteria) this;
         }
 
-        public Criteria andSBaseNotEqualTo(Float value) {
-            addCriterion("s_base <>", value, "sBase");
+        public Criteria andBaseSalaryNotEqualTo(BigDecimal value) {
+            addCriterion("base_salary <>", value, "baseSalary");
             return (Criteria) this;
         }
 
-        public Criteria andSBaseGreaterThan(Float value) {
-            addCriterion("s_base >", value, "sBase");
+        public Criteria andBaseSalaryGreaterThan(BigDecimal value) {
+            addCriterion("base_salary >", value, "baseSalary");
             return (Criteria) this;
         }
 
-        public Criteria andSBaseGreaterThanOrEqualTo(Float value) {
-            addCriterion("s_base >=", value, "sBase");
+        public Criteria andBaseSalaryGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("base_salary >=", value, "baseSalary");
             return (Criteria) this;
         }
 
-        public Criteria andSBaseLessThan(Float value) {
-            addCriterion("s_base <", value, "sBase");
+        public Criteria andBaseSalaryLessThan(BigDecimal value) {
+            addCriterion("base_salary <", value, "baseSalary");
             return (Criteria) this;
         }
 
-        public Criteria andSBaseLessThanOrEqualTo(Float value) {
-            addCriterion("s_base <=", value, "sBase");
+        public Criteria andBaseSalaryLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("base_salary <=", value, "baseSalary");
             return (Criteria) this;
         }
 
-        public Criteria andSBaseIn(List<Float> values) {
-            addCriterion("s_base in", values, "sBase");
+        public Criteria andBaseSalaryIn(List<BigDecimal> values) {
+            addCriterion("base_salary in", values, "baseSalary");
             return (Criteria) this;
         }
 
-        public Criteria andSBaseNotIn(List<Float> values) {
-            addCriterion("s_base not in", values, "sBase");
+        public Criteria andBaseSalaryNotIn(List<BigDecimal> values) {
+            addCriterion("base_salary not in", values, "baseSalary");
             return (Criteria) this;
         }
 
-        public Criteria andSBaseBetween(Float value1, Float value2) {
-            addCriterion("s_base between", value1, value2, "sBase");
+        public Criteria andBaseSalaryBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("base_salary between", value1, value2, "baseSalary");
             return (Criteria) this;
         }
 
-        public Criteria andSBaseNotBetween(Float value1, Float value2) {
-            addCriterion("s_base not between", value1, value2, "sBase");
+        public Criteria andBaseSalaryNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("base_salary not between", value1, value2, "baseSalary");
             return (Criteria) this;
         }
 
-        public Criteria andSJobIsNull() {
-            addCriterion("s_job is null");
+        public Criteria andJobSalaryIsNull() {
+            addCriterion("job_salary is null");
             return (Criteria) this;
         }
 
-        public Criteria andSJobIsNotNull() {
-            addCriterion("s_job is not null");
+        public Criteria andJobSalaryIsNotNull() {
+            addCriterion("job_salary is not null");
             return (Criteria) this;
         }
 
-        public Criteria andSJobEqualTo(Float value) {
-            addCriterion("s_job =", value, "sJob");
+        public Criteria andJobSalaryEqualTo(BigDecimal value) {
+            addCriterion("job_salary =", value, "jobSalary");
             return (Criteria) this;
         }
 
-        public Criteria andSJobNotEqualTo(Float value) {
-            addCriterion("s_job <>", value, "sJob");
+        public Criteria andJobSalaryNotEqualTo(BigDecimal value) {
+            addCriterion("job_salary <>", value, "jobSalary");
             return (Criteria) this;
         }
 
-        public Criteria andSJobGreaterThan(Float value) {
-            addCriterion("s_job >", value, "sJob");
+        public Criteria andJobSalaryGreaterThan(BigDecimal value) {
+            addCriterion("job_salary >", value, "jobSalary");
             return (Criteria) this;
         }
 
-        public Criteria andSJobGreaterThanOrEqualTo(Float value) {
-            addCriterion("s_job >=", value, "sJob");
+        public Criteria andJobSalaryGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("job_salary >=", value, "jobSalary");
             return (Criteria) this;
         }
 
-        public Criteria andSJobLessThan(Float value) {
-            addCriterion("s_job <", value, "sJob");
+        public Criteria andJobSalaryLessThan(BigDecimal value) {
+            addCriterion("job_salary <", value, "jobSalary");
             return (Criteria) this;
         }
 
-        public Criteria andSJobLessThanOrEqualTo(Float value) {
-            addCriterion("s_job <=", value, "sJob");
+        public Criteria andJobSalaryLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("job_salary <=", value, "jobSalary");
             return (Criteria) this;
         }
 
-        public Criteria andSJobIn(List<Float> values) {
-            addCriterion("s_job in", values, "sJob");
+        public Criteria andJobSalaryIn(List<BigDecimal> values) {
+            addCriterion("job_salary in", values, "jobSalary");
             return (Criteria) this;
         }
 
-        public Criteria andSJobNotIn(List<Float> values) {
-            addCriterion("s_job not in", values, "sJob");
+        public Criteria andJobSalaryNotIn(List<BigDecimal> values) {
+            addCriterion("job_salary not in", values, "jobSalary");
             return (Criteria) this;
         }
 
-        public Criteria andSJobBetween(Float value1, Float value2) {
-            addCriterion("s_job between", value1, value2, "sJob");
+        public Criteria andJobSalaryBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("job_salary between", value1, value2, "jobSalary");
             return (Criteria) this;
         }
 
-        public Criteria andSJobNotBetween(Float value1, Float value2) {
-            addCriterion("s_job not between", value1, value2, "sJob");
+        public Criteria andJobSalaryNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("job_salary not between", value1, value2, "jobSalary");
             return (Criteria) this;
         }
 
-        public Criteria andSAwardIsNull() {
-            addCriterion("s_award is null");
+        public Criteria andBonusIsNull() {
+            addCriterion("bonus is null");
             return (Criteria) this;
         }
 
-        public Criteria andSAwardIsNotNull() {
-            addCriterion("s_award is not null");
+        public Criteria andBonusIsNotNull() {
+            addCriterion("bonus is not null");
             return (Criteria) this;
         }
 
-        public Criteria andSAwardEqualTo(Float value) {
-            addCriterion("s_award =", value, "sAward");
+        public Criteria andBonusEqualTo(BigDecimal value) {
+            addCriterion("bonus =", value, "bonus");
             return (Criteria) this;
         }
 
-        public Criteria andSAwardNotEqualTo(Float value) {
-            addCriterion("s_award <>", value, "sAward");
+        public Criteria andBonusNotEqualTo(BigDecimal value) {
+            addCriterion("bonus <>", value, "bonus");
             return (Criteria) this;
         }
 
-        public Criteria andSAwardGreaterThan(Float value) {
-            addCriterion("s_award >", value, "sAward");
+        public Criteria andBonusGreaterThan(BigDecimal value) {
+            addCriterion("bonus >", value, "bonus");
             return (Criteria) this;
         }
 
-        public Criteria andSAwardGreaterThanOrEqualTo(Float value) {
-            addCriterion("s_award >=", value, "sAward");
+        public Criteria andBonusGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("bonus >=", value, "bonus");
             return (Criteria) this;
         }
 
-        public Criteria andSAwardLessThan(Float value) {
-            addCriterion("s_award <", value, "sAward");
+        public Criteria andBonusLessThan(BigDecimal value) {
+            addCriterion("bonus <", value, "bonus");
             return (Criteria) this;
         }
 
-        public Criteria andSAwardLessThanOrEqualTo(Float value) {
-            addCriterion("s_award <=", value, "sAward");
+        public Criteria andBonusLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("bonus <=", value, "bonus");
             return (Criteria) this;
         }
 
-        public Criteria andSAwardIn(List<Float> values) {
-            addCriterion("s_award in", values, "sAward");
+        public Criteria andBonusIn(List<BigDecimal> values) {
+            addCriterion("bonus in", values, "bonus");
             return (Criteria) this;
         }
 
-        public Criteria andSAwardNotIn(List<Float> values) {
-            addCriterion("s_award not in", values, "sAward");
+        public Criteria andBonusNotIn(List<BigDecimal> values) {
+            addCriterion("bonus not in", values, "bonus");
             return (Criteria) this;
         }
 
-        public Criteria andSAwardBetween(Float value1, Float value2) {
-            addCriterion("s_award between", value1, value2, "sAward");
+        public Criteria andBonusBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("bonus between", value1, value2, "bonus");
             return (Criteria) this;
         }
 
-        public Criteria andSAwardNotBetween(Float value1, Float value2) {
-            addCriterion("s_award not between", value1, value2, "sAward");
+        public Criteria andBonusNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("bonus not between", value1, value2, "bonus");
             return (Criteria) this;
         }
 
-        public Criteria andSExreaIsNull() {
-            addCriterion("s_exrea is null");
+        public Criteria andAddSalaryIsNull() {
+            addCriterion("add_salary is null");
             return (Criteria) this;
         }
 
-        public Criteria andSExreaIsNotNull() {
-            addCriterion("s_exrea is not null");
+        public Criteria andAddSalaryIsNotNull() {
+            addCriterion("add_salary is not null");
             return (Criteria) this;
         }
 
-        public Criteria andSExreaEqualTo(Float value) {
-            addCriterion("s_exrea =", value, "sExrea");
+        public Criteria andAddSalaryEqualTo(BigDecimal value) {
+            addCriterion("add_salary =", value, "addSalary");
             return (Criteria) this;
         }
 
-        public Criteria andSExreaNotEqualTo(Float value) {
-            addCriterion("s_exrea <>", value, "sExrea");
+        public Criteria andAddSalaryNotEqualTo(BigDecimal value) {
+            addCriterion("add_salary <>", value, "addSalary");
             return (Criteria) this;
         }
 
-        public Criteria andSExreaGreaterThan(Float value) {
-            addCriterion("s_exrea >", value, "sExrea");
+        public Criteria andAddSalaryGreaterThan(BigDecimal value) {
+            addCriterion("add_salary >", value, "addSalary");
             return (Criteria) this;
         }
 
-        public Criteria andSExreaGreaterThanOrEqualTo(Float value) {
-            addCriterion("s_exrea >=", value, "sExrea");
+        public Criteria andAddSalaryGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("add_salary >=", value, "addSalary");
             return (Criteria) this;
         }
 
-        public Criteria andSExreaLessThan(Float value) {
-            addCriterion("s_exrea <", value, "sExrea");
+        public Criteria andAddSalaryLessThan(BigDecimal value) {
+            addCriterion("add_salary <", value, "addSalary");
             return (Criteria) this;
         }
 
-        public Criteria andSExreaLessThanOrEqualTo(Float value) {
-            addCriterion("s_exrea <=", value, "sExrea");
+        public Criteria andAddSalaryLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("add_salary <=", value, "addSalary");
             return (Criteria) this;
         }
 
-        public Criteria andSExreaIn(List<Float> values) {
-            addCriterion("s_exrea in", values, "sExrea");
+        public Criteria andAddSalaryIn(List<BigDecimal> values) {
+            addCriterion("add_salary in", values, "addSalary");
             return (Criteria) this;
         }
 
-        public Criteria andSExreaNotIn(List<Float> values) {
-            addCriterion("s_exrea not in", values, "sExrea");
+        public Criteria andAddSalaryNotIn(List<BigDecimal> values) {
+            addCriterion("add_salary not in", values, "addSalary");
             return (Criteria) this;
         }
 
-        public Criteria andSExreaBetween(Float value1, Float value2) {
-            addCriterion("s_exrea between", value1, value2, "sExrea");
+        public Criteria andAddSalaryBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("add_salary between", value1, value2, "addSalary");
             return (Criteria) this;
         }
 
-        public Criteria andSExreaNotBetween(Float value1, Float value2) {
-            addCriterion("s_exrea not between", value1, value2, "sExrea");
+        public Criteria andAddSalaryNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("add_salary not between", value1, value2, "addSalary");
             return (Criteria) this;
         }
 
-        public Criteria andSPerformIsNull() {
-            addCriterion("s_perform is null");
+        public Criteria andPerformSalaryIsNull() {
+            addCriterion("perform_salary is null");
             return (Criteria) this;
         }
 
-        public Criteria andSPerformIsNotNull() {
-            addCriterion("s_perform is not null");
+        public Criteria andPerformSalaryIsNotNull() {
+            addCriterion("perform_salary is not null");
             return (Criteria) this;
         }
 
-        public Criteria andSPerformEqualTo(Float value) {
-            addCriterion("s_perform =", value, "sPerform");
+        public Criteria andPerformSalaryEqualTo(BigDecimal value) {
+            addCriterion("perform_salary =", value, "performSalary");
             return (Criteria) this;
         }
 
-        public Criteria andSPerformNotEqualTo(Float value) {
-            addCriterion("s_perform <>", value, "sPerform");
+        public Criteria andPerformSalaryNotEqualTo(BigDecimal value) {
+            addCriterion("perform_salary <>", value, "performSalary");
             return (Criteria) this;
         }
 
-        public Criteria andSPerformGreaterThan(Float value) {
-            addCriterion("s_perform >", value, "sPerform");
+        public Criteria andPerformSalaryGreaterThan(BigDecimal value) {
+            addCriterion("perform_salary >", value, "performSalary");
             return (Criteria) this;
         }
 
-        public Criteria andSPerformGreaterThanOrEqualTo(Float value) {
-            addCriterion("s_perform >=", value, "sPerform");
+        public Criteria andPerformSalaryGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("perform_salary >=", value, "performSalary");
             return (Criteria) this;
         }
 
-        public Criteria andSPerformLessThan(Float value) {
-            addCriterion("s_perform <", value, "sPerform");
+        public Criteria andPerformSalaryLessThan(BigDecimal value) {
+            addCriterion("perform_salary <", value, "performSalary");
             return (Criteria) this;
         }
 
-        public Criteria andSPerformLessThanOrEqualTo(Float value) {
-            addCriterion("s_perform <=", value, "sPerform");
+        public Criteria andPerformSalaryLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("perform_salary <=", value, "performSalary");
             return (Criteria) this;
         }
 
-        public Criteria andSPerformIn(List<Float> values) {
-            addCriterion("s_perform in", values, "sPerform");
+        public Criteria andPerformSalaryIn(List<BigDecimal> values) {
+            addCriterion("perform_salary in", values, "performSalary");
             return (Criteria) this;
         }
 
-        public Criteria andSPerformNotIn(List<Float> values) {
-            addCriterion("s_perform not in", values, "sPerform");
+        public Criteria andPerformSalaryNotIn(List<BigDecimal> values) {
+            addCriterion("perform_salary not in", values, "performSalary");
             return (Criteria) this;
         }
 
-        public Criteria andSPerformBetween(Float value1, Float value2) {
-            addCriterion("s_perform between", value1, value2, "sPerform");
+        public Criteria andPerformSalaryBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("perform_salary between", value1, value2, "performSalary");
             return (Criteria) this;
         }
 
-        public Criteria andSPerformNotBetween(Float value1, Float value2) {
-            addCriterion("s_perform not between", value1, value2, "sPerform");
+        public Criteria andPerformSalaryNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("perform_salary not between", value1, value2, "performSalary");
             return (Criteria) this;
         }
 
-        public Criteria andSWelfareIsNull() {
-            addCriterion("s_welfare is null");
+        public Criteria andWelfareIsNull() {
+            addCriterion("welfare is null");
             return (Criteria) this;
         }
 
-        public Criteria andSWelfareIsNotNull() {
-            addCriterion("s_welfare is not null");
+        public Criteria andWelfareIsNotNull() {
+            addCriterion("welfare is not null");
             return (Criteria) this;
         }
 
-        public Criteria andSWelfareEqualTo(Float value) {
-            addCriterion("s_welfare =", value, "sWelfare");
+        public Criteria andWelfareEqualTo(BigDecimal value) {
+            addCriterion("welfare =", value, "welfare");
             return (Criteria) this;
         }
 
-        public Criteria andSWelfareNotEqualTo(Float value) {
-            addCriterion("s_welfare <>", value, "sWelfare");
+        public Criteria andWelfareNotEqualTo(BigDecimal value) {
+            addCriterion("welfare <>", value, "welfare");
             return (Criteria) this;
         }
 
-        public Criteria andSWelfareGreaterThan(Float value) {
-            addCriterion("s_welfare >", value, "sWelfare");
+        public Criteria andWelfareGreaterThan(BigDecimal value) {
+            addCriterion("welfare >", value, "welfare");
             return (Criteria) this;
         }
 
-        public Criteria andSWelfareGreaterThanOrEqualTo(Float value) {
-            addCriterion("s_welfare >=", value, "sWelfare");
+        public Criteria andWelfareGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("welfare >=", value, "welfare");
             return (Criteria) this;
         }
 
-        public Criteria andSWelfareLessThan(Float value) {
-            addCriterion("s_welfare <", value, "sWelfare");
+        public Criteria andWelfareLessThan(BigDecimal value) {
+            addCriterion("welfare <", value, "welfare");
             return (Criteria) this;
         }
 
-        public Criteria andSWelfareLessThanOrEqualTo(Float value) {
-            addCriterion("s_welfare <=", value, "sWelfare");
+        public Criteria andWelfareLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("welfare <=", value, "welfare");
             return (Criteria) this;
         }
 
-        public Criteria andSWelfareIn(List<Float> values) {
-            addCriterion("s_welfare in", values, "sWelfare");
+        public Criteria andWelfareIn(List<BigDecimal> values) {
+            addCriterion("welfare in", values, "welfare");
             return (Criteria) this;
         }
 
-        public Criteria andSWelfareNotIn(List<Float> values) {
-            addCriterion("s_welfare not in", values, "sWelfare");
+        public Criteria andWelfareNotIn(List<BigDecimal> values) {
+            addCriterion("welfare not in", values, "welfare");
             return (Criteria) this;
         }
 
-        public Criteria andSWelfareBetween(Float value1, Float value2) {
-            addCriterion("s_welfare between", value1, value2, "sWelfare");
+        public Criteria andWelfareBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("welfare between", value1, value2, "welfare");
             return (Criteria) this;
         }
 
-        public Criteria andSWelfareNotBetween(Float value1, Float value2) {
-            addCriterion("s_welfare not between", value1, value2, "sWelfare");
+        public Criteria andWelfareNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("welfare not between", value1, value2, "welfare");
             return (Criteria) this;
         }
 
-        public Criteria andBAccumulationIsNull() {
-            addCriterion("b_accumulation is null");
+        public Criteria andReservedFundsBaseIsNull() {
+            addCriterion("reserved_funds_base is null");
             return (Criteria) this;
         }
 
-        public Criteria andBAccumulationIsNotNull() {
-            addCriterion("b_accumulation is not null");
+        public Criteria andReservedFundsBaseIsNotNull() {
+            addCriterion("reserved_funds_base is not null");
             return (Criteria) this;
         }
 
-        public Criteria andBAccumulationEqualTo(Float value) {
-            addCriterion("b_accumulation =", value, "bAccumulation");
+        public Criteria andReservedFundsBaseEqualTo(BigDecimal value) {
+            addCriterion("reserved_funds_base =", value, "reservedFundsBase");
             return (Criteria) this;
         }
 
-        public Criteria andBAccumulationNotEqualTo(Float value) {
-            addCriterion("b_accumulation <>", value, "bAccumulation");
+        public Criteria andReservedFundsBaseNotEqualTo(BigDecimal value) {
+            addCriterion("reserved_funds_base <>", value, "reservedFundsBase");
             return (Criteria) this;
         }
 
-        public Criteria andBAccumulationGreaterThan(Float value) {
-            addCriterion("b_accumulation >", value, "bAccumulation");
+        public Criteria andReservedFundsBaseGreaterThan(BigDecimal value) {
+            addCriterion("reserved_funds_base >", value, "reservedFundsBase");
             return (Criteria) this;
         }
 
-        public Criteria andBAccumulationGreaterThanOrEqualTo(Float value) {
-            addCriterion("b_accumulation >=", value, "bAccumulation");
+        public Criteria andReservedFundsBaseGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("reserved_funds_base >=", value, "reservedFundsBase");
             return (Criteria) this;
         }
 
-        public Criteria andBAccumulationLessThan(Float value) {
-            addCriterion("b_accumulation <", value, "bAccumulation");
+        public Criteria andReservedFundsBaseLessThan(BigDecimal value) {
+            addCriterion("reserved_funds_base <", value, "reservedFundsBase");
             return (Criteria) this;
         }
 
-        public Criteria andBAccumulationLessThanOrEqualTo(Float value) {
-            addCriterion("b_accumulation <=", value, "bAccumulation");
+        public Criteria andReservedFundsBaseLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("reserved_funds_base <=", value, "reservedFundsBase");
             return (Criteria) this;
         }
 
-        public Criteria andBAccumulationIn(List<Float> values) {
-            addCriterion("b_accumulation in", values, "bAccumulation");
+        public Criteria andReservedFundsBaseIn(List<BigDecimal> values) {
+            addCriterion("reserved_funds_base in", values, "reservedFundsBase");
             return (Criteria) this;
         }
 
-        public Criteria andBAccumulationNotIn(List<Float> values) {
-            addCriterion("b_accumulation not in", values, "bAccumulation");
+        public Criteria andReservedFundsBaseNotIn(List<BigDecimal> values) {
+            addCriterion("reserved_funds_base not in", values, "reservedFundsBase");
             return (Criteria) this;
         }
 
-        public Criteria andBAccumulationBetween(Float value1, Float value2) {
-            addCriterion("b_accumulation between", value1, value2, "bAccumulation");
+        public Criteria andReservedFundsBaseBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("reserved_funds_base between", value1, value2, "reservedFundsBase");
             return (Criteria) this;
         }
 
-        public Criteria andBAccumulationNotBetween(Float value1, Float value2) {
-            addCriterion("b_accumulation not between", value1, value2, "bAccumulation");
+        public Criteria andReservedFundsBaseNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("reserved_funds_base not between", value1, value2, "reservedFundsBase");
             return (Criteria) this;
         }
 
-        public Criteria andRAccumulationIsNull() {
-            addCriterion("r_accumulation is null");
+        public Criteria andReservedFundsIsNull() {
+            addCriterion("reserved_funds is null");
             return (Criteria) this;
         }
 
-        public Criteria andRAccumulationIsNotNull() {
-            addCriterion("r_accumulation is not null");
+        public Criteria andReservedFundsIsNotNull() {
+            addCriterion("reserved_funds is not null");
             return (Criteria) this;
         }
 
-        public Criteria andRAccumulationEqualTo(Float value) {
-            addCriterion("r_accumulation =", value, "rAccumulation");
+        public Criteria andReservedFundsEqualTo(BigDecimal value) {
+            addCriterion("reserved_funds =", value, "reservedFunds");
             return (Criteria) this;
         }
 
-        public Criteria andRAccumulationNotEqualTo(Float value) {
-            addCriterion("r_accumulation <>", value, "rAccumulation");
+        public Criteria andReservedFundsNotEqualTo(BigDecimal value) {
+            addCriterion("reserved_funds <>", value, "reservedFunds");
             return (Criteria) this;
         }
 
-        public Criteria andRAccumulationGreaterThan(Float value) {
-            addCriterion("r_accumulation >", value, "rAccumulation");
+        public Criteria andReservedFundsGreaterThan(BigDecimal value) {
+            addCriterion("reserved_funds >", value, "reservedFunds");
             return (Criteria) this;
         }
 
-        public Criteria andRAccumulationGreaterThanOrEqualTo(Float value) {
-            addCriterion("r_accumulation >=", value, "rAccumulation");
+        public Criteria andReservedFundsGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("reserved_funds >=", value, "reservedFunds");
             return (Criteria) this;
         }
 
-        public Criteria andRAccumulationLessThan(Float value) {
-            addCriterion("r_accumulation <", value, "rAccumulation");
+        public Criteria andReservedFundsLessThan(BigDecimal value) {
+            addCriterion("reserved_funds <", value, "reservedFunds");
             return (Criteria) this;
         }
 
-        public Criteria andRAccumulationLessThanOrEqualTo(Float value) {
-            addCriterion("r_accumulation <=", value, "rAccumulation");
+        public Criteria andReservedFundsLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("reserved_funds <=", value, "reservedFunds");
             return (Criteria) this;
         }
 
-        public Criteria andRAccumulationIn(List<Float> values) {
-            addCriterion("r_accumulation in", values, "rAccumulation");
+        public Criteria andReservedFundsIn(List<BigDecimal> values) {
+            addCriterion("reserved_funds in", values, "reservedFunds");
             return (Criteria) this;
         }
 
-        public Criteria andRAccumulationNotIn(List<Float> values) {
-            addCriterion("r_accumulation not in", values, "rAccumulation");
+        public Criteria andReservedFundsNotIn(List<BigDecimal> values) {
+            addCriterion("reserved_funds not in", values, "reservedFunds");
             return (Criteria) this;
         }
 
-        public Criteria andRAccumulationBetween(Float value1, Float value2) {
-            addCriterion("r_accumulation between", value1, value2, "rAccumulation");
+        public Criteria andReservedFundsBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("reserved_funds between", value1, value2, "reservedFunds");
             return (Criteria) this;
         }
 
-        public Criteria andRAccumulationNotBetween(Float value1, Float value2) {
-            addCriterion("r_accumulation not between", value1, value2, "rAccumulation");
+        public Criteria andReservedFundsNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("reserved_funds not between", value1, value2, "reservedFunds");
             return (Criteria) this;
         }
 
-        public Criteria andBInsureMedicineIsNull() {
-            addCriterion("b_insure_medicine is null");
+        public Criteria andInsureMedicineBaseIsNull() {
+            addCriterion("insure_medicine_base is null");
             return (Criteria) this;
         }
 
-        public Criteria andBInsureMedicineIsNotNull() {
-            addCriterion("b_insure_medicine is not null");
+        public Criteria andInsureMedicineBaseIsNotNull() {
+            addCriterion("insure_medicine_base is not null");
             return (Criteria) this;
         }
 
-        public Criteria andBInsureMedicineEqualTo(Float value) {
-            addCriterion("b_insure_medicine =", value, "bInsureMedicine");
+        public Criteria andInsureMedicineBaseEqualTo(BigDecimal value) {
+            addCriterion("insure_medicine_base =", value, "insureMedicineBase");
             return (Criteria) this;
         }
 
-        public Criteria andBInsureMedicineNotEqualTo(Float value) {
-            addCriterion("b_insure_medicine <>", value, "bInsureMedicine");
+        public Criteria andInsureMedicineBaseNotEqualTo(BigDecimal value) {
+            addCriterion("insure_medicine_base <>", value, "insureMedicineBase");
             return (Criteria) this;
         }
 
-        public Criteria andBInsureMedicineGreaterThan(Float value) {
-            addCriterion("b_insure_medicine >", value, "bInsureMedicine");
+        public Criteria andInsureMedicineBaseGreaterThan(BigDecimal value) {
+            addCriterion("insure_medicine_base >", value, "insureMedicineBase");
             return (Criteria) this;
         }
 
-        public Criteria andBInsureMedicineGreaterThanOrEqualTo(Float value) {
-            addCriterion("b_insure_medicine >=", value, "bInsureMedicine");
+        public Criteria andInsureMedicineBaseGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("insure_medicine_base >=", value, "insureMedicineBase");
             return (Criteria) this;
         }
 
-        public Criteria andBInsureMedicineLessThan(Float value) {
-            addCriterion("b_insure_medicine <", value, "bInsureMedicine");
+        public Criteria andInsureMedicineBaseLessThan(BigDecimal value) {
+            addCriterion("insure_medicine_base <", value, "insureMedicineBase");
             return (Criteria) this;
         }
 
-        public Criteria andBInsureMedicineLessThanOrEqualTo(Float value) {
-            addCriterion("b_insure_medicine <=", value, "bInsureMedicine");
+        public Criteria andInsureMedicineBaseLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("insure_medicine_base <=", value, "insureMedicineBase");
             return (Criteria) this;
         }
 
-        public Criteria andBInsureMedicineIn(List<Float> values) {
-            addCriterion("b_insure_medicine in", values, "bInsureMedicine");
+        public Criteria andInsureMedicineBaseIn(List<BigDecimal> values) {
+            addCriterion("insure_medicine_base in", values, "insureMedicineBase");
             return (Criteria) this;
         }
 
-        public Criteria andBInsureMedicineNotIn(List<Float> values) {
-            addCriterion("b_insure_medicine not in", values, "bInsureMedicine");
+        public Criteria andInsureMedicineBaseNotIn(List<BigDecimal> values) {
+            addCriterion("insure_medicine_base not in", values, "insureMedicineBase");
             return (Criteria) this;
         }
 
-        public Criteria andBInsureMedicineBetween(Float value1, Float value2) {
-            addCriterion("b_insure_medicine between", value1, value2, "bInsureMedicine");
+        public Criteria andInsureMedicineBaseBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("insure_medicine_base between", value1, value2, "insureMedicineBase");
             return (Criteria) this;
         }
 
-        public Criteria andBInsureMedicineNotBetween(Float value1, Float value2) {
-            addCriterion("b_insure_medicine not between", value1, value2, "bInsureMedicine");
+        public Criteria andInsureMedicineBaseNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("insure_medicine_base not between", value1, value2, "insureMedicineBase");
             return (Criteria) this;
         }
 
-        public Criteria andRInsureMedicineIsNull() {
-            addCriterion("r_insure_medicine is null");
+        public Criteria andInsureMedicineIsNull() {
+            addCriterion("insure_medicine is null");
             return (Criteria) this;
         }
 
-        public Criteria andRInsureMedicineIsNotNull() {
-            addCriterion("r_insure_medicine is not null");
+        public Criteria andInsureMedicineIsNotNull() {
+            addCriterion("insure_medicine is not null");
             return (Criteria) this;
         }
 
-        public Criteria andRInsureMedicineEqualTo(Float value) {
-            addCriterion("r_insure_medicine =", value, "rInsureMedicine");
+        public Criteria andInsureMedicineEqualTo(BigDecimal value) {
+            addCriterion("insure_medicine =", value, "insureMedicine");
             return (Criteria) this;
         }
 
-        public Criteria andRInsureMedicineNotEqualTo(Float value) {
-            addCriterion("r_insure_medicine <>", value, "rInsureMedicine");
+        public Criteria andInsureMedicineNotEqualTo(BigDecimal value) {
+            addCriterion("insure_medicine <>", value, "insureMedicine");
             return (Criteria) this;
         }
 
-        public Criteria andRInsureMedicineGreaterThan(Float value) {
-            addCriterion("r_insure_medicine >", value, "rInsureMedicine");
+        public Criteria andInsureMedicineGreaterThan(BigDecimal value) {
+            addCriterion("insure_medicine >", value, "insureMedicine");
             return (Criteria) this;
         }
 
-        public Criteria andRInsureMedicineGreaterThanOrEqualTo(Float value) {
-            addCriterion("r_insure_medicine >=", value, "rInsureMedicine");
+        public Criteria andInsureMedicineGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("insure_medicine >=", value, "insureMedicine");
             return (Criteria) this;
         }
 
-        public Criteria andRInsureMedicineLessThan(Float value) {
-            addCriterion("r_insure_medicine <", value, "rInsureMedicine");
+        public Criteria andInsureMedicineLessThan(BigDecimal value) {
+            addCriterion("insure_medicine <", value, "insureMedicine");
             return (Criteria) this;
         }
 
-        public Criteria andRInsureMedicineLessThanOrEqualTo(Float value) {
-            addCriterion("r_insure_medicine <=", value, "rInsureMedicine");
+        public Criteria andInsureMedicineLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("insure_medicine <=", value, "insureMedicine");
             return (Criteria) this;
         }
 
-        public Criteria andRInsureMedicineIn(List<Float> values) {
-            addCriterion("r_insure_medicine in", values, "rInsureMedicine");
+        public Criteria andInsureMedicineIn(List<BigDecimal> values) {
+            addCriterion("insure_medicine in", values, "insureMedicine");
             return (Criteria) this;
         }
 
-        public Criteria andRInsureMedicineNotIn(List<Float> values) {
-            addCriterion("r_insure_medicine not in", values, "rInsureMedicine");
+        public Criteria andInsureMedicineNotIn(List<BigDecimal> values) {
+            addCriterion("insure_medicine not in", values, "insureMedicine");
             return (Criteria) this;
         }
 
-        public Criteria andRInsureMedicineBetween(Float value1, Float value2) {
-            addCriterion("r_insure_medicine between", value1, value2, "rInsureMedicine");
+        public Criteria andInsureMedicineBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("insure_medicine between", value1, value2, "insureMedicine");
             return (Criteria) this;
         }
 
-        public Criteria andRInsureMedicineNotBetween(Float value1, Float value2) {
-            addCriterion("r_insure_medicine not between", value1, value2, "rInsureMedicine");
+        public Criteria andInsureMedicineNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("insure_medicine not between", value1, value2, "insureMedicine");
             return (Criteria) this;
         }
 
-        public Criteria andBInsurePensionIsNull() {
-            addCriterion("b_insure_pension is null");
+        public Criteria andInsurePensionBaseIsNull() {
+            addCriterion("insure_pension_base is null");
             return (Criteria) this;
         }
 
-        public Criteria andBInsurePensionIsNotNull() {
-            addCriterion("b_insure_pension is not null");
+        public Criteria andInsurePensionBaseIsNotNull() {
+            addCriterion("insure_pension_base is not null");
             return (Criteria) this;
         }
 
-        public Criteria andBInsurePensionEqualTo(Float value) {
-            addCriterion("b_insure_pension =", value, "bInsurePension");
+        public Criteria andInsurePensionBaseEqualTo(BigDecimal value) {
+            addCriterion("insure_pension_base =", value, "insurePensionBase");
             return (Criteria) this;
         }
 
-        public Criteria andBInsurePensionNotEqualTo(Float value) {
-            addCriterion("b_insure_pension <>", value, "bInsurePension");
+        public Criteria andInsurePensionBaseNotEqualTo(BigDecimal value) {
+            addCriterion("insure_pension_base <>", value, "insurePensionBase");
             return (Criteria) this;
         }
 
-        public Criteria andBInsurePensionGreaterThan(Float value) {
-            addCriterion("b_insure_pension >", value, "bInsurePension");
+        public Criteria andInsurePensionBaseGreaterThan(BigDecimal value) {
+            addCriterion("insure_pension_base >", value, "insurePensionBase");
             return (Criteria) this;
         }
 
-        public Criteria andBInsurePensionGreaterThanOrEqualTo(Float value) {
-            addCriterion("b_insure_pension >=", value, "bInsurePension");
+        public Criteria andInsurePensionBaseGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("insure_pension_base >=", value, "insurePensionBase");
             return (Criteria) this;
         }
 
-        public Criteria andBInsurePensionLessThan(Float value) {
-            addCriterion("b_insure_pension <", value, "bInsurePension");
+        public Criteria andInsurePensionBaseLessThan(BigDecimal value) {
+            addCriterion("insure_pension_base <", value, "insurePensionBase");
             return (Criteria) this;
         }
 
-        public Criteria andBInsurePensionLessThanOrEqualTo(Float value) {
-            addCriterion("b_insure_pension <=", value, "bInsurePension");
+        public Criteria andInsurePensionBaseLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("insure_pension_base <=", value, "insurePensionBase");
             return (Criteria) this;
         }
 
-        public Criteria andBInsurePensionIn(List<Float> values) {
-            addCriterion("b_insure_pension in", values, "bInsurePension");
+        public Criteria andInsurePensionBaseIn(List<BigDecimal> values) {
+            addCriterion("insure_pension_base in", values, "insurePensionBase");
             return (Criteria) this;
         }
 
-        public Criteria andBInsurePensionNotIn(List<Float> values) {
-            addCriterion("b_insure_pension not in", values, "bInsurePension");
+        public Criteria andInsurePensionBaseNotIn(List<BigDecimal> values) {
+            addCriterion("insure_pension_base not in", values, "insurePensionBase");
             return (Criteria) this;
         }
 
-        public Criteria andBInsurePensionBetween(Float value1, Float value2) {
-            addCriterion("b_insure_pension between", value1, value2, "bInsurePension");
+        public Criteria andInsurePensionBaseBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("insure_pension_base between", value1, value2, "insurePensionBase");
             return (Criteria) this;
         }
 
-        public Criteria andBInsurePensionNotBetween(Float value1, Float value2) {
-            addCriterion("b_insure_pension not between", value1, value2, "bInsurePension");
+        public Criteria andInsurePensionBaseNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("insure_pension_base not between", value1, value2, "insurePensionBase");
             return (Criteria) this;
         }
 
-        public Criteria andRInsurePensionIsNull() {
-            addCriterion("r_insure_pension is null");
+        public Criteria andInsurePensionIsNull() {
+            addCriterion("insure_pension is null");
             return (Criteria) this;
         }
 
-        public Criteria andRInsurePensionIsNotNull() {
-            addCriterion("r_insure_pension is not null");
+        public Criteria andInsurePensionIsNotNull() {
+            addCriterion("insure_pension is not null");
             return (Criteria) this;
         }
 
-        public Criteria andRInsurePensionEqualTo(Float value) {
-            addCriterion("r_insure_pension =", value, "rInsurePension");
+        public Criteria andInsurePensionEqualTo(BigDecimal value) {
+            addCriterion("insure_pension =", value, "insurePension");
             return (Criteria) this;
         }
 
-        public Criteria andRInsurePensionNotEqualTo(Float value) {
-            addCriterion("r_insure_pension <>", value, "rInsurePension");
+        public Criteria andInsurePensionNotEqualTo(BigDecimal value) {
+            addCriterion("insure_pension <>", value, "insurePension");
             return (Criteria) this;
         }
 
-        public Criteria andRInsurePensionGreaterThan(Float value) {
-            addCriterion("r_insure_pension >", value, "rInsurePension");
+        public Criteria andInsurePensionGreaterThan(BigDecimal value) {
+            addCriterion("insure_pension >", value, "insurePension");
             return (Criteria) this;
         }
 
-        public Criteria andRInsurePensionGreaterThanOrEqualTo(Float value) {
-            addCriterion("r_insure_pension >=", value, "rInsurePension");
+        public Criteria andInsurePensionGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("insure_pension >=", value, "insurePension");
             return (Criteria) this;
         }
 
-        public Criteria andRInsurePensionLessThan(Float value) {
-            addCriterion("r_insure_pension <", value, "rInsurePension");
+        public Criteria andInsurePensionLessThan(BigDecimal value) {
+            addCriterion("insure_pension <", value, "insurePension");
             return (Criteria) this;
         }
 
-        public Criteria andRInsurePensionLessThanOrEqualTo(Float value) {
-            addCriterion("r_insure_pension <=", value, "rInsurePension");
+        public Criteria andInsurePensionLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("insure_pension <=", value, "insurePension");
             return (Criteria) this;
         }
 
-        public Criteria andRInsurePensionIn(List<Float> values) {
-            addCriterion("r_insure_pension in", values, "rInsurePension");
+        public Criteria andInsurePensionIn(List<BigDecimal> values) {
+            addCriterion("insure_pension in", values, "insurePension");
             return (Criteria) this;
         }
 
-        public Criteria andRInsurePensionNotIn(List<Float> values) {
-            addCriterion("r_insure_pension not in", values, "rInsurePension");
+        public Criteria andInsurePensionNotIn(List<BigDecimal> values) {
+            addCriterion("insure_pension not in", values, "insurePension");
             return (Criteria) this;
         }
 
-        public Criteria andRInsurePensionBetween(Float value1, Float value2) {
-            addCriterion("r_insure_pension between", value1, value2, "rInsurePension");
+        public Criteria andInsurePensionBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("insure_pension between", value1, value2, "insurePension");
             return (Criteria) this;
         }
 
-        public Criteria andRInsurePensionNotBetween(Float value1, Float value2) {
-            addCriterion("r_insure_pension not between", value1, value2, "rInsurePension");
+        public Criteria andInsurePensionNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("insure_pension not between", value1, value2, "insurePension");
             return (Criteria) this;
         }
 
-        public Criteria andBInsureJobIsNull() {
-            addCriterion("b_insure_job is null");
+        public Criteria andInsureJobBaseIsNull() {
+            addCriterion("insure_job_base is null");
             return (Criteria) this;
         }
 
-        public Criteria andBInsureJobIsNotNull() {
-            addCriterion("b_insure_job is not null");
+        public Criteria andInsureJobBaseIsNotNull() {
+            addCriterion("insure_job_base is not null");
             return (Criteria) this;
         }
 
-        public Criteria andBInsureJobEqualTo(Float value) {
-            addCriterion("b_insure_job =", value, "bInsureJob");
+        public Criteria andInsureJobBaseEqualTo(BigDecimal value) {
+            addCriterion("insure_job_base =", value, "insureJobBase");
             return (Criteria) this;
         }
 
-        public Criteria andBInsureJobNotEqualTo(Float value) {
-            addCriterion("b_insure_job <>", value, "bInsureJob");
+        public Criteria andInsureJobBaseNotEqualTo(BigDecimal value) {
+            addCriterion("insure_job_base <>", value, "insureJobBase");
             return (Criteria) this;
         }
 
-        public Criteria andBInsureJobGreaterThan(Float value) {
-            addCriterion("b_insure_job >", value, "bInsureJob");
+        public Criteria andInsureJobBaseGreaterThan(BigDecimal value) {
+            addCriterion("insure_job_base >", value, "insureJobBase");
             return (Criteria) this;
         }
 
-        public Criteria andBInsureJobGreaterThanOrEqualTo(Float value) {
-            addCriterion("b_insure_job >=", value, "bInsureJob");
+        public Criteria andInsureJobBaseGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("insure_job_base >=", value, "insureJobBase");
             return (Criteria) this;
         }
 
-        public Criteria andBInsureJobLessThan(Float value) {
-            addCriterion("b_insure_job <", value, "bInsureJob");
+        public Criteria andInsureJobBaseLessThan(BigDecimal value) {
+            addCriterion("insure_job_base <", value, "insureJobBase");
             return (Criteria) this;
         }
 
-        public Criteria andBInsureJobLessThanOrEqualTo(Float value) {
-            addCriterion("b_insure_job <=", value, "bInsureJob");
+        public Criteria andInsureJobBaseLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("insure_job_base <=", value, "insureJobBase");
             return (Criteria) this;
         }
 
-        public Criteria andBInsureJobIn(List<Float> values) {
-            addCriterion("b_insure_job in", values, "bInsureJob");
+        public Criteria andInsureJobBaseIn(List<BigDecimal> values) {
+            addCriterion("insure_job_base in", values, "insureJobBase");
             return (Criteria) this;
         }
 
-        public Criteria andBInsureJobNotIn(List<Float> values) {
-            addCriterion("b_insure_job not in", values, "bInsureJob");
+        public Criteria andInsureJobBaseNotIn(List<BigDecimal> values) {
+            addCriterion("insure_job_base not in", values, "insureJobBase");
             return (Criteria) this;
         }
 
-        public Criteria andBInsureJobBetween(Float value1, Float value2) {
-            addCriterion("b_insure_job between", value1, value2, "bInsureJob");
+        public Criteria andInsureJobBaseBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("insure_job_base between", value1, value2, "insureJobBase");
             return (Criteria) this;
         }
 
-        public Criteria andBInsureJobNotBetween(Float value1, Float value2) {
-            addCriterion("b_insure_job not between", value1, value2, "bInsureJob");
+        public Criteria andInsureJobBaseNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("insure_job_base not between", value1, value2, "insureJobBase");
             return (Criteria) this;
         }
 
-        public Criteria andRInsureJobIsNull() {
-            addCriterion("r_insure_job is null");
+        public Criteria andInsureJobIsNull() {
+            addCriterion("insure_job is null");
             return (Criteria) this;
         }
 
-        public Criteria andRInsureJobIsNotNull() {
-            addCriterion("r_insure_job is not null");
+        public Criteria andInsureJobIsNotNull() {
+            addCriterion("insure_job is not null");
             return (Criteria) this;
         }
 
-        public Criteria andRInsureJobEqualTo(Float value) {
-            addCriterion("r_insure_job =", value, "rInsureJob");
+        public Criteria andInsureJobEqualTo(BigDecimal value) {
+            addCriterion("insure_job =", value, "insureJob");
             return (Criteria) this;
         }
 
-        public Criteria andRInsureJobNotEqualTo(Float value) {
-            addCriterion("r_insure_job <>", value, "rInsureJob");
+        public Criteria andInsureJobNotEqualTo(BigDecimal value) {
+            addCriterion("insure_job <>", value, "insureJob");
             return (Criteria) this;
         }
 
-        public Criteria andRInsureJobGreaterThan(Float value) {
-            addCriterion("r_insure_job >", value, "rInsureJob");
+        public Criteria andInsureJobGreaterThan(BigDecimal value) {
+            addCriterion("insure_job >", value, "insureJob");
             return (Criteria) this;
         }
 
-        public Criteria andRInsureJobGreaterThanOrEqualTo(Float value) {
-            addCriterion("r_insure_job >=", value, "rInsureJob");
+        public Criteria andInsureJobGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("insure_job >=", value, "insureJob");
             return (Criteria) this;
         }
 
-        public Criteria andRInsureJobLessThan(Float value) {
-            addCriterion("r_insure_job <", value, "rInsureJob");
+        public Criteria andInsureJobLessThan(BigDecimal value) {
+            addCriterion("insure_job <", value, "insureJob");
             return (Criteria) this;
         }
 
-        public Criteria andRInsureJobLessThanOrEqualTo(Float value) {
-            addCriterion("r_insure_job <=", value, "rInsureJob");
+        public Criteria andInsureJobLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("insure_job <=", value, "insureJob");
             return (Criteria) this;
         }
 
-        public Criteria andRInsureJobIn(List<Float> values) {
-            addCriterion("r_insure_job in", values, "rInsureJob");
+        public Criteria andInsureJobIn(List<BigDecimal> values) {
+            addCriterion("insure_job in", values, "insureJob");
             return (Criteria) this;
         }
 
-        public Criteria andRInsureJobNotIn(List<Float> values) {
-            addCriterion("r_insure_job not in", values, "rInsureJob");
+        public Criteria andInsureJobNotIn(List<BigDecimal> values) {
+            addCriterion("insure_job not in", values, "insureJob");
             return (Criteria) this;
         }
 
-        public Criteria andRInsureJobBetween(Float value1, Float value2) {
-            addCriterion("r_insure_job between", value1, value2, "rInsureJob");
+        public Criteria andInsureJobBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("insure_job between", value1, value2, "insureJob");
             return (Criteria) this;
         }
 
-        public Criteria andRInsureJobNotBetween(Float value1, Float value2) {
-            addCriterion("r_insure_job not between", value1, value2, "rInsureJob");
+        public Criteria andInsureJobNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("insure_job not between", value1, value2, "insureJob");
             return (Criteria) this;
         }
 
-        public Criteria andCheckInFreeIsNull() {
-            addCriterion("check_in_free is null");
+        public Criteria andAttandanceIsNull() {
+            addCriterion("attandance is null");
             return (Criteria) this;
         }
 
-        public Criteria andCheckInFreeIsNotNull() {
-            addCriterion("check_in_free is not null");
+        public Criteria andAttandanceIsNotNull() {
+            addCriterion("attandance is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCheckInFreeEqualTo(Float value) {
-            addCriterion("check_in_free =", value, "checkInFree");
+        public Criteria andAttandanceEqualTo(BigDecimal value) {
+            addCriterion("attandance =", value, "attandance");
             return (Criteria) this;
         }
 
-        public Criteria andCheckInFreeNotEqualTo(Float value) {
-            addCriterion("check_in_free <>", value, "checkInFree");
+        public Criteria andAttandanceNotEqualTo(BigDecimal value) {
+            addCriterion("attandance <>", value, "attandance");
             return (Criteria) this;
         }
 
-        public Criteria andCheckInFreeGreaterThan(Float value) {
-            addCriterion("check_in_free >", value, "checkInFree");
+        public Criteria andAttandanceGreaterThan(BigDecimal value) {
+            addCriterion("attandance >", value, "attandance");
             return (Criteria) this;
         }
 
-        public Criteria andCheckInFreeGreaterThanOrEqualTo(Float value) {
-            addCriterion("check_in_free >=", value, "checkInFree");
+        public Criteria andAttandanceGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("attandance >=", value, "attandance");
             return (Criteria) this;
         }
 
-        public Criteria andCheckInFreeLessThan(Float value) {
-            addCriterion("check_in_free <", value, "checkInFree");
+        public Criteria andAttandanceLessThan(BigDecimal value) {
+            addCriterion("attandance <", value, "attandance");
             return (Criteria) this;
         }
 
-        public Criteria andCheckInFreeLessThanOrEqualTo(Float value) {
-            addCriterion("check_in_free <=", value, "checkInFree");
+        public Criteria andAttandanceLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("attandance <=", value, "attandance");
             return (Criteria) this;
         }
 
-        public Criteria andCheckInFreeIn(List<Float> values) {
-            addCriterion("check_in_free in", values, "checkInFree");
+        public Criteria andAttandanceIn(List<BigDecimal> values) {
+            addCriterion("attandance in", values, "attandance");
             return (Criteria) this;
         }
 
-        public Criteria andCheckInFreeNotIn(List<Float> values) {
-            addCriterion("check_in_free not in", values, "checkInFree");
+        public Criteria andAttandanceNotIn(List<BigDecimal> values) {
+            addCriterion("attandance not in", values, "attandance");
             return (Criteria) this;
         }
 
-        public Criteria andCheckInFreeBetween(Float value1, Float value2) {
-            addCriterion("check_in_free between", value1, value2, "checkInFree");
+        public Criteria andAttandanceBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("attandance between", value1, value2, "attandance");
             return (Criteria) this;
         }
 
-        public Criteria andCheckInFreeNotBetween(Float value1, Float value2) {
-            addCriterion("check_in_free not between", value1, value2, "checkInFree");
+        public Criteria andAttandanceNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("attandance not between", value1, value2, "attandance");
             return (Criteria) this;
         }
 
-        public Criteria andOtherFreeIsNull() {
-            addCriterion("other_free is null");
+        public Criteria andOtherFeeIsNull() {
+            addCriterion("other_fee is null");
             return (Criteria) this;
         }
 
-        public Criteria andOtherFreeIsNotNull() {
-            addCriterion("other_free is not null");
+        public Criteria andOtherFeeIsNotNull() {
+            addCriterion("other_fee is not null");
             return (Criteria) this;
         }
 
-        public Criteria andOtherFreeEqualTo(Float value) {
-            addCriterion("other_free =", value, "otherFree");
+        public Criteria andOtherFeeEqualTo(BigDecimal value) {
+            addCriterion("other_fee =", value, "otherFee");
             return (Criteria) this;
         }
 
-        public Criteria andOtherFreeNotEqualTo(Float value) {
-            addCriterion("other_free <>", value, "otherFree");
+        public Criteria andOtherFeeNotEqualTo(BigDecimal value) {
+            addCriterion("other_fee <>", value, "otherFee");
             return (Criteria) this;
         }
 
-        public Criteria andOtherFreeGreaterThan(Float value) {
-            addCriterion("other_free >", value, "otherFree");
+        public Criteria andOtherFeeGreaterThan(BigDecimal value) {
+            addCriterion("other_fee >", value, "otherFee");
             return (Criteria) this;
         }
 
-        public Criteria andOtherFreeGreaterThanOrEqualTo(Float value) {
-            addCriterion("other_free >=", value, "otherFree");
+        public Criteria andOtherFeeGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("other_fee >=", value, "otherFee");
             return (Criteria) this;
         }
 
-        public Criteria andOtherFreeLessThan(Float value) {
-            addCriterion("other_free <", value, "otherFree");
+        public Criteria andOtherFeeLessThan(BigDecimal value) {
+            addCriterion("other_fee <", value, "otherFee");
             return (Criteria) this;
         }
 
-        public Criteria andOtherFreeLessThanOrEqualTo(Float value) {
-            addCriterion("other_free <=", value, "otherFree");
+        public Criteria andOtherFeeLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("other_fee <=", value, "otherFee");
             return (Criteria) this;
         }
 
-        public Criteria andOtherFreeIn(List<Float> values) {
-            addCriterion("other_free in", values, "otherFree");
+        public Criteria andOtherFeeIn(List<BigDecimal> values) {
+            addCriterion("other_fee in", values, "otherFee");
             return (Criteria) this;
         }
 
-        public Criteria andOtherFreeNotIn(List<Float> values) {
-            addCriterion("other_free not in", values, "otherFree");
+        public Criteria andOtherFeeNotIn(List<BigDecimal> values) {
+            addCriterion("other_fee not in", values, "otherFee");
             return (Criteria) this;
         }
 
-        public Criteria andOtherFreeBetween(Float value1, Float value2) {
-            addCriterion("other_free between", value1, value2, "otherFree");
+        public Criteria andOtherFeeBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("other_fee between", value1, value2, "otherFee");
             return (Criteria) this;
         }
 
-        public Criteria andOtherFreeNotBetween(Float value1, Float value2) {
-            addCriterion("other_free not between", value1, value2, "otherFree");
+        public Criteria andOtherFeeNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("other_fee not between", value1, value2, "otherFee");
             return (Criteria) this;
         }
 
@@ -1352,113 +1353,533 @@ public class SalaryItemExample {
             return (Criteria) this;
         }
 
-        public Criteria andPTaxEqualTo(Float value) {
+        public Criteria andPTaxEqualTo(BigDecimal value) {
             addCriterion("p_tax =", value, "pTax");
             return (Criteria) this;
         }
 
-        public Criteria andPTaxNotEqualTo(Float value) {
+        public Criteria andPTaxNotEqualTo(BigDecimal value) {
             addCriterion("p_tax <>", value, "pTax");
             return (Criteria) this;
         }
 
-        public Criteria andPTaxGreaterThan(Float value) {
+        public Criteria andPTaxGreaterThan(BigDecimal value) {
             addCriterion("p_tax >", value, "pTax");
             return (Criteria) this;
         }
 
-        public Criteria andPTaxGreaterThanOrEqualTo(Float value) {
+        public Criteria andPTaxGreaterThanOrEqualTo(BigDecimal value) {
             addCriterion("p_tax >=", value, "pTax");
             return (Criteria) this;
         }
 
-        public Criteria andPTaxLessThan(Float value) {
+        public Criteria andPTaxLessThan(BigDecimal value) {
             addCriterion("p_tax <", value, "pTax");
             return (Criteria) this;
         }
 
-        public Criteria andPTaxLessThanOrEqualTo(Float value) {
+        public Criteria andPTaxLessThanOrEqualTo(BigDecimal value) {
             addCriterion("p_tax <=", value, "pTax");
             return (Criteria) this;
         }
 
-        public Criteria andPTaxIn(List<Float> values) {
+        public Criteria andPTaxIn(List<BigDecimal> values) {
             addCriterion("p_tax in", values, "pTax");
             return (Criteria) this;
         }
 
-        public Criteria andPTaxNotIn(List<Float> values) {
+        public Criteria andPTaxNotIn(List<BigDecimal> values) {
             addCriterion("p_tax not in", values, "pTax");
             return (Criteria) this;
         }
 
-        public Criteria andPTaxBetween(Float value1, Float value2) {
+        public Criteria andPTaxBetween(BigDecimal value1, BigDecimal value2) {
             addCriterion("p_tax between", value1, value2, "pTax");
             return (Criteria) this;
         }
 
-        public Criteria andPTaxNotBetween(Float value1, Float value2) {
+        public Criteria andPTaxNotBetween(BigDecimal value1, BigDecimal value2) {
             addCriterion("p_tax not between", value1, value2, "pTax");
             return (Criteria) this;
         }
 
-        public Criteria andTaxRateIsNull() {
-            addCriterion("tax_rate is null");
+        public Criteria andChildEduIsNull() {
+            addCriterion("child_edu is null");
             return (Criteria) this;
         }
 
-        public Criteria andTaxRateIsNotNull() {
-            addCriterion("tax_rate is not null");
+        public Criteria andChildEduIsNotNull() {
+            addCriterion("child_edu is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTaxRateEqualTo(Float value) {
-            addCriterion("tax_rate =", value, "taxRate");
+        public Criteria andChildEduEqualTo(BigDecimal value) {
+            addCriterion("child_edu =", value, "childEdu");
             return (Criteria) this;
         }
 
-        public Criteria andTaxRateNotEqualTo(Float value) {
-            addCriterion("tax_rate <>", value, "taxRate");
+        public Criteria andChildEduNotEqualTo(BigDecimal value) {
+            addCriterion("child_edu <>", value, "childEdu");
             return (Criteria) this;
         }
 
-        public Criteria andTaxRateGreaterThan(Float value) {
-            addCriterion("tax_rate >", value, "taxRate");
+        public Criteria andChildEduGreaterThan(BigDecimal value) {
+            addCriterion("child_edu >", value, "childEdu");
             return (Criteria) this;
         }
 
-        public Criteria andTaxRateGreaterThanOrEqualTo(Float value) {
-            addCriterion("tax_rate >=", value, "taxRate");
+        public Criteria andChildEduGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("child_edu >=", value, "childEdu");
             return (Criteria) this;
         }
 
-        public Criteria andTaxRateLessThan(Float value) {
-            addCriterion("tax_rate <", value, "taxRate");
+        public Criteria andChildEduLessThan(BigDecimal value) {
+            addCriterion("child_edu <", value, "childEdu");
             return (Criteria) this;
         }
 
-        public Criteria andTaxRateLessThanOrEqualTo(Float value) {
-            addCriterion("tax_rate <=", value, "taxRate");
+        public Criteria andChildEduLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("child_edu <=", value, "childEdu");
             return (Criteria) this;
         }
 
-        public Criteria andTaxRateIn(List<Float> values) {
-            addCriterion("tax_rate in", values, "taxRate");
+        public Criteria andChildEduIn(List<BigDecimal> values) {
+            addCriterion("child_edu in", values, "childEdu");
             return (Criteria) this;
         }
 
-        public Criteria andTaxRateNotIn(List<Float> values) {
-            addCriterion("tax_rate not in", values, "taxRate");
+        public Criteria andChildEduNotIn(List<BigDecimal> values) {
+            addCriterion("child_edu not in", values, "childEdu");
             return (Criteria) this;
         }
 
-        public Criteria andTaxRateBetween(Float value1, Float value2) {
-            addCriterion("tax_rate between", value1, value2, "taxRate");
+        public Criteria andChildEduBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("child_edu between", value1, value2, "childEdu");
             return (Criteria) this;
         }
 
-        public Criteria andTaxRateNotBetween(Float value1, Float value2) {
-            addCriterion("tax_rate not between", value1, value2, "taxRate");
+        public Criteria andChildEduNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("child_edu not between", value1, value2, "childEdu");
+            return (Criteria) this;
+        }
+
+        public Criteria andContinueEduIsNull() {
+            addCriterion("continue_edu is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andContinueEduIsNotNull() {
+            addCriterion("continue_edu is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andContinueEduEqualTo(BigDecimal value) {
+            addCriterion("continue_edu =", value, "continueEdu");
+            return (Criteria) this;
+        }
+
+        public Criteria andContinueEduNotEqualTo(BigDecimal value) {
+            addCriterion("continue_edu <>", value, "continueEdu");
+            return (Criteria) this;
+        }
+
+        public Criteria andContinueEduGreaterThan(BigDecimal value) {
+            addCriterion("continue_edu >", value, "continueEdu");
+            return (Criteria) this;
+        }
+
+        public Criteria andContinueEduGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("continue_edu >=", value, "continueEdu");
+            return (Criteria) this;
+        }
+
+        public Criteria andContinueEduLessThan(BigDecimal value) {
+            addCriterion("continue_edu <", value, "continueEdu");
+            return (Criteria) this;
+        }
+
+        public Criteria andContinueEduLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("continue_edu <=", value, "continueEdu");
+            return (Criteria) this;
+        }
+
+        public Criteria andContinueEduIn(List<BigDecimal> values) {
+            addCriterion("continue_edu in", values, "continueEdu");
+            return (Criteria) this;
+        }
+
+        public Criteria andContinueEduNotIn(List<BigDecimal> values) {
+            addCriterion("continue_edu not in", values, "continueEdu");
+            return (Criteria) this;
+        }
+
+        public Criteria andContinueEduBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("continue_edu between", value1, value2, "continueEdu");
+            return (Criteria) this;
+        }
+
+        public Criteria andContinueEduNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("continue_edu not between", value1, value2, "continueEdu");
+            return (Criteria) this;
+        }
+
+        public Criteria andBigDiseaseIsNull() {
+            addCriterion("big_disease is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBigDiseaseIsNotNull() {
+            addCriterion("big_disease is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBigDiseaseEqualTo(BigDecimal value) {
+            addCriterion("big_disease =", value, "bigDisease");
+            return (Criteria) this;
+        }
+
+        public Criteria andBigDiseaseNotEqualTo(BigDecimal value) {
+            addCriterion("big_disease <>", value, "bigDisease");
+            return (Criteria) this;
+        }
+
+        public Criteria andBigDiseaseGreaterThan(BigDecimal value) {
+            addCriterion("big_disease >", value, "bigDisease");
+            return (Criteria) this;
+        }
+
+        public Criteria andBigDiseaseGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("big_disease >=", value, "bigDisease");
+            return (Criteria) this;
+        }
+
+        public Criteria andBigDiseaseLessThan(BigDecimal value) {
+            addCriterion("big_disease <", value, "bigDisease");
+            return (Criteria) this;
+        }
+
+        public Criteria andBigDiseaseLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("big_disease <=", value, "bigDisease");
+            return (Criteria) this;
+        }
+
+        public Criteria andBigDiseaseIn(List<BigDecimal> values) {
+            addCriterion("big_disease in", values, "bigDisease");
+            return (Criteria) this;
+        }
+
+        public Criteria andBigDiseaseNotIn(List<BigDecimal> values) {
+            addCriterion("big_disease not in", values, "bigDisease");
+            return (Criteria) this;
+        }
+
+        public Criteria andBigDiseaseBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("big_disease between", value1, value2, "bigDisease");
+            return (Criteria) this;
+        }
+
+        public Criteria andBigDiseaseNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("big_disease not between", value1, value2, "bigDisease");
+            return (Criteria) this;
+        }
+
+        public Criteria andHomeLoanIsNull() {
+            addCriterion("home_loan is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andHomeLoanIsNotNull() {
+            addCriterion("home_loan is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andHomeLoanEqualTo(BigDecimal value) {
+            addCriterion("home_loan =", value, "homeLoan");
+            return (Criteria) this;
+        }
+
+        public Criteria andHomeLoanNotEqualTo(BigDecimal value) {
+            addCriterion("home_loan <>", value, "homeLoan");
+            return (Criteria) this;
+        }
+
+        public Criteria andHomeLoanGreaterThan(BigDecimal value) {
+            addCriterion("home_loan >", value, "homeLoan");
+            return (Criteria) this;
+        }
+
+        public Criteria andHomeLoanGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("home_loan >=", value, "homeLoan");
+            return (Criteria) this;
+        }
+
+        public Criteria andHomeLoanLessThan(BigDecimal value) {
+            addCriterion("home_loan <", value, "homeLoan");
+            return (Criteria) this;
+        }
+
+        public Criteria andHomeLoanLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("home_loan <=", value, "homeLoan");
+            return (Criteria) this;
+        }
+
+        public Criteria andHomeLoanIn(List<BigDecimal> values) {
+            addCriterion("home_loan in", values, "homeLoan");
+            return (Criteria) this;
+        }
+
+        public Criteria andHomeLoanNotIn(List<BigDecimal> values) {
+            addCriterion("home_loan not in", values, "homeLoan");
+            return (Criteria) this;
+        }
+
+        public Criteria andHomeLoanBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("home_loan between", value1, value2, "homeLoan");
+            return (Criteria) this;
+        }
+
+        public Criteria andHomeLoanNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("home_loan not between", value1, value2, "homeLoan");
+            return (Criteria) this;
+        }
+
+        public Criteria andHomeRentIsNull() {
+            addCriterion("home_rent is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andHomeRentIsNotNull() {
+            addCriterion("home_rent is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andHomeRentEqualTo(BigDecimal value) {
+            addCriterion("home_rent =", value, "homeRent");
+            return (Criteria) this;
+        }
+
+        public Criteria andHomeRentNotEqualTo(BigDecimal value) {
+            addCriterion("home_rent <>", value, "homeRent");
+            return (Criteria) this;
+        }
+
+        public Criteria andHomeRentGreaterThan(BigDecimal value) {
+            addCriterion("home_rent >", value, "homeRent");
+            return (Criteria) this;
+        }
+
+        public Criteria andHomeRentGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("home_rent >=", value, "homeRent");
+            return (Criteria) this;
+        }
+
+        public Criteria andHomeRentLessThan(BigDecimal value) {
+            addCriterion("home_rent <", value, "homeRent");
+            return (Criteria) this;
+        }
+
+        public Criteria andHomeRentLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("home_rent <=", value, "homeRent");
+            return (Criteria) this;
+        }
+
+        public Criteria andHomeRentIn(List<BigDecimal> values) {
+            addCriterion("home_rent in", values, "homeRent");
+            return (Criteria) this;
+        }
+
+        public Criteria andHomeRentNotIn(List<BigDecimal> values) {
+            addCriterion("home_rent not in", values, "homeRent");
+            return (Criteria) this;
+        }
+
+        public Criteria andHomeRentBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("home_rent between", value1, value2, "homeRent");
+            return (Criteria) this;
+        }
+
+        public Criteria andHomeRentNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("home_rent not between", value1, value2, "homeRent");
+            return (Criteria) this;
+        }
+
+        public Criteria andHelpOldIsNull() {
+            addCriterion("help_old is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andHelpOldIsNotNull() {
+            addCriterion("help_old is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andHelpOldEqualTo(BigDecimal value) {
+            addCriterion("help_old =", value, "helpOld");
+            return (Criteria) this;
+        }
+
+        public Criteria andHelpOldNotEqualTo(BigDecimal value) {
+            addCriterion("help_old <>", value, "helpOld");
+            return (Criteria) this;
+        }
+
+        public Criteria andHelpOldGreaterThan(BigDecimal value) {
+            addCriterion("help_old >", value, "helpOld");
+            return (Criteria) this;
+        }
+
+        public Criteria andHelpOldGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("help_old >=", value, "helpOld");
+            return (Criteria) this;
+        }
+
+        public Criteria andHelpOldLessThan(BigDecimal value) {
+            addCriterion("help_old <", value, "helpOld");
+            return (Criteria) this;
+        }
+
+        public Criteria andHelpOldLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("help_old <=", value, "helpOld");
+            return (Criteria) this;
+        }
+
+        public Criteria andHelpOldIn(List<BigDecimal> values) {
+            addCriterion("help_old in", values, "helpOld");
+            return (Criteria) this;
+        }
+
+        public Criteria andHelpOldNotIn(List<BigDecimal> values) {
+            addCriterion("help_old not in", values, "helpOld");
+            return (Criteria) this;
+        }
+
+        public Criteria andHelpOldBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("help_old between", value1, value2, "helpOld");
+            return (Criteria) this;
+        }
+
+        public Criteria andHelpOldNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("help_old not between", value1, value2, "helpOld");
+            return (Criteria) this;
+        }
+
+        public Criteria andReallySalaryIsNull() {
+            addCriterion("really_salary is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReallySalaryIsNotNull() {
+            addCriterion("really_salary is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReallySalaryEqualTo(BigDecimal value) {
+            addCriterion("really_salary =", value, "reallySalary");
+            return (Criteria) this;
+        }
+
+        public Criteria andReallySalaryNotEqualTo(BigDecimal value) {
+            addCriterion("really_salary <>", value, "reallySalary");
+            return (Criteria) this;
+        }
+
+        public Criteria andReallySalaryGreaterThan(BigDecimal value) {
+            addCriterion("really_salary >", value, "reallySalary");
+            return (Criteria) this;
+        }
+
+        public Criteria andReallySalaryGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("really_salary >=", value, "reallySalary");
+            return (Criteria) this;
+        }
+
+        public Criteria andReallySalaryLessThan(BigDecimal value) {
+            addCriterion("really_salary <", value, "reallySalary");
+            return (Criteria) this;
+        }
+
+        public Criteria andReallySalaryLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("really_salary <=", value, "reallySalary");
+            return (Criteria) this;
+        }
+
+        public Criteria andReallySalaryIn(List<BigDecimal> values) {
+            addCriterion("really_salary in", values, "reallySalary");
+            return (Criteria) this;
+        }
+
+        public Criteria andReallySalaryNotIn(List<BigDecimal> values) {
+            addCriterion("really_salary not in", values, "reallySalary");
+            return (Criteria) this;
+        }
+
+        public Criteria andReallySalaryBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("really_salary between", value1, value2, "reallySalary");
+            return (Criteria) this;
+        }
+
+        public Criteria andReallySalaryNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("really_salary not between", value1, value2, "reallySalary");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateIsNull() {
+            addCriterion("state is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateIsNotNull() {
+            addCriterion("state is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateEqualTo(Integer value) {
+            addCriterion("state =", value, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateNotEqualTo(Integer value) {
+            addCriterion("state <>", value, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateGreaterThan(Integer value) {
+            addCriterion("state >", value, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateGreaterThanOrEqualTo(Integer value) {
+            addCriterion("state >=", value, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateLessThan(Integer value) {
+            addCriterion("state <", value, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateLessThanOrEqualTo(Integer value) {
+            addCriterion("state <=", value, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateIn(List<Integer> values) {
+            addCriterion("state in", values, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateNotIn(List<Integer> values) {
+            addCriterion("state not in", values, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateBetween(Integer value1, Integer value2) {
+            addCriterion("state between", value1, value2, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateNotBetween(Integer value1, Integer value2) {
+            addCriterion("state not between", value1, value2, "state");
             return (Criteria) this;
         }
     }

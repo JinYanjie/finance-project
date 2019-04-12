@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.validation.constraints.NotEmpty;
+import java.math.BigDecimal;
 
 @Getter
 @Setter
@@ -22,64 +23,85 @@ public class SalaryItemParam {
     private String sName;
 
     @ApiModelProperty(value = "基本工资")
-    private float sBase;
+    private BigDecimal baseSalary;
 
     @ApiModelProperty(value = "职位工资")
-    private float sJob;
+    private BigDecimal jobSalary;
 
 
     @ApiModelProperty(value = "奖金")
-    private float sAward;
+    private BigDecimal bonus;
 
     @ApiModelProperty(value = "加班工资")
-    private float sExtra;
+    private BigDecimal addSalary;
 
     @ApiModelProperty(value = "绩效工资")
-    private float sPerform;
+    private BigDecimal performSalary;
 
     @ApiModelProperty(value = "福利")
-    private float sWelfare;
+    private BigDecimal welfare;
 
     @ApiModelProperty(value = "公积金基数")
-    private float bAccumulation;
+    private BigDecimal reservedFundsBase;
 
     @ApiModelProperty(value = "公积金")
-    private float rAccumulation;
+    private BigDecimal reservedFunds;
 
     @ApiModelProperty(value = "医疗保险基数")
-    private float bInsureMedicine;
+    private BigDecimal insureMedicineBase;
 
     @ApiModelProperty(value = "医疗保险")
-    private float rInsureMedicine;
+    private BigDecimal insureMedicine;
 
     @ApiModelProperty(value = "养老保险基数")
-    private float bInsurePension;
+    private BigDecimal insurePensionBase;
 
     @ApiModelProperty(value = "养老保险")
-    private float rInsurePension;
+    private BigDecimal insurePension;
 
     @ApiModelProperty(value = "失业保险基数")
-    private float bInsureJob;
+    private BigDecimal insureJobBase;
 
     @ApiModelProperty(value = "失业保险")
-    private float rInsureJob;
+    private BigDecimal insureJob;
 
     @ApiModelProperty(value = "考勤扣除")
-    private float checkInFee;
+    private BigDecimal attandance;
 
     @ApiModelProperty(value = "其他扣除")
-    private float otherFee;
+    private BigDecimal otherFee;
 
-    @ApiModelProperty(value = "个人税率")
-    private float taxRat;
 
     @ApiModelProperty(value = "个人所得税")
-    private float pTax;
+    private BigDecimal pTax;
 
     @ApiModelProperty(value = "日期")
     private String date;
 
+    @ApiModelProperty(value = "子女教育")
+    private BigDecimal childEdu;
 
+
+    @ApiModelProperty(value = "继续教育")
+    private BigDecimal continueEdu;
+
+    @ApiModelProperty(value = "大病医疗")
+    private BigDecimal bigDisease;
+
+    @ApiModelProperty(value = "住房贷款利息")
+    private BigDecimal homeLoan;
+
+    @ApiModelProperty(value = "住房租金")
+    private BigDecimal homeRent;
+
+    @ApiModelProperty(value = "赡养老人")
+    private BigDecimal helpOld;
+
+    @ApiModelProperty(value = "实发工资")
+    private BigDecimal reallySalary;
+
+    @ApiModelProperty(value = "工作状态")
+    private int state;
 }
 
 

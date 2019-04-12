@@ -42,7 +42,7 @@ public class UserController {
 
     @ApiOperation("用户登录")
     @PostMapping("/login")
-    public Object login(@RequestParam("phone") String phone,@RequestParam("password") String password) {
+    public Object login(@RequestParam("phone") String phone, @RequestParam("password") String password) {
 
         CommonResult commonResult = new CommonResult();
 
@@ -65,7 +65,7 @@ public class UserController {
                 commonResult.success(loginSuccess);
 
                 //存入redis
-                redisService.set(token+user.getPhone(),simpleDateFormat.format(new Date()));
+                redisService.set(token + user.getPhone(), simpleDateFormat.format(new Date()));
             }
         }
 
@@ -76,20 +76,20 @@ public class UserController {
     @ApiOperation("用户注册")
     @Transactional
     @PostMapping("/register")
-    public Object register(@RequestParam(value = "userName",defaultValue = "") String userName,
+    public Object register(@RequestParam(value = "userName", defaultValue = "") String userName,
                            @RequestParam("phone") String phone,
                            @RequestParam("password") String password,
-                           @RequestParam(value = "level",defaultValue = "1") int level,
-                           @RequestParam(value = "email",defaultValue = "") String email,
-                           @RequestParam(value = "company",defaultValue = "") String company
-                           ){
+                           @RequestParam(value = "level", defaultValue = "1") int level,
+                           @RequestParam(value = "email", defaultValue = "") String email,
+                           @RequestParam(value = "company", defaultValue = "") String company
+    ) {
 
         CommonResult commonResult = new CommonResult();
 
         User user = new User();
-        if(TextUtils.isEmpty(userName)){
-            user.setUsername("用户_"+phone.substring(phone.length()-3,phone.length()));
-        }else{
+        if (TextUtils.isEmpty(userName)) {
+            user.setUsername("用户_" + phone.substring(phone.length() - 3, phone.length()));
+        } else {
             user.setUsername(userName);
         }
         user.setPhone(phone);
@@ -101,12 +101,12 @@ public class UserController {
         int num = 0;
         try {
             num = userService.addUser(user);
-        }catch (Exception exception){
-            LOGGER.warn("添加用户失败: "+exception.getMessage());
+        } catch (Exception exception) {
+            LOGGER.warn("添加用户失败: " + exception.getMessage());
             return commonResult.failed("注册失败,该手机号已存在");
         }
 
-        if (num==1){
+        if (num == 1) {
             User targetUser = userService.findUserByPhone(user.getPhone()).get(0);
             String token = jwtTokenUtil.generateToken(targetUser);
             LoginSuccess loginSuccess = new LoginSuccess();
@@ -115,7 +115,7 @@ public class UserController {
             commonResult.success(loginSuccess);
 
             //存入redis
-            redisService.set(token+user.getPhone(),simpleDateFormat.format(new Date()));
+            redisService.set(token + user.getPhone(), simpleDateFormat.format(new Date()));
         }
 
         return commonResult;
@@ -125,18 +125,18 @@ public class UserController {
     @PreAuthorize("hasAnyAuthority('superior_administrator')")
     @PostMapping("/userLevelChange")
     public Object updataUserLevel(@RequestParam("userId") int userId,
-                                  @RequestParam("newLevel") int newLevel){
+                                  @RequestParam("newLevel") int newLevel) {
 
         CommonResult commonResult = new CommonResult();
-        if(newLevel<0 || newLevel >3){
+        if (newLevel < 0 || newLevel > 3) {
             return commonResult.failed("权限值不存在");
         }
 
         int result = userService.changeUserLevel(userId, newLevel);
 
-        if(result==1){
+        if (result == 1) {
             return commonResult.success(new HashMap<>());
-        }else{
+        } else {
             return commonResult.failed("权限设置失败");
         }
 
@@ -145,7 +145,7 @@ public class UserController {
     @ApiOperation("获取所有用户")
     @PreAuthorize("hasAnyAuthority('tourist')")
     @PostMapping("/allUser")
-    public Object getAllUser(){
+    public Object getAllUser() {
         CommonResult commonResult = new CommonResult();
 
         List<User> userList = userService.getAll();
@@ -153,5 +153,15 @@ public class UserController {
         return commonResult.success(userList);
     }
 
+    /**
+     * 根据id获取用户信息
+     */
 
+    @ApiOperation("获取指定id用户信息")
+    @PostMapping("/getUser")
+    public Object getUserById(@RequestParam("id") int id) {
+        CommonResult commonResult = new CommonResult();
+        User user = userService.getUserById(id);
+        return commonResult.success(user);
+    }
 }

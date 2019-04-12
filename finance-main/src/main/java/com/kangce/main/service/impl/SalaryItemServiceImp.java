@@ -72,6 +72,7 @@ public class SalaryItemServiceImp implements SalaryItemService {
             Map<String, Object> map = new HashMap<>();
             map.put("name", salaryItem.getsName());
             map.put("id", salaryItem.getsId());
+            maps.add(map);
         }
         return maps;
     }

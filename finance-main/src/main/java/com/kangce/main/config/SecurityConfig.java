@@ -1,13 +1,14 @@
 package com.kangce.main.config;
 
-import com.kangce.main.component.*;
+import com.kangce.main.component.GoAccessDeniedHandler;
+import com.kangce.main.component.GoAuthenticationEntryPoint;
+import com.kangce.main.component.JwtAuthenticationTokenFilter;
 import com.kangce.main.dto.MemberDetails;
 import com.kangce.main.service.UserService;
 import com.kangce.mybatis.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -98,7 +99,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(
                         "/auth/**",
                         "/v2/api-docs/**",
-                        "/fixedAssets/**"//测试接口
+                        "/fixedAssets/**",//测试接口
+                        "/certificate/**",//凭证字接口 测试用
+                        "/baseCourse/**",
+                        "/certificateManager/**",
+                        "/sheet/**"
                 )
                 .permitAll()
                 // 除上面外的所有请求全部需要鉴权认证
