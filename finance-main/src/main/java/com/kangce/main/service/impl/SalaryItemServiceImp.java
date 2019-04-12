@@ -3,12 +3,10 @@ package com.kangce.main.service.impl;
 import com.github.pagehelper.PageHelper;
 import com.kangce.main.dto.SalaryItemParam;
 import com.kangce.main.service.SalaryItemService;
+import com.kangce.mybatis.mapper.DepartmentMapper;
 import com.kangce.mybatis.mapper.SalaryItemMapper;
 import com.kangce.mybatis.mapper.StaffInfoMapper;
-import com.kangce.mybatis.model.SalaryItem;
-import com.kangce.mybatis.model.SalaryItemExample;
-import com.kangce.mybatis.model.StaffInfo;
-import com.kangce.mybatis.model.StaffInfoExample;
+import com.kangce.mybatis.model.*;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,10 +26,21 @@ public class SalaryItemServiceImp implements SalaryItemService {
     @Autowired
     StaffInfoMapper staffInfoMapper;
 
+    @Autowired
+    DepartmentMapper departmentMapper;
+
     @Override
     public SalaryItem addSalaryItem(SalaryItemParam salaryItemParam) {
         SalaryItem salaryItem = new SalaryItem();
         BeanUtils.copyProperties(salaryItemParam, salaryItem);
+        //根据员工id  查询  员工部门id
+
+        StaffInfo staffInfo = staffInfoMapper.selectByPrimaryKey(salaryItem.getsId());
+        Department department = departmentMapper.selectByPrimaryKey(staffInfo.getDepartment());
+
+        salaryItem.setDepartmentId(department.getId());
+        salaryItem.setDepartmentName(department.getName());
+
         itemMapper.insert(salaryItem);
         return salaryItem;
     }
@@ -61,7 +70,7 @@ public class SalaryItemServiceImp implements SalaryItemService {
      * @return
      */
     @Override
-    public List<Map<String, Object>> getSalaryStaff(int pageNum,int pageSize) {
+    public List<Map<String, Object>> getSalaryStaff(int pageNum, int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
         List<SalaryItem> salaryItems = itemMapper.selectByExample(new SalaryItemExample());
         List<Map<String, Object>> maps = new ArrayList<>();
@@ -81,14 +90,14 @@ public class SalaryItemServiceImp implements SalaryItemService {
      * 未录入工资的员工
      */
     @Override
-    public List<Map<String, Object>> getUnSalary(int pageNum,int pageSize) {
+    public List<Map<String, Object>> getUnSalary(int pageNum, int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
         List<SalaryItem> salaryItems = itemMapper.selectByExample(new SalaryItemExample());
         List<Integer> collect = salaryItems.stream().map(SalaryItem::getsId).distinct().collect(Collectors.toList());
         //查出  录入 的 id
         StaffInfoExample staffInfoExample = new StaffInfoExample();
         //如果 都没有录入工资,不设置查询标准
-        if (collect.size()>0){
+        if (collect.size() > 0) {
             staffInfoExample.createCriteria().andIdNotIn(collect);
         }
 
@@ -103,7 +112,7 @@ public class SalaryItemServiceImp implements SalaryItemService {
         Map<String, Object> hashMap = new HashMap<>();
         hashMap.put("id", staffInfo.getId());
         hashMap.put("name", staffInfo.getName());
-        hashMap.put("state",staffInfo.getState());
+        hashMap.put("state", staffInfo.getState());
         return hashMap;
     }
 

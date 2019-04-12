@@ -16,17 +16,17 @@ public interface DepartmentService {
     /**
      * 修改部门
      */
-    int updateDepartment(byte id,String name);
+    int updateDepartment(int id,String name);
 
     /**
      * 删除指定id部门
      */
-    int deleteDepartment(byte id);
+    int deleteDepartment(int id);
 
     /**
      * 删除部分部门
      */
-    int deletePartDepartment(List<Byte> ids);
+    int deletePartDepartment(List<Integer> ids);
 
     /**
      * 查看所有部门
@@ -36,6 +36,6 @@ public interface DepartmentService {
     /**
      * 查看指定id的部门
      */
-    List<Department> listDepartment(byte id);
+    List<Department> listDepartment(int id);
 
 }

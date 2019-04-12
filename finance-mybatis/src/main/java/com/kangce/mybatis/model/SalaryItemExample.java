@@ -1882,6 +1882,136 @@ public class SalaryItemExample {
             addCriterion("state not between", value1, value2, "state");
             return (Criteria) this;
         }
+
+        public Criteria andDepartmentIdIsNull() {
+            addCriterion("department_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDepartmentIdIsNotNull() {
+            addCriterion("department_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDepartmentIdEqualTo(Integer value) {
+            addCriterion("department_id =", value, "departmentId");
+            return (Criteria) this;
+        }
+
+        public Criteria andDepartmentIdNotEqualTo(Integer value) {
+            addCriterion("department_id <>", value, "departmentId");
+            return (Criteria) this;
+        }
+
+        public Criteria andDepartmentIdGreaterThan(Integer value) {
+            addCriterion("department_id >", value, "departmentId");
+            return (Criteria) this;
+        }
+
+        public Criteria andDepartmentIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("department_id >=", value, "departmentId");
+            return (Criteria) this;
+        }
+
+        public Criteria andDepartmentIdLessThan(Integer value) {
+            addCriterion("department_id <", value, "departmentId");
+            return (Criteria) this;
+        }
+
+        public Criteria andDepartmentIdLessThanOrEqualTo(Integer value) {
+            addCriterion("department_id <=", value, "departmentId");
+            return (Criteria) this;
+        }
+
+        public Criteria andDepartmentIdIn(List<Integer> values) {
+            addCriterion("department_id in", values, "departmentId");
+            return (Criteria) this;
+        }
+
+        public Criteria andDepartmentIdNotIn(List<Integer> values) {
+            addCriterion("department_id not in", values, "departmentId");
+            return (Criteria) this;
+        }
+
+        public Criteria andDepartmentIdBetween(Integer value1, Integer value2) {
+            addCriterion("department_id between", value1, value2, "departmentId");
+            return (Criteria) this;
+        }
+
+        public Criteria andDepartmentIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("department_id not between", value1, value2, "departmentId");
+            return (Criteria) this;
+        }
+
+        public Criteria andDepartmentNameIsNull() {
+            addCriterion("department_name is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDepartmentNameIsNotNull() {
+            addCriterion("department_name is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDepartmentNameEqualTo(String value) {
+            addCriterion("department_name =", value, "departmentName");
+            return (Criteria) this;
+        }
+
+        public Criteria andDepartmentNameNotEqualTo(String value) {
+            addCriterion("department_name <>", value, "departmentName");
+            return (Criteria) this;
+        }
+
+        public Criteria andDepartmentNameGreaterThan(String value) {
+            addCriterion("department_name >", value, "departmentName");
+            return (Criteria) this;
+        }
+
+        public Criteria andDepartmentNameGreaterThanOrEqualTo(String value) {
+            addCriterion("department_name >=", value, "departmentName");
+            return (Criteria) this;
+        }
+
+        public Criteria andDepartmentNameLessThan(String value) {
+            addCriterion("department_name <", value, "departmentName");
+            return (Criteria) this;
+        }
+
+        public Criteria andDepartmentNameLessThanOrEqualTo(String value) {
+            addCriterion("department_name <=", value, "departmentName");
+            return (Criteria) this;
+        }
+
+        public Criteria andDepartmentNameLike(String value) {
+            addCriterion("department_name like", value, "departmentName");
+            return (Criteria) this;
+        }
+
+        public Criteria andDepartmentNameNotLike(String value) {
+            addCriterion("department_name not like", value, "departmentName");
+            return (Criteria) this;
+        }
+
+        public Criteria andDepartmentNameIn(List<String> values) {
+            addCriterion("department_name in", values, "departmentName");
+            return (Criteria) this;
+        }
+
+        public Criteria andDepartmentNameNotIn(List<String> values) {
+            addCriterion("department_name not in", values, "departmentName");
+            return (Criteria) this;
+        }
+
+        public Criteria andDepartmentNameBetween(String value1, String value2) {
+            addCriterion("department_name between", value1, value2, "departmentName");
+            return (Criteria) this;
+        }
+
+        public Criteria andDepartmentNameNotBetween(String value1, String value2) {
+            addCriterion("department_name not between", value1, value2, "departmentName");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

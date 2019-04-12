@@ -5,11 +5,13 @@ import com.kangce.main.service.DepartmentService;
 import com.kangce.mybatis.model.Department;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -68,7 +70,7 @@ public class DepartmentController {
     @ApiOperation("批量删除部门")
     @PostMapping("/delete/batch")
     @ResponseBody
-    public Object deleteBatch(List<Byte> ids) {
+    public Object deleteBatch(List<Integer> ids) {
         int count = departmentService.deletePartDepartment(ids);
         if (count > 0) {
             return new CommonResult().success(count);

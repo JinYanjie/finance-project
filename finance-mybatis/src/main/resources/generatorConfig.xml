@@ -29,14 +29,13 @@
         <!--D:\jyj\idea\project\demo\demo-mybatis-->
 
 
-
         <!--Windows系统目录-->
         <!--<javaModelGenerator targetPackage="com.kangce.mybatis.model" targetProject="finance-mybatis\src\main\java"/>-->
 
         <!--<sqlMapGenerator targetPackage="com.kangce.mybatis.mapper" targetProject="finance-mybatis\src\main\resources"/>-->
 
         <!--<javaClientGenerator type="XMLMAPPER" targetPackage="com.kangce.mybatis.mapper"-->
-                             <!--targetProject="finance-mybatis\src\main\java"/>-->
+        <!--targetProject="finance-mybatis\src\main\java"/>-->
 
 
         <!--linux系统目录-->
@@ -48,10 +47,8 @@
                              targetProject="finance-mybatis/src/main/java"/>
 
 
-
-
         <!--生成全部表tableName设为%-->
-        <table tableName="certificate">
+        <table tableName="department">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
     </context>

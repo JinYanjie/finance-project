@@ -208,6 +208,20 @@ public class SalaryItem implements Serializable {
      */
     private Integer state;
 
+    /**
+     * 部门id
+     *
+     * @mbggenerated
+     */
+    private Integer departmentId;
+
+    /**
+     * 部门name
+     *
+     * @mbggenerated
+     */
+    private String departmentName;
+
     private static final long serialVersionUID = 1L;
 
     public Integer getId() {
@@ -442,6 +456,22 @@ public class SalaryItem implements Serializable {
         this.state = state;
     }
 
+    public Integer getDepartmentId() {
+        return departmentId;
+    }
+
+    public void setDepartmentId(Integer departmentId) {
+        this.departmentId = departmentId;
+    }
+
+    public String getDepartmentName() {
+        return departmentName;
+    }
+
+    public void setDepartmentName(String departmentName) {
+        this.departmentName = departmentName;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -477,6 +507,8 @@ public class SalaryItem implements Serializable {
         sb.append(", helpOld=").append(helpOld);
         sb.append(", reallySalary=").append(reallySalary);
         sb.append(", state=").append(state);
+        sb.append(", departmentId=").append(departmentId);
+        sb.append(", departmentName=").append(departmentName);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

@@ -8,7 +8,7 @@ public class Department implements Serializable {
      *
      * @mbggenerated
      */
-    private Byte id;
+    private Integer id;
 
     /**
      * 部门名称
@@ -19,11 +19,11 @@ public class Department implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Byte getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Byte id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

@@ -31,6 +31,625 @@
     <result column="help_old" jdbcType="DECIMAL" property="helpOld" />
     <result column="really_salary" jdbcType="DECIMAL" property="reallySalary" />
     <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="department_id" jdbcType="INTEGER" property="departmentId" />
+    <result column="department_name" jdbcType="VARCHAR" property="departmentName" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, s_id, s_name, base_salary, job_salary, bonus, add_salary, perform_salary, welfare, 
+    reserved_funds_base, reserved_funds, insure_medicine_base, insure_medicine, insure_pension_base, 
+    insure_pension, insure_job_base, insure_job, attandance, other_fee, date, p_tax, 
+    child_edu, continue_edu, big_disease, home_loan, home_rent, help_old, really_salary, 
+    state, department_id, department_name
+  </sql>
+  <select id="selectByExample" parameterType="com.kangce.mybatis.model.SalaryItemExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from salary_item
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from salary_item
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from salary_item
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.kangce.mybatis.model.SalaryItemExample">
+    delete from salary_item
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.kangce.mybatis.model.SalaryItem">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into salary_item (s_id, s_name, base_salary, 
+      job_salary, bonus, add_salary, 
+      perform_salary, welfare, reserved_funds_base, 
+      reserved_funds, insure_medicine_base, insure_medicine, 
+      insure_pension_base, insure_pension, insure_job_base, 
+      insure_job, attandance, other_fee, 
+      date, p_tax, child_edu, 
+      continue_edu, big_disease, home_loan, 
+      home_rent, help_old, really_salary, 
+      state, department_id, department_name
+      )
+    values (#{sId,jdbcType=INTEGER}, #{sName,jdbcType=VARCHAR}, #{baseSalary,jdbcType=DECIMAL}, 
+      #{jobSalary,jdbcType=DECIMAL}, #{bonus,jdbcType=DECIMAL}, #{addSalary,jdbcType=DECIMAL}, 
+      #{performSalary,jdbcType=DECIMAL}, #{welfare,jdbcType=DECIMAL}, #{reservedFundsBase,jdbcType=DECIMAL}, 
+      #{reservedFunds,jdbcType=DECIMAL}, #{insureMedicineBase,jdbcType=DECIMAL}, #{insureMedicine,jdbcType=DECIMAL}, 
+      #{insurePensionBase,jdbcType=DECIMAL}, #{insurePension,jdbcType=DECIMAL}, #{insureJobBase,jdbcType=DECIMAL}, 
+      #{insureJob,jdbcType=DECIMAL}, #{attandance,jdbcType=DECIMAL}, #{otherFee,jdbcType=DECIMAL}, 
+      #{date,jdbcType=DATE}, #{pTax,jdbcType=DECIMAL}, #{childEdu,jdbcType=DECIMAL}, 
+      #{continueEdu,jdbcType=DECIMAL}, #{bigDisease,jdbcType=DECIMAL}, #{homeLoan,jdbcType=DECIMAL}, 
+      #{homeRent,jdbcType=DECIMAL}, #{helpOld,jdbcType=DECIMAL}, #{reallySalary,jdbcType=DECIMAL}, 
+      #{state,jdbcType=INTEGER}, #{departmentId,jdbcType=INTEGER}, #{departmentName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.kangce.mybatis.model.SalaryItem">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into salary_item
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sId != null">
+        s_id,
+      </if>
+      <if test="sName != null">
+        s_name,
+      </if>
+      <if test="baseSalary != null">
+        base_salary,
+      </if>
+      <if test="jobSalary != null">
+        job_salary,
+      </if>
+      <if test="bonus != null">
+        bonus,
+      </if>
+      <if test="addSalary != null">
+        add_salary,
+      </if>
+      <if test="performSalary != null">
+        perform_salary,
+      </if>
+      <if test="welfare != null">
+        welfare,
+      </if>
+      <if test="reservedFundsBase != null">
+        reserved_funds_base,
+      </if>
+      <if test="reservedFunds != null">
+        reserved_funds,
+      </if>
+      <if test="insureMedicineBase != null">
+        insure_medicine_base,
+      </if>
+      <if test="insureMedicine != null">
+        insure_medicine,
+      </if>
+      <if test="insurePensionBase != null">
+        insure_pension_base,
+      </if>
+      <if test="insurePension != null">
+        insure_pension,
+      </if>
+      <if test="insureJobBase != null">
+        insure_job_base,
+      </if>
+      <if test="insureJob != null">
+        insure_job,
+      </if>
+      <if test="attandance != null">
+        attandance,
+      </if>
+      <if test="otherFee != null">
+        other_fee,
+      </if>
+      <if test="date != null">
+        date,
+      </if>
+      <if test="pTax != null">
+        p_tax,
+      </if>
+      <if test="childEdu != null">
+        child_edu,
+      </if>
+      <if test="continueEdu != null">
+        continue_edu,
+      </if>
+      <if test="bigDisease != null">
+        big_disease,
+      </if>
+      <if test="homeLoan != null">
+        home_loan,
+      </if>
+      <if test="homeRent != null">
+        home_rent,
+      </if>
+      <if test="helpOld != null">
+        help_old,
+      </if>
+      <if test="reallySalary != null">
+        really_salary,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+      <if test="departmentId != null">
+        department_id,
+      </if>
+      <if test="departmentName != null">
+        department_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sId != null">
+        #{sId,jdbcType=INTEGER},
+      </if>
+      <if test="sName != null">
+        #{sName,jdbcType=VARCHAR},
+      </if>
+      <if test="baseSalary != null">
+        #{baseSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="jobSalary != null">
+        #{jobSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="bonus != null">
+        #{bonus,jdbcType=DECIMAL},
+      </if>
+      <if test="addSalary != null">
+        #{addSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="performSalary != null">
+        #{performSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="welfare != null">
+        #{welfare,jdbcType=DECIMAL},
+      </if>
+      <if test="reservedFundsBase != null">
+        #{reservedFundsBase,jdbcType=DECIMAL},
+      </if>
+      <if test="reservedFunds != null">
+        #{reservedFunds,jdbcType=DECIMAL},
+      </if>
+      <if test="insureMedicineBase != null">
+        #{insureMedicineBase,jdbcType=DECIMAL},
+      </if>
+      <if test="insureMedicine != null">
+        #{insureMedicine,jdbcType=DECIMAL},
+      </if>
+      <if test="insurePensionBase != null">
+        #{insurePensionBase,jdbcType=DECIMAL},
+      </if>
+      <if test="insurePension != null">
+        #{insurePension,jdbcType=DECIMAL},
+      </if>
+      <if test="insureJobBase != null">
+        #{insureJobBase,jdbcType=DECIMAL},
+      </if>
+      <if test="insureJob != null">
+        #{insureJob,jdbcType=DECIMAL},
+      </if>
+      <if test="attandance != null">
+        #{attandance,jdbcType=DECIMAL},
+      </if>
+      <if test="otherFee != null">
+        #{otherFee,jdbcType=DECIMAL},
+      </if>
+      <if test="date != null">
+        #{date,jdbcType=DATE},
+      </if>
+      <if test="pTax != null">
+        #{pTax,jdbcType=DECIMAL},
+      </if>
+      <if test="childEdu != null">
+        #{childEdu,jdbcType=DECIMAL},
+      </if>
+      <if test="continueEdu != null">
+        #{continueEdu,jdbcType=DECIMAL},
+      </if>
+      <if test="bigDisease != null">
+        #{bigDisease,jdbcType=DECIMAL},
+      </if>
+      <if test="homeLoan != null">
+        #{homeLoan,jdbcType=DECIMAL},
+      </if>
+      <if test="homeRent != null">
+        #{homeRent,jdbcType=DECIMAL},
+      </if>
+      <if test="helpOld != null">
+        #{helpOld,jdbcType=DECIMAL},
+      </if>
+      <if test="reallySalary != null">
+        #{reallySalary,jdbcType=DECIMAL},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="departmentId != null">
+        #{departmentId,jdbcType=INTEGER},
+      </if>
+      <if test="departmentName != null">
+        #{departmentName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.kangce.mybatis.model.SalaryItemExample" resultType="java.lang.Integer">
+    select count(*) from salary_item
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update salary_item
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.sId != null">
+        s_id = #{record.sId,jdbcType=INTEGER},
+      </if>
+      <if test="record.sName != null">
+        s_name = #{record.sName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseSalary != null">
+        base_salary = #{record.baseSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="record.jobSalary != null">
+        job_salary = #{record.jobSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="record.bonus != null">
+        bonus = #{record.bonus,jdbcType=DECIMAL},
+      </if>
+      <if test="record.addSalary != null">
+        add_salary = #{record.addSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="record.performSalary != null">
+        perform_salary = #{record.performSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="record.welfare != null">
+        welfare = #{record.welfare,jdbcType=DECIMAL},
+      </if>
+      <if test="record.reservedFundsBase != null">
+        reserved_funds_base = #{record.reservedFundsBase,jdbcType=DECIMAL},
+      </if>
+      <if test="record.reservedFunds != null">
+        reserved_funds = #{record.reservedFunds,jdbcType=DECIMAL},
+      </if>
+      <if test="record.insureMedicineBase != null">
+        insure_medicine_base = #{record.insureMedicineBase,jdbcType=DECIMAL},
+      </if>
+      <if test="record.insureMedicine != null">
+        insure_medicine = #{record.insureMedicine,jdbcType=DECIMAL},
+      </if>
+      <if test="record.insurePensionBase != null">
+        insure_pension_base = #{record.insurePensionBase,jdbcType=DECIMAL},
+      </if>
+      <if test="record.insurePension != null">
+        insure_pension = #{record.insurePension,jdbcType=DECIMAL},
+      </if>
+      <if test="record.insureJobBase != null">
+        insure_job_base = #{record.insureJobBase,jdbcType=DECIMAL},
+      </if>
+      <if test="record.insureJob != null">
+        insure_job = #{record.insureJob,jdbcType=DECIMAL},
+      </if>
+      <if test="record.attandance != null">
+        attandance = #{record.attandance,jdbcType=DECIMAL},
+      </if>
+      <if test="record.otherFee != null">
+        other_fee = #{record.otherFee,jdbcType=DECIMAL},
+      </if>
+      <if test="record.date != null">
+        date = #{record.date,jdbcType=DATE},
+      </if>
+      <if test="record.pTax != null">
+        p_tax = #{record.pTax,jdbcType=DECIMAL},
+      </if>
+      <if test="record.childEdu != null">
+        child_edu = #{record.childEdu,jdbcType=DECIMAL},
+      </if>
+      <if test="record.continueEdu != null">
+        continue_edu = #{record.continueEdu,jdbcType=DECIMAL},
+      </if>
+      <if test="record.bigDisease != null">
+        big_disease = #{record.bigDisease,jdbcType=DECIMAL},
+      </if>
+      <if test="record.homeLoan != null">
+        home_loan = #{record.homeLoan,jdbcType=DECIMAL},
+      </if>
+      <if test="record.homeRent != null">
+        home_rent = #{record.homeRent,jdbcType=DECIMAL},
+      </if>
+      <if test="record.helpOld != null">
+        help_old = #{record.helpOld,jdbcType=DECIMAL},
+      </if>
+      <if test="record.reallySalary != null">
+        really_salary = #{record.reallySalary,jdbcType=DECIMAL},
+      </if>
+      <if test="record.state != null">
+        state = #{record.state,jdbcType=INTEGER},
+      </if>
+      <if test="record.departmentId != null">
+        department_id = #{record.departmentId,jdbcType=INTEGER},
+      </if>
+      <if test="record.departmentName != null">
+        department_name = #{record.departmentName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update salary_item
+    set id = #{record.id,jdbcType=INTEGER},
+      s_id = #{record.sId,jdbcType=INTEGER},
+      s_name = #{record.sName,jdbcType=VARCHAR},
+      base_salary = #{record.baseSalary,jdbcType=DECIMAL},
+      job_salary = #{record.jobSalary,jdbcType=DECIMAL},
+      bonus = #{record.bonus,jdbcType=DECIMAL},
+      add_salary = #{record.addSalary,jdbcType=DECIMAL},
+      perform_salary = #{record.performSalary,jdbcType=DECIMAL},
+      welfare = #{record.welfare,jdbcType=DECIMAL},
+      reserved_funds_base = #{record.reservedFundsBase,jdbcType=DECIMAL},
+      reserved_funds = #{record.reservedFunds,jdbcType=DECIMAL},
+      insure_medicine_base = #{record.insureMedicineBase,jdbcType=DECIMAL},
+      insure_medicine = #{record.insureMedicine,jdbcType=DECIMAL},
+      insure_pension_base = #{record.insurePensionBase,jdbcType=DECIMAL},
+      insure_pension = #{record.insurePension,jdbcType=DECIMAL},
+      insure_job_base = #{record.insureJobBase,jdbcType=DECIMAL},
+      insure_job = #{record.insureJob,jdbcType=DECIMAL},
+      attandance = #{record.attandance,jdbcType=DECIMAL},
+      other_fee = #{record.otherFee,jdbcType=DECIMAL},
+      date = #{record.date,jdbcType=DATE},
+      p_tax = #{record.pTax,jdbcType=DECIMAL},
+      child_edu = #{record.childEdu,jdbcType=DECIMAL},
+      continue_edu = #{record.continueEdu,jdbcType=DECIMAL},
+      big_disease = #{record.bigDisease,jdbcType=DECIMAL},
+      home_loan = #{record.homeLoan,jdbcType=DECIMAL},
+      home_rent = #{record.homeRent,jdbcType=DECIMAL},
+      help_old = #{record.helpOld,jdbcType=DECIMAL},
+      really_salary = #{record.reallySalary,jdbcType=DECIMAL},
+      state = #{record.state,jdbcType=INTEGER},
+      department_id = #{record.departmentId,jdbcType=INTEGER},
+      department_name = #{record.departmentName,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kangce.mybatis.model.SalaryItem">
+    update salary_item
+    <set>
+      <if test="sId != null">
+        s_id = #{sId,jdbcType=INTEGER},
+      </if>
+      <if test="sName != null">
+        s_name = #{sName,jdbcType=VARCHAR},
+      </if>
+      <if test="baseSalary != null">
+        base_salary = #{baseSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="jobSalary != null">
+        job_salary = #{jobSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="bonus != null">
+        bonus = #{bonus,jdbcType=DECIMAL},
+      </if>
+      <if test="addSalary != null">
+        add_salary = #{addSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="performSalary != null">
+        perform_salary = #{performSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="welfare != null">
+        welfare = #{welfare,jdbcType=DECIMAL},
+      </if>
+      <if test="reservedFundsBase != null">
+        reserved_funds_base = #{reservedFundsBase,jdbcType=DECIMAL},
+      </if>
+      <if test="reservedFunds != null">
+        reserved_funds = #{reservedFunds,jdbcType=DECIMAL},
+      </if>
+      <if test="insureMedicineBase != null">
+        insure_medicine_base = #{insureMedicineBase,jdbcType=DECIMAL},
+      </if>
+      <if test="insureMedicine != null">
+        insure_medicine = #{insureMedicine,jdbcType=DECIMAL},
+      </if>
+      <if test="insurePensionBase != null">
+        insure_pension_base = #{insurePensionBase,jdbcType=DECIMAL},
+      </if>
+      <if test="insurePension != null">
+        insure_pension = #{insurePension,jdbcType=DECIMAL},
+      </if>
+      <if test="insureJobBase != null">
+        insure_job_base = #{insureJobBase,jdbcType=DECIMAL},
+      </if>
+      <if test="insureJob != null">
+        insure_job = #{insureJob,jdbcType=DECIMAL},
+      </if>
+      <if test="attandance != null">
+        attandance = #{attandance,jdbcType=DECIMAL},
+      </if>
+      <if test="otherFee != null">
+        other_fee = #{otherFee,jdbcType=DECIMAL},
+      </if>
+      <if test="date != null">
+        date = #{date,jdbcType=DATE},
+      </if>
+      <if test="pTax != null">
+        p_tax = #{pTax,jdbcType=DECIMAL},
+      </if>
+      <if test="childEdu != null">
+        child_edu = #{childEdu,jdbcType=DECIMAL},
+      </if>
+      <if test="continueEdu != null">
+        continue_edu = #{continueEdu,jdbcType=DECIMAL},
+      </if>
+      <if test="bigDisease != null">
+        big_disease = #{bigDisease,jdbcType=DECIMAL},
+      </if>
+      <if test="homeLoan != null">
+        home_loan = #{homeLoan,jdbcType=DECIMAL},
+      </if>
+      <if test="homeRent != null">
+        home_rent = #{homeRent,jdbcType=DECIMAL},
+      </if>
+      <if test="helpOld != null">
+        help_old = #{helpOld,jdbcType=DECIMAL},
+      </if>
+      <if test="reallySalary != null">
+        really_salary = #{reallySalary,jdbcType=DECIMAL},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="departmentId != null">
+        department_id = #{departmentId,jdbcType=INTEGER},
+      </if>
+      <if test="departmentName != null">
+        department_name = #{departmentName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kangce.mybatis.model.SalaryItem">
+    update salary_item
+    set s_id = #{sId,jdbcType=INTEGER},
+      s_name = #{sName,jdbcType=VARCHAR},
+      base_salary = #{baseSalary,jdbcType=DECIMAL},
+      job_salary = #{jobSalary,jdbcType=DECIMAL},
+      bonus = #{bonus,jdbcType=DECIMAL},
+      add_salary = #{addSalary,jdbcType=DECIMAL},
+      perform_salary = #{performSalary,jdbcType=DECIMAL},
+      welfare = #{welfare,jdbcType=DECIMAL},
+      reserved_funds_base = #{reservedFundsBase,jdbcType=DECIMAL},
+      reserved_funds = #{reservedFunds,jdbcType=DECIMAL},
+      insure_medicine_base = #{insureMedicineBase,jdbcType=DECIMAL},
+      insure_medicine = #{insureMedicine,jdbcType=DECIMAL},
+      insure_pension_base = #{insurePensionBase,jdbcType=DECIMAL},
+      insure_pension = #{insurePension,jdbcType=DECIMAL},
+      insure_job_base = #{insureJobBase,jdbcType=DECIMAL},
+      insure_job = #{insureJob,jdbcType=DECIMAL},
+      attandance = #{attandance,jdbcType=DECIMAL},
+      other_fee = #{otherFee,jdbcType=DECIMAL},
+      date = #{date,jdbcType=DATE},
+      p_tax = #{pTax,jdbcType=DECIMAL},
+      child_edu = #{childEdu,jdbcType=DECIMAL},
+      continue_edu = #{continueEdu,jdbcType=DECIMAL},
+      big_disease = #{bigDisease,jdbcType=DECIMAL},
+      home_loan = #{homeLoan,jdbcType=DECIMAL},
+      home_rent = #{homeRent,jdbcType=DECIMAL},
+      help_old = #{helpOld,jdbcType=DECIMAL},
+      really_salary = #{reallySalary,jdbcType=DECIMAL},
+      state = #{state,jdbcType=INTEGER},
+      department_id = #{departmentId,jdbcType=INTEGER},
+      department_name = #{departmentName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.kangce.mybatis.model.SalaryItem">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="s_id" jdbcType="INTEGER" property="sId" />
+    <result column="s_name" jdbcType="VARCHAR" property="sName" />
+    <result column="base_salary" jdbcType="DECIMAL" property="baseSalary" />
+    <result column="job_salary" jdbcType="DECIMAL" property="jobSalary" />
+    <result column="bonus" jdbcType="DECIMAL" property="bonus" />
+    <result column="add_salary" jdbcType="DECIMAL" property="addSalary" />
+    <result column="perform_salary" jdbcType="DECIMAL" property="performSalary" />
+    <result column="welfare" jdbcType="DECIMAL" property="welfare" />
+    <result column="reserved_funds_base" jdbcType="DECIMAL" property="reservedFundsBase" />
+    <result column="reserved_funds" jdbcType="DECIMAL" property="reservedFunds" />
+    <result column="insure_medicine_base" jdbcType="DECIMAL" property="insureMedicineBase" />
+    <result column="insure_medicine" jdbcType="DECIMAL" property="insureMedicine" />
+    <result column="insure_pension_base" jdbcType="DECIMAL" property="insurePensionBase" />
+    <result column="insure_pension" jdbcType="DECIMAL" property="insurePension" />
+    <result column="insure_job_base" jdbcType="DECIMAL" property="insureJobBase" />
+    <result column="insure_job" jdbcType="DECIMAL" property="insureJob" />
+    <result column="attandance" jdbcType="DECIMAL" property="attandance" />
+    <result column="other_fee" jdbcType="DECIMAL" property="otherFee" />
+    <result column="date" jdbcType="DATE" property="date" />
+    <result column="p_tax" jdbcType="DECIMAL" property="pTax" />
+    <result column="child_edu" jdbcType="DECIMAL" property="childEdu" />
+    <result column="continue_edu" jdbcType="DECIMAL" property="continueEdu" />
+    <result column="big_disease" jdbcType="DECIMAL" property="bigDisease" />
+    <result column="home_loan" jdbcType="DECIMAL" property="homeLoan" />
+    <result column="home_rent" jdbcType="DECIMAL" property="homeRent" />
+    <result column="help_old" jdbcType="DECIMAL" property="helpOld" />
+    <result column="really_salary" jdbcType="DECIMAL" property="reallySalary" />
+    <result column="state" jdbcType="INTEGER" property="state" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>

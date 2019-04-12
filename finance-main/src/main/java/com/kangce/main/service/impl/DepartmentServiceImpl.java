@@ -1,7 +1,6 @@
 package com.kangce.main.service.impl;
 
 
-
 import com.kangce.main.service.DepartmentService;
 import com.kangce.mybatis.mapper.DepartmentMapper;
 import com.kangce.mybatis.model.Department;
@@ -27,7 +26,7 @@ public class DepartmentServiceImpl implements DepartmentService {
     }
 
     @Override
-    public int updateDepartment(byte id,String name) {
+    public int updateDepartment(int id,String name) {
         Department department=new Department();
         department.setName(name);
         department.setId(id);
@@ -36,13 +35,13 @@ public class DepartmentServiceImpl implements DepartmentService {
     }
 
     @Override
-    public int deleteDepartment(byte id) {
+    public int deleteDepartment(int id) {
         int i = departmentMapper.deleteByPrimaryKey(id);
         return i;
     }
 
     @Override
-    public int deletePartDepartment(List<Byte> ids) {
+    public int deletePartDepartment(List<Integer> ids) {
         DepartmentExample departmentExample=new DepartmentExample();
         departmentExample.createCriteria().andIdIn(ids);
         return departmentMapper.deleteByExample(departmentExample);
@@ -54,7 +53,7 @@ public class DepartmentServiceImpl implements DepartmentService {
     }
 
     @Override
-    public List<Department> listDepartment(byte id) {
+    public List<Department> listDepartment(int id) {
         DepartmentExample departmentExample=new DepartmentExample();
         departmentExample.createCriteria().andIdEqualTo(id);
         return departmentMapper.selectByExample(departmentExample);

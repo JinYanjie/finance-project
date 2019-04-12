@@ -33,7 +33,7 @@ public class StaffInfoServiceImpl implements StaffInfoService {
         StaffInfo staffInfo = new StaffInfo();
         BeanUtils.copyProperties(param, staffInfo);
         StaffInfoExample staffInfoExample = new StaffInfoExample();
-        staffInfoExample.createCriteria().andIdEqualTo(param.getId());
+        staffInfoExample.createCriteria().andIdEqualTo(staffInfo.getId());
         List<StaffInfo> staffInfos = staffInfoMapper.selectByExample(staffInfoExample);
         if (staffInfos.size() > 0) {
             staffInfoMapper.updateByPrimaryKeySelective(staffInfo);
