@@ -5,6 +5,7 @@ import com.kangce.mybatis.model.Utbasecashflowstatement;
 import com.kangce.mybatis.model.Utbaseincomestatement;
 
 import java.util.List;
+import java.util.Map;
 
 public interface SheetService {
     /**
@@ -27,4 +28,9 @@ public interface SheetService {
      * @return
      */
     public List<Utbaseincomestatement> getIncomeSheet();
+
+    /**
+     * 工资分配表
+     */
+    public List<Map<String,Object>> getSalaryAllocation();
 }

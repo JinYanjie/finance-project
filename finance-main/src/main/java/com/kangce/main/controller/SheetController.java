@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @ResponseBody
@@ -54,6 +55,17 @@ public class SheetController {
             return new CommonResult().failed("获取数据失败");
         } else {
             return new CommonResult().success(incomeSheet);
+        }
+    }
+
+    @ApiOperation("获取工资分配表")
+    @PostMapping("getAllocateSheet")
+    public Object getAllocateSheet() {
+        List<Map<String, Object>> allocationSheet = sheetService.getSalaryAllocation();
+        if (allocationSheet == null) {
+            return new CommonResult().failed("获取数据失败");
+        } else {
+            return new CommonResult().success(allocationSheet);
         }
     }
 }
